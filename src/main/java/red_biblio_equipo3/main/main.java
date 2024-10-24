@@ -3,9 +3,9 @@
  */
 
 package red_biblio_equipo3.main;
-import java.sql.Connection;
+/*import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.SQLException;*/
 
 /**
  *
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+    /*    System.out.println("Hello World!");
         String url = "jdbc:postgresql://localhost/prueba";
         try (Connection conn = DriverManager.getConnection(url, "postgres", "michumiau123")) {
             if (conn != null) {
@@ -24,6 +24,6 @@ public class main {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 }

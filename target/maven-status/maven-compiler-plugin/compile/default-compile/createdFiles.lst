@@ -1,7 +1,11 @@
 red_biblio_equipo3\main\main.class
+modelo\Estudiante.class
 modelo\Biblioteca.class
-modelo\Renovacion.class
 modelo\Prestamo.class
+modelo\Externo.class
+modelo\Multa.class
+modelo\Administrador.class
+modelo\Profesor.class
+modelo\Renovacion.class
 modelo\Ejemplar.class
 modelo\Usuario.class
-modelo\Multa.class

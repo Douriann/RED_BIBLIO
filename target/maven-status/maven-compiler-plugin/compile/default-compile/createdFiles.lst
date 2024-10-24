@@ -1,1 +1,7 @@
 red_biblio_equipo3\main\main.class
+modelo\Biblioteca.class
+modelo\Renovacion.class
+modelo\Prestamo.class
+modelo\Ejemplar.class
+modelo\Usuario.class
+modelo\Multa.class

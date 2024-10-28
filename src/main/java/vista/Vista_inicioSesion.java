@@ -78,8 +78,8 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
         jPanel2.add(lblInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 46, -1, 51));
 
         txtUsuario.setBackground(new java.awt.Color(0, 204, 204));
-        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setBorder(null);
         txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 133, 241, -1));
@@ -103,8 +103,8 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 217, 241, 10));
 
         txtContrasena.setBackground(new java.awt.Color(0, 204, 204));
-        txtContrasena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtContrasena.setForeground(new java.awt.Color(204, 204, 204));
+        txtContrasena.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtContrasena.setForeground(new java.awt.Color(255, 255, 255));
         txtContrasena.setBorder(null);
         jPanel2.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 195, 241, -1));
 

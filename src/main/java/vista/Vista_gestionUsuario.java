@@ -398,13 +398,11 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtCedulaUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtCedulaUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtCedulaUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtCedulaUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtCedulaUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
 
         txtNombreUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtNombreUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtNombreUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtNombreUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
 
@@ -415,7 +413,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtApellidoUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtApellidoUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtApellidoUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtApellidoUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtApellidoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
 
@@ -426,7 +423,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtTelefUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtTelefUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtTelefUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtTelefUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtTelefUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 470, 20));
 
@@ -437,7 +433,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtContrasUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtContrasUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtContrasUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtContrasUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtContrasUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 470, 20));
 
@@ -448,7 +443,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtBibliotUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtBibliotUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBibliotUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtBibliotUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtBibliotUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 230, 20));
 
@@ -459,7 +453,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
         txtBuscarUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtBuscarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtBuscarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtBuscarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 600, 30));
 
@@ -499,19 +492,16 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(lblEstudianteUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
         combxTitAcadUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxTitAcadUsu.setForeground(new java.awt.Color(0, 0, 0));
         combxTitAcadUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Titulo Academico", "Item 2", "Item 3", "Item 4" }));
         combxTitAcadUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 20));
 
         txtIdTitAcadUsu.setBackground(new java.awt.Color(204, 204, 204));
-        txtIdTitAcadUsu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtIdTitAcadUsu.setForeground(new java.awt.Color(0, 0, 0));
+        txtIdTitAcadUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdTitAcadUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 100, 20));
 
         combxDepUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxDepUsu.setForeground(new java.awt.Color(0, 0, 0));
         combxDepUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamento", "Item 2", "Item 3", "Item 4" }));
         combxDepUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 120, 20));
@@ -522,26 +512,22 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(txtIdDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(781, 380, 100, -1));
 
         jComboBox3.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 20));
 
         jTextField11.setBackground(new java.awt.Color(204, 204, 204));
         jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(0, 0, 0));
         jTextField11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 100, 20));
 
         combxCarrUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxCarrUsu.setForeground(new java.awt.Color(0, 0, 0));
         combxCarrUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrera", "Item 2", "Item 3", "Item 4" }));
         combxCarrUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 120, 20));
 
         txtIdCarrUsu.setBackground(new java.awt.Color(204, 204, 204));
-        txtIdCarrUsu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtIdCarrUsu.setForeground(new java.awt.Color(0, 0, 0));
+        txtIdCarrUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdCarrUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 100, 20));
 
@@ -587,14 +573,12 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(btnLimpiarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, 90, 30));
 
         combxBiblioUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxBiblioUsu.setForeground(new java.awt.Color(0, 0, 0));
         combxBiblioUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca", "Item 2", "Item 3", "Item 4" }));
         combxBiblioUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxBiblioUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 230, 20));
 
         txtDireccUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtDireccUsu.setForeground(new java.awt.Color(0, 0, 0));
         txtDireccUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtDireccUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 470, 20));
 

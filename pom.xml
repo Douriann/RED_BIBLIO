@@ -18,6 +18,20 @@
                 <artifactId>postgresql</artifactId>
                 <version>42.7.4</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE220</version>
+        </dependency>
+            <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-intellij-themes</artifactId>
+            <version>3.5.2</version>
+        </dependency>
     </dependencies>
 </project>

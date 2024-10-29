@@ -10,11 +10,11 @@ import java.util.Date;
  * @author scocl
  */
 public class Prestamo {
-    private String idPrestamo;
+    private int idPrestamo;
     private Date fechaSalida;
     private Date fechaVence;
     private Date fechaEntrego;
-    private String idEstadoPre;
+    private int idEstadoPre;
     private Biblioteca biblioteca;
     private Usuario usuario;
     private Ejemplar ejemplar;
@@ -22,7 +22,7 @@ public class Prestamo {
     public Prestamo() {
     }
 
-    public Prestamo(String idPrestamo, Date fechaSalida, Date fechaVence, Date fechaEntrego, String idEstadoPre, Biblioteca biblioteca, Usuario usuario, Ejemplar ejemplar) {
+    public Prestamo(int idPrestamo, Date fechaSalida, Date fechaVence, Date fechaEntrego, int idEstadoPre, Biblioteca biblioteca, Usuario usuario, Ejemplar ejemplar) {
         this.idPrestamo = idPrestamo;
         this.fechaSalida = fechaSalida;
         this.fechaVence = fechaVence;
@@ -33,11 +33,11 @@ public class Prestamo {
         this.ejemplar = ejemplar;
     }
 
-    public String getIdPrestamo() {
+    public int getIdPrestamo() {
         return idPrestamo;
     }
 
-    public void setIdPrestamo(String idPrestamo) {
+    public void setIdPrestamo(int idPrestamo) {
         this.idPrestamo = idPrestamo;
     }
 
@@ -65,11 +65,11 @@ public class Prestamo {
         this.fechaEntrego = fechaEntrego;
     }
 
-    public String getIdEstadoPre() {
+    public int getIdEstadoPre() {
         return idEstadoPre;
     }
 
-    public void setIdEstadoPre(String idEstadoPre) {
+    public void setIdEstadoPre(int idEstadoPre) {
         this.idEstadoPre = idEstadoPre;
     }
 

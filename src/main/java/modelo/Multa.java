@@ -9,7 +9,7 @@ import java.util.Date;
  * @author scocl
  */
 public class Multa {
-    private String idMulta;
+    private int idMulta;
     private Date fechaInicio;
     private Date fechaFin;
     private Biblioteca biblioteca;
@@ -18,7 +18,7 @@ public class Multa {
     public Multa() {
     }
 
-    public Multa(String idMulta, Date fechaInicio, Date fechaFin, Biblioteca biblioteca, Prestamo prestamo) {
+    public Multa(int idMulta, Date fechaInicio, Date fechaFin, Biblioteca biblioteca, Prestamo prestamo) {
         this.idMulta = idMulta;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -26,7 +26,7 @@ public class Multa {
         this.prestamo = prestamo;
     }
 
-    public String getIdMulta() {
+    public int getIdMulta() {
         return idMulta;
     }
 
@@ -46,7 +46,7 @@ public class Multa {
         return prestamo;
     }
 
-    public void setIdMulta(String idMulta) {
+    public void setIdMulta(int idMulta) {
         this.idMulta = idMulta;
     }
 

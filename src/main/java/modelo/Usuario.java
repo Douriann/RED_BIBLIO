@@ -10,17 +10,17 @@ package modelo;
  */
 public class Usuario {
     
-    protected String cedula;
+    protected int cedula;
     protected String nombre;
     protected String apellido;
     protected String contacto;
     protected String contraseña;
 
-    public String getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 

@@ -32,8 +32,8 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         lblRenovacion = new javax.swing.JLabel();
         lblIdRenovPrest = new javax.swing.JLabel();
         lblIdPrestamoPrest = new javax.swing.JLabel();
-        txtIdRenovPrest = new javax.swing.JTextField();
-        txtIdPrestamoPrest = new javax.swing.JTextField();
+        txtIdRenov = new javax.swing.JTextField();
+        txtIdPrestRenv = new javax.swing.JTextField();
         btnRegistrarRenPrest = new javax.swing.JButton();
         btnModificarRenPrest = new javax.swing.JButton();
         btnEliminarRenPrest = new javax.swing.JButton();
@@ -42,6 +42,8 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         btnBuscarIdPrest = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRenovPrest = new javax.swing.JTable();
+        lblIdEstRen = new javax.swing.JLabel();
+        txtIdEstadoRen = new javax.swing.JTextField();
         btnRegresarPrest = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -74,15 +76,13 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         lblIdPrestamoPrest.setForeground(new java.awt.Color(255, 255, 255));
         lblIdPrestamoPrest.setText("Id Prestamo:");
 
-        txtIdRenovPrest.setBackground(new java.awt.Color(204, 204, 204));
-        txtIdRenovPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdRenovPrest.setForeground(new java.awt.Color(0, 0, 0));
-        txtIdRenovPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtIdRenov.setBackground(new java.awt.Color(204, 204, 204));
+        txtIdRenov.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtIdRenov.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txtIdPrestamoPrest.setBackground(new java.awt.Color(204, 204, 204));
-        txtIdPrestamoPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdPrestamoPrest.setForeground(new java.awt.Color(0, 0, 0));
-        txtIdPrestamoPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtIdPrestRenv.setBackground(new java.awt.Color(204, 204, 204));
+        txtIdPrestRenv.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtIdPrestRenv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnRegistrarRenPrest.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarRenPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -148,39 +148,58 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         tblRenovPrest.setSelectionBackground(new java.awt.Color(13, 104, 116));
         jScrollPane1.setViewportView(tblRenovPrest);
 
+        lblIdEstRen.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblIdEstRen.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdEstRen.setText("Id Estado Renovacion:");
+
+        txtIdEstadoRen.setBackground(new java.awt.Color(204, 204, 204));
+        txtIdEstadoRen.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtIdEstadoRen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(lblRenovacion))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblIdRenovPrest)
-                .addGap(51, 51, 51)
-                .addComponent(txtIdRenovPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnBuscarIdRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblIdPrestamoPrest)
-                .addGap(65, 65, 65)
-                .addComponent(txtIdPrestamoPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(btnRegistrarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnModificarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnEliminarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnLimpiarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblIdEstRen)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblIdPrestamoPrest)
+                                    .addGap(71, 71, 71)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblIdRenovPrest)
+                                .addGap(57, 57, 57)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnRegistrarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnModificarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnEliminarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnLimpiarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtIdRenov)
+                                    .addComponent(txtIdPrestRenv)
+                                    .addComponent(txtIdEstadoRen))
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBuscarIdRenPrest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRenovacion)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 40, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,20 +209,26 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblIdRenovPrest)
-                    .addComponent(txtIdRenovPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarIdRenPrest))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtIdRenov, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarIdRenPrest)))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblIdPrestamoPrest)
-                    .addComponent(txtIdPrestamoPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtIdPrestRenv, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIdEstRen)
+                    .addComponent(txtIdEstadoRen, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpiarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -282,22 +307,24 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarIdPrest;
-    private javax.swing.JButton btnBuscarIdRenPrest;
+    public javax.swing.JButton btnBuscarIdRenPrest;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnEliminarRenPrest;
-    private javax.swing.JButton btnLimpiarRenPrest;
-    private javax.swing.JButton btnModificarRenPrest;
-    private javax.swing.JButton btnRegistrarRenPrest;
+    public javax.swing.JButton btnEliminarRenPrest;
+    public javax.swing.JButton btnLimpiarRenPrest;
+    public javax.swing.JButton btnModificarRenPrest;
+    public javax.swing.JButton btnRegistrarRenPrest;
     private javax.swing.JLabel btnRegresarPrest;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblIdEstRen;
     private javax.swing.JLabel lblIdPrestamoPrest;
     private javax.swing.JLabel lblIdRenovPrest;
     private javax.swing.JLabel lblRenovacion;
     private javax.swing.JTable tblRenovPrest;
-    private javax.swing.JTextField txtIdPrestamoPrest;
-    private javax.swing.JTextField txtIdRenovPrest;
+    public javax.swing.JTextField txtIdEstadoRen;
+    public javax.swing.JTextField txtIdPrestRenv;
+    public javax.swing.JTextField txtIdRenov;
     // End of variables declaration//GEN-END:variables
 }

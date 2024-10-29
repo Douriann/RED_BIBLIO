@@ -88,13 +88,11 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
 
         txtIdMultaPrest.setBackground(new java.awt.Color(204, 204, 204));
         txtIdMultaPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdMultaPrest.setForeground(new java.awt.Color(0, 0, 0));
         txtIdMultaPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.add(txtIdMultaPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 470, 20));
 
         txtIdPrestamoPrest.setBackground(new java.awt.Color(204, 204, 204));
         txtIdPrestamoPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdPrestamoPrest.setForeground(new java.awt.Color(0, 0, 0));
         txtIdPrestamoPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.add(txtIdPrestamoPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 470, 20));
 
@@ -237,13 +235,13 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarIdMulPrest;
-    private javax.swing.JButton btnBuscarIdPrestamoPrest;
+    public javax.swing.JButton btnBuscarIdMulPrest;
+    public javax.swing.JButton btnBuscarIdPrestamoPrest;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnEliminarMulPrest;
-    private javax.swing.JButton btnLimpiarMulPrest;
-    private javax.swing.JButton btnModificarMultPrest;
-    private javax.swing.JButton btnRegistrarMulPrest;
+    public javax.swing.JButton btnEliminarMulPrest;
+    public javax.swing.JButton btnLimpiarMulPrest;
+    public javax.swing.JButton btnModificarMultPrest;
+    public javax.swing.JButton btnRegistrarMulPrest;
     private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -253,7 +251,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdPrestamoPrest;
     private javax.swing.JLabel lblMulta;
     private javax.swing.JTable tblMultaPrest;
-    private javax.swing.JTextField txtIdMultaPrest;
-    private javax.swing.JTextField txtIdPrestamoPrest;
+    public javax.swing.JTextField txtIdMultaPrest;
+    public javax.swing.JTextField txtIdPrestamoPrest;
     // End of variables declaration//GEN-END:variables
 }

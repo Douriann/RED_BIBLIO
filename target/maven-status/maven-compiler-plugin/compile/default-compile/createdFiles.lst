@@ -52,6 +52,7 @@ vista\Vista_principal$5.class
 vista\Vista_gestionPrestamo.class
 vista\Vista_gestionLibros$7.class
 vista\Vista_principal$2.class
+controlador\CtrlMulta.class
 modelo\Conexion.class
 vista\Vista_gestionPrestamo$10.class
 vista\Vista_emergenteMulta$1.class
@@ -63,6 +64,7 @@ vista\Vista_gestionEjemplar$1.class
 vista\Vista_gestionPrestamo$7.class
 vista\Vista_gestionBiblioteca$7.class
 vista\Vista_principal$8.class
+controlador\CtrlPrestamo.class
 vista\Vista_principal$11.class
 vista\Vista_gestionUsuario$8.class
 vista\Vista_gestionEjemplar$4.class
@@ -71,6 +73,7 @@ vista\Vista_gestionBiblioteca.class
 vista\Vista_gestionBiblioteca$4.class
 modelo\Multa.class
 vista\Vista_gestionEjemplar$8.class
+controlador\CtrlRenovacion.class
 vista\Vista_gestionLibros$2.class
 vista\Vista_principal$10.class
 vista\Vista_principal$4.class
@@ -80,6 +83,9 @@ vista\Vista_emergenteMulta.class
 vista\Vista_gestionEjemplar$3.class
 vista\Vista_gestionLibros$1.class
 vista\Vista_principal$3.class
+modelo\CRUDRenovacion.class
 vista\Vista_emergenteRenovacion.class
+modelo\CRUDPrestamo.class
 modelo\Renovacion.class
+modelo\CRUDMulta.class
 vista\Vista_gestionLibros$8.class

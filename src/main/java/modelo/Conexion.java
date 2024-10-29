@@ -16,9 +16,9 @@ public class Conexion {
     
     private final String HOST = "localhost";
     private final String PUERTO = "5432";
-    private final String DB = "tienda";
-    private final String USER = "willi";
-    private final String PASSWORD = "willi";
+    private final String DB = "BD_RED_BIBLIOTECA";
+    private final String USER = "postgres";
+    private final String PASSWORD = "michumiau123";
     
         //Metodo que retorna objeto de tipo conexion
     public Connection getConexion(){

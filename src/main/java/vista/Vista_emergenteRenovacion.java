@@ -136,15 +136,23 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         tblRenovPrest.setForeground(new java.awt.Color(255, 255, 255));
         tblRenovPrest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id Multa", "Id Prestamo", "Fecha de Inicio", "Fecha de Vencimiento", "Id Estado Renovación", "Nombre de Renovación"
+                "Id Renovacion", "Id Prestamo", "Fecha de Inicio", "Fecha de Vencimiento", "Id Estado Renovación"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tblRenovPrest.setSelectionBackground(new java.awt.Color(13, 104, 116));
         jScrollPane1.setViewportView(tblRenovPrest);
 
@@ -306,7 +314,7 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarIdPrest;
+    public javax.swing.JButton btnBuscarIdPrest;
     public javax.swing.JButton btnBuscarIdRenPrest;
     private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarRenPrest;
@@ -322,7 +330,7 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdPrestamoPrest;
     private javax.swing.JLabel lblIdRenovPrest;
     private javax.swing.JLabel lblRenovacion;
-    private javax.swing.JTable tblRenovPrest;
+    public javax.swing.JTable tblRenovPrest;
     public javax.swing.JTextField txtIdEstadoRen;
     public javax.swing.JTextField txtIdPrestRenv;
     public javax.swing.JTextField txtIdRenov;

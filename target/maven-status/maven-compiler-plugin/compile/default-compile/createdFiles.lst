@@ -72,6 +72,7 @@ vista\Vista_gestionUsuario$3.class
 vista\Vista_gestionBiblioteca.class
 vista\Vista_gestionBiblioteca$4.class
 modelo\Multa.class
+vista\Vista_emergenteRenovacion$4.class
 vista\Vista_gestionEjemplar$8.class
 controlador\CtrlRenovacion.class
 vista\Vista_gestionLibros$2.class

@@ -404,6 +404,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -421,19 +424,21 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="4">
-                        <Column editable="true" title="Id Multa" type="java.lang.Object"/>
-                        <Column editable="true" title="Id Prestamo" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha de Inicio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha de Vencimiento" type="java.lang.Object"/>
-                        <Column editable="true" title="Id Estado Renovaci&#xf3;n" type="java.lang.Object"/>
-                        <Column editable="true" title="Nombre de Renovaci&#xf3;n" type="java.lang.Object"/>
+                      <Table columnCount="5" rowCount="4">
+                        <Column editable="true" title="Id Renovacion" type="java.lang.Integer"/>
+                        <Column editable="true" title="Id Prestamo" type="java.lang.Integer"/>
+                        <Column editable="true" title="Fecha de Inicio" type="java.lang.String"/>
+                        <Column editable="true" title="Fecha de Vencimiento" type="java.lang.String"/>
+                        <Column editable="true" title="Id Estado Renovaci&#xf3;n" type="java.lang.Integer"/>
                       </Table>
                     </Property>
                     <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="74" green="68" red="d" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

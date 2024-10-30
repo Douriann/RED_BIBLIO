@@ -6,9 +6,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import modelo.CRUDRenovacion;
 import modelo.Prestamo;
 import modelo.Renovacion;
@@ -33,6 +41,8 @@ public class CtrlRenovacion implements ActionListener{
         vistaRen.btnEliminarRenPrest.addActionListener(this);
         vistaRen.btnLimpiarRenPrest.addActionListener(this);
         vistaRen.btnBuscarIdRenPrest.addActionListener(this);
+        vistaRen.btnBuscarIdPrest.addActionListener(this);
+        //DefaultTableModel modelo = new DefaultTableModel();
     }
     
     public void iniciar(){
@@ -113,6 +123,13 @@ public class CtrlRenovacion implements ActionListener{
                 limpiarRen();
             }
         }
+        else if(e.getSource() == vistaRen.btnBuscarIdPrest){
+            try {
+                listarRen(vistaRen.tblRenovPrest);
+            } catch (ParseException ex) {
+                Logger.getLogger(CtrlRenovacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void limpiarRen(){
@@ -121,6 +138,21 @@ public class CtrlRenovacion implements ActionListener{
         vistaRen.txtIdEstadoRen.setText(null);
     }
     
-    
+    public void listarRen(JTable tblRenovPrest) throws ParseException{
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DefaultTableModel modelo = (DefaultTableModel)tblRenovPrest.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Renovacion> listaRen = modCR.listarRenovacion(modR);
+        Object[] objeto = new Object[5];
+        for(int i=0; i< listaRen.size();i++){
+            objeto[0] = listaRen.get(i).getIdRenovacion();
+            objeto[1] = listaRen.get(i).getPrestamo().getIdPrestamo();
+            objeto[2] = dateFormat.format(listaRen.get(i).getFechaSalida());
+            objeto[3] = dateFormat.format(listaRen.get(i).getFechaVence());
+            objeto[4] = listaRen.get(i).getIdEstadoRen();
+            modelo.addRow(objeto);
+        }
+        vistaRen.tblRenovPrest.setModel(modelo);
+    }
     
 }

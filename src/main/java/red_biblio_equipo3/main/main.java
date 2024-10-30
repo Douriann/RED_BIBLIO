@@ -28,13 +28,13 @@ import java.sql.SQLException;*/
 public class main {
 
     public static void main(String[] args) {
-    /*  Prestamo modP = new Prestamo();
+      Prestamo modP = new Prestamo();
         CRUDPrestamo modCP = new CRUDPrestamo();
         Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
         
         CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
         ctrlPres.iniciar();
-        vistaPres.setVisible(true);*/
+        vistaPres.setVisible(true);
     /*  Multa modM = new Multa();
       CRUDMulta modCM = new CRUDMulta();
       Vista_emergenteMulta vistaMult = new Vista_emergenteMulta();
@@ -42,12 +42,12 @@ public class main {
       CtrlMulta ctrlMult = new CtrlMulta(modM,modCM,vistaMult);
       ctrlMult.iniciar();
       vistaMult.setVisible(true);*/
-    Renovacion modR = new Renovacion();
+    /*Renovacion modR = new Renovacion();
     CRUDRenovacion modCR = new CRUDRenovacion();
     Vista_emergenteRenovacion vistaRen = new Vista_emergenteRenovacion();
     
     CtrlRenovacion ctrlRen = new CtrlRenovacion(modR,modCR,vistaRen);
     ctrlRen.iniciar();
-    vistaRen.setVisible(true);
+    vistaRen.setVisible(true);*/
     }
 }

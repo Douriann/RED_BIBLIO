@@ -15,6 +15,7 @@ public class Renovacion {
     private Date fechaVence;
     private int idEstadoRen;
     private Prestamo prestamo;
+    private String nomEstRen;
 
     public Renovacion() {
     }
@@ -66,6 +67,16 @@ public class Renovacion {
     public void setPrestamo(Prestamo prestamo) {
         this.prestamo = prestamo;
     }
+
+    public String getNomEstRen() {
+        return nomEstRen;
+    }
+
+    public void setNomEstRen(String nomEstRen) {
+        this.nomEstRen = nomEstRen;
+    }
+    
+    
     
     public void generarReporteRenovaciones(){
         

@@ -43,6 +43,8 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnRegistrarMulPrest = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMultaPrest = new javax.swing.JTable();
+        btnBuscarRegisMult = new javax.swing.JButton();
+        lblIdRenovPrest1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,7 +168,21 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         tblMultaPrest.setSelectionBackground(new java.awt.Color(13, 104, 116));
         jScrollPane1.setViewportView(tblMultaPrest);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 730, 200));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 730, 170));
+
+        btnBuscarRegisMult.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscarRegisMult.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnBuscarRegisMult.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarRegisMult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda-15.png"))); // NOI18N
+        btnBuscarRegisMult.setText("Buscar");
+        btnBuscarRegisMult.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBuscarRegisMult.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btnBuscarRegisMult, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 210, 30));
+
+        lblIdRenovPrest1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblIdRenovPrest1.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdRenovPrest1.setText("Mostrar Registros");
+        jPanel2.add(lblIdRenovPrest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 810, 460));
 
@@ -237,6 +253,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarIdMulPrest;
     public javax.swing.JButton btnBuscarIdPrestamoPrest;
+    public javax.swing.JButton btnBuscarRegisMult;
     private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarMulPrest;
     public javax.swing.JButton btnLimpiarMulPrest;
@@ -249,8 +266,9 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIdMultaPrest;
     private javax.swing.JLabel lblIdPrestamoPrest;
+    private javax.swing.JLabel lblIdRenovPrest1;
     private javax.swing.JLabel lblMulta;
-    private javax.swing.JTable tblMultaPrest;
+    public javax.swing.JTable tblMultaPrest;
     public javax.swing.JTextField txtIdMultaPrest;
     public javax.swing.JTextField txtIdPrestamoPrest;
     // End of variables declaration//GEN-END:variables

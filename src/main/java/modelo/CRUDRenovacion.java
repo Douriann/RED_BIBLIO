@@ -220,7 +220,7 @@ public ArrayList<Renovacion> listarRenovacion(Renovacion ren) throws ParseExcept
     ResultSet rs = null;
     Connection con = getConexion();
 
-    String sql = "SELECT * FROM \"Renovacion\"";
+    String sql = "SELECT \"Renovacion\".*, \"EstadoRenovacion\".\"nomEstadoRen\" FROM \"Renovacion\" JOIN \"EstadoRenovacion\" ON \"Renovacion\".\"idEstadoRen\" = \"EstadoRenovacion\".\"idEstadoRen\"";
 
     try {
         ps = con.prepareStatement(sql);
@@ -237,6 +237,7 @@ public ArrayList<Renovacion> listarRenovacion(Renovacion ren) throws ParseExcept
             renovacion.setFechaSalida(dateFormat.parse(rs.getString("fechaSalida")));
             renovacion.setFechaVence(dateFormat.parse(rs.getString("fechaVence")));
             renovacion.setIdEstadoRen(Integer.parseInt(rs.getString("idEstadoRen")));
+            renovacion.setNomEstRen(rs.getString("nomEstadoRen"));
             
             datosRen.add(renovacion);
         }

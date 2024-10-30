@@ -81,7 +81,7 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         btnBuscarMultaPrest = new javax.swing.JButton();
         btnBuscarIdPrest = new javax.swing.JButton();
         btnBuscarCedulaPrest = new javax.swing.JButton();
-        btnBuscarPrest = new javax.swing.JButton();
+        btnBuscarRegisPrest = new javax.swing.JButton();
         btnBuscarRenovPrest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -435,7 +435,9 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
 
         txtBuscarPrest.setBackground(new java.awt.Color(204, 204, 204));
         txtBuscarPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtBuscarPrest.setText("Insertar Registro");
         txtBuscarPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtBuscarPrest.setEnabled(false);
         jPanel1.add(txtBuscarPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 600, 30));
 
         btnIdEjemPrest.setBackground(new java.awt.Color(0, 204, 255));
@@ -487,13 +489,13 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         tblPrestamoPrest.setForeground(new java.awt.Color(255, 255, 255));
         tblPrestamoPrest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id Libro", "Cedula", "Id Ejemplar", "Fecha de Entrega", "Estado de Prestamo"
+                "Id Prestamo", "Cedula", "Id Ejemplar", "Fecha de Salida", "Fecha Venc", "Fecha Entrega", "Id.Est.Prestamo", "Estado del Prestamo"
             }
         ));
         tblPrestamoPrest.setSelectionBackground(new java.awt.Color(13, 104, 116));
@@ -576,14 +578,14 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         btnBuscarCedulaPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnBuscarCedulaPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, 90, 20));
 
-        btnBuscarPrest.setBackground(new java.awt.Color(0, 204, 255));
-        btnBuscarPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnBuscarPrest.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarPrest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
-        btnBuscarPrest.setText("Buscar");
-        btnBuscarPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnBuscarPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, 90, 30));
+        btnBuscarRegisPrest.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscarRegisPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnBuscarRegisPrest.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarRegisPrest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarRegisPrest.setText("Buscar");
+        btnBuscarRegisPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBuscarRegisPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBuscarRegisPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, 90, 30));
 
         btnBuscarRenovPrest.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscarRenovPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -754,7 +756,7 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarCedulaPrest;
     public javax.swing.JButton btnBuscarIdPrest;
     private javax.swing.JButton btnBuscarMultaPrest;
-    private javax.swing.JButton btnBuscarPrest;
+    public javax.swing.JButton btnBuscarRegisPrest;
     private javax.swing.JButton btnBuscarRenovPrest;
     private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarPrest;
@@ -797,7 +799,7 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoPrest;
     private javax.swing.JPanel pnlPrincipalPrest;
     private javax.swing.JPanel pnlUsuarioPrest;
-    private javax.swing.JTable tblPrestamoPrest;
+    public javax.swing.JTable tblPrestamoPrest;
     private javax.swing.JTextField txtBuscarPrest;
     public javax.swing.JTextField txtCedulaPrest;
     public javax.swing.JTextField txtEstadoPrest;

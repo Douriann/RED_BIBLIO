@@ -6,6 +6,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -169,4 +174,51 @@ public class CRUDPrestamo extends Conexion {
             }
         }
     }
+        public ArrayList<Prestamo> listarPrestamo(Prestamo pres) throws ParseException {
+        ArrayList<Prestamo> datosPres = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+
+        String sql = "SELECT \"Prestamo\".*, \"EstadoPrestamo\".\"nomEstadoPre\" FROM \"Prestamo\" JOIN \"EstadoPrestamo\" ON \"Prestamo\".\"idEstadoPre\" = \"EstadoPrestamo\".\"idEstadoPre\"";
+
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                Usuario usuario = new Usuario();
+                usuario.setCedula(Integer.parseInt(rs.getString("cedula")));
+                
+                Ejemplar ejemplar = new Ejemplar();
+                ejemplar.setIdEjemplar(Integer.parseInt(rs.getString("idEjemplar")));
+                
+                
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                Prestamo prestamo = new Prestamo();
+                prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
+                prestamo.setUsuario(usuario);
+                prestamo.setEjemplar(ejemplar);
+                prestamo.setFechaSalida(dateFormat.parse(rs.getString("fechaSalida")));
+                prestamo.setFechaVence(dateFormat.parse(rs.getString("fechaVence")));
+                prestamo.setFechaEntrego(dateFormat.parse(rs.getString("fechaEntrega")));
+                prestamo.setIdEstadoPre(Integer.parseInt(rs.getString("idEstadoPre")));
+                prestamo.setNomEstadoPre(rs.getString("nomEstadoPre"));
+                datosPres.add(prestamo);
+            }
+            return datosPres;
+        } catch (SQLException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+        return datosPres;
+    }
+    
 }

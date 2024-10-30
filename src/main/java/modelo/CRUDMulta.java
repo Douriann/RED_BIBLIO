@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class CRUDMulta extends Conexion {
     public boolean registrarMulta(Multa mult)
@@ -155,4 +158,41 @@ public class CRUDMulta extends Conexion {
             }
         }
     }
+    
+    public ArrayList<Multa> listarMulta(Multa mult) throws ParseException {
+    ArrayList<Multa> datosMult = new ArrayList<>();
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    Connection con = getConexion();
+
+    String sql = "SELECT * FROM \"Multa\"";
+
+    try {
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Prestamo prestamo = new Prestamo();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
+            
+            Multa multa = new Multa();
+            multa.setIdMulta(Integer.parseInt(rs.getString("idMulta")));
+            multa.setPrestamo(prestamo);
+            multa.setFechaInicio(dateFormat.parse(rs.getString("fechaInicio")));
+            multa.setFechaFin(dateFormat.parse(rs.getString("fechaFin")));
+            datosMult.add(multa);
+        }
+        return datosMult;
+    } catch (SQLException e) {
+        System.err.println(e);
+    } finally {
+        try {
+            con.close();
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+    }
+    return datosMult;
+}
 }

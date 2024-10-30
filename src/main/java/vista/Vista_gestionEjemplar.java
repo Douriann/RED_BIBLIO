@@ -386,19 +386,16 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
 
         txtIdEjemplarEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtIdEjemplarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdEjemplarEjem.setForeground(new java.awt.Color(0, 0, 0));
         txtIdEjemplarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdEjemplarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
 
         txtIdLibroEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtIdLibroEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdLibroEjem.setForeground(new java.awt.Color(0, 0, 0));
         txtIdLibroEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdLibroEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
 
         txtEstadoEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtEstadoEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtEstadoEjem.setForeground(new java.awt.Color(0, 0, 0));
         txtEstadoEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtEstadoEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
 
@@ -440,7 +437,6 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
 
         txtBuscarEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtBuscarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarEjem.setForeground(new java.awt.Color(0, 0, 0));
         txtBuscarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtBuscarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 600, 30));
 
@@ -478,7 +474,6 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
 
         txtUbicacionEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtUbicacionEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtUbicacionEjem.setForeground(new java.awt.Color(0, 0, 0));
         txtUbicacionEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtUbicacionEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 470, 20));
 

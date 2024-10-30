@@ -143,13 +143,14 @@ public class CtrlRenovacion implements ActionListener{
         DefaultTableModel modelo = (DefaultTableModel)tblRenovPrest.getModel();
         modelo.setRowCount(0);
         ArrayList<Renovacion> listaRen = modCR.listarRenovacion(modR);
-        Object[] objeto = new Object[5];
+        Object[] objeto = new Object[6];
         for(int i=0; i< listaRen.size();i++){
             objeto[0] = listaRen.get(i).getIdRenovacion();
             objeto[1] = listaRen.get(i).getPrestamo().getIdPrestamo();
             objeto[2] = dateFormat.format(listaRen.get(i).getFechaSalida());
             objeto[3] = dateFormat.format(listaRen.get(i).getFechaVence());
             objeto[4] = listaRen.get(i).getIdEstadoRen();
+            objeto[5] = listaRen.get(i).getNomEstRen();
             modelo.addRow(objeto);
         }
         vistaRen.tblRenovPrest.setModel(modelo);

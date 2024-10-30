@@ -15,6 +15,7 @@ public class Prestamo {
     private Date fechaVence;
     private Date fechaEntrego;
     private int idEstadoPre;
+    private String nomEstadoPre;
     private Biblioteca biblioteca;
     private Usuario usuario;
     private Ejemplar ejemplar;
@@ -95,6 +96,14 @@ public class Prestamo {
 
     public void setEjemplar(Ejemplar ejemplar) {
         this.ejemplar = ejemplar;
+    }
+
+    public String getNomEstadoPre() {
+        return nomEstadoPre;
+    }
+
+    public void setNomEstadoPre(String nomEstadoPre) {
+        this.nomEstadoPre = nomEstadoPre;
     }
     
     public void prestar(){

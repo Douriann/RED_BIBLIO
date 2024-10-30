@@ -3,13 +3,21 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import modelo.CRUDMulta;
 import modelo.Ejemplar;
 import modelo.Multa;
 import modelo.Prestamo;
+import modelo.Renovacion;
 import modelo.Usuario;
 import vista.Vista_emergenteMulta;
 
@@ -28,6 +36,7 @@ public class CtrlMulta implements ActionListener{
         this.vistaMult.btnEliminarMulPrest.addActionListener(this);
         this.vistaMult.btnLimpiarMulPrest.addActionListener(this);
         this.vistaMult.btnBuscarIdMulPrest.addActionListener(this);
+        this.vistaMult.btnBuscarRegisMult.addActionListener(this);
     }    
     
         public void iniciar(){
@@ -104,6 +113,13 @@ public class CtrlMulta implements ActionListener{
                 limpiarMult();
             }
         }
+        else if(e.getSource() == vistaMult.btnBuscarRegisMult){
+            try {
+                listarMult(vistaMult.tblMultaPrest);
+            } catch (ParseException ex) {
+                Logger.getLogger(CtrlMulta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void limpiarMult(){
@@ -111,5 +127,20 @@ public class CtrlMulta implements ActionListener{
         vistaMult.txtIdPrestamoPrest.setText(null);
     }
     
+    public void listarMult(JTable tblMultaPrest) throws ParseException{
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DefaultTableModel modelo = (DefaultTableModel)tblMultaPrest.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Multa> listaMult = modCM.listarMulta(modM);
+        Object[] objeto = new Object[4];
+        for(int i=0; i< listaMult.size();i++){
+            objeto[0] = listaMult.get(i).getIdMulta();
+            objeto[1] = listaMult.get(i).getPrestamo().getIdPrestamo();
+            objeto[2] = dateFormat.format(listaMult.get(i).getFechaInicio());
+            objeto[3] = dateFormat.format(listaMult.get(i).getFechaFin());
+            modelo.addRow(objeto);
+        }
+        vistaMult.tblMultaPrest.setModel(modelo);
+    }
     
 }

@@ -149,9 +149,7 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioSesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesActionPerformed
-        Vista_principal vp = new Vista_principal();
-        vp.setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_btnInicioSesActionPerformed
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
@@ -198,7 +196,7 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnInicioSes;
+    public javax.swing.JButton btnInicioSes;
     private javax.swing.JLabel cuentaX;
     private javax.swing.JLabel facebook;
     private javax.swing.JLabel iconContrasena;
@@ -212,7 +210,7 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblInicioSesion;
     private javax.swing.JLabel lblLogoBiblio;
-    private javax.swing.JTextField txtContrasena;
-    private javax.swing.JTextField txtUsuario;
+    public javax.swing.JTextField txtContrasena;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

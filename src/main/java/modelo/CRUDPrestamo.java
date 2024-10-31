@@ -17,12 +17,12 @@ import javax.swing.table.DefaultTableModel;
  * @author scocl
  */
 public class CRUDPrestamo extends Conexion {
-    public boolean registrarPrestamo(Prestamo pres)
+    
+    public boolean registrarPrestamo(Prestamo pres) throws SQLException
     {
         //PREPARAR CONSULTA
         PreparedStatement ps = null;
         Connection con = getConexion();
-        
         //CONSULTA SQL
         String sql = "INSERT INTO \"Prestamo\"(\"cedula\", \"idEjemplar\", \"fechaSalida\", \"fechaVence\",\"fechaEntrega\",\"idEstadoPre\") VALUES(?,?,?,?,?,?)"; 
         
@@ -219,6 +219,84 @@ public class CRUDPrestamo extends Conexion {
             }
         }
         return datosPres;
+    }
+        
+        public int buscarEjemplar(Prestamo pres){
+
+            PreparedStatement ps = null;
+            ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()
+            Connection con = getConexion();
+
+
+            //CONSULTA SQL
+            String sql = "SELECT \"bl\".\"cantEjemplares\" FROM \"Usuario\" \"u\" JOIN \"BibliotecaLibro\" \"bl\" ON \"u\".\"idBiblioteca\" = \"bl\".\"idBiblioteca\" WHERE \"u\".\"cedula\" = ? AND \"bl\".\"idLibro\" = ?"; 
+
+            //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA
+
+            try{
+
+                ps = con.prepareStatement(sql); //INVOCO LA CONSULTA, MANDO SQL
+                //MANDAR DATOS
+                //SE INTERACTUA CON LOS DATOS DEL MODELO
+                ps.setInt(1, pres.getUsuario().getCedula());
+                ps.setInt(2, pres.getEjemplar().getIdEjemplar());
+                rs = ps.executeQuery();
+                //ps.execute();                            //EJECUTO CONSULTA
+                if(rs.next()){
+                    int cantEjemplar;
+                    cantEjemplar = Integer.parseInt(rs.getString("cantEjemplares"));
+                    return cantEjemplar;
+                }
+                return 0;
+
+            } catch(SQLException e)
+            {
+                System.err.println(e);
+                return 0;
+            } finally                         //CIERRO CONEXION
+            {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println(e);
+                }
+            }
+
+        }
+        
+        public boolean actualizarEjemplarPres(Prestamo pres)
+    {
+        //PREPARAR CONSULTA
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        
+        //CONSULTA SQL
+        String sql = "UPDATE \"BibliotecaLibro\" SET \"cantEjemplares\" = \"cantEjemplares\" - 1 WHERE \"idBiblioteca\" = (SELECT \"idBiblioteca\" FROM \"Usuario\" WHERE \"cedula\" = ?) AND \"idLibro\" = ?";
+        
+        //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA
+        
+        try{
+            
+            ps = con.prepareStatement(sql); //INVOCO LA CONSULTA, MANDO SQL
+            //MANDAR DATOS
+            //SE INTERACTUA CON LOS DATOS DEL MODELO
+            ps.setInt(1, pres.getUsuario().getCedula()); //PASO LOS DATOS
+            ps.setInt(2, pres.getEjemplar().getIdEjemplar());
+            ps.execute();                            //EJECUTO CONSULTA
+            return true;
+               
+        } catch(SQLException e)
+        {
+            System.err.println(e);
+            return false;
+        } finally                         //CIERRO CONEXION
+        {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
     }
     
 }

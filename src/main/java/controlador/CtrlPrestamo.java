@@ -3,6 +3,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,38 +48,50 @@ public class CtrlPrestamo implements ActionListener{
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == vistaPres.btnRegistrarPrest)
         {
-            Usuario usuario = new Usuario();
-            usuario.setCedula(Integer.parseInt(vistaPres.txtCedulaPrest.getText()));
-            
-            Ejemplar ejemplar = new Ejemplar();
-            ejemplar.setIdEjemplar(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
-            
-            Date fechaActual = new Date();
-            
-            Calendar calendario = Calendar.getInstance();
-            calendario.setTime(fechaActual);
-            calendario.add(Calendar.DAY_OF_YEAR, 2);
-            Date fechaSalida = calendario.getTime();
-            
-            modP.setUsuario(usuario);
-            modP.setEjemplar(ejemplar);
-            modP.setFechaSalida(new java.sql.Date(fechaActual.getTime()));
-            modP.setFechaVence(new java.sql.Date(fechaSalida.getTime()));
-            modP.setFechaEntrego(new java.sql.Date(fechaSalida.getTime()));
-            modP.setIdEstadoPre(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
-            
-            if(modCP.registrarPrestamo(modP)){
-                JOptionPane.showMessageDialog(null, "Registro guardado");
-                limpiarPre();
+            int cant = buscarEjemplar();
+            if(cant > 0){
+                try {
+                    Usuario usuario = new Usuario();
+                    usuario.setCedula(Integer.parseInt(vistaPres.txtCedulaPrest.getText()));
+                    
+                    Ejemplar ejemplar = new Ejemplar();
+                    ejemplar.setIdEjemplar(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
+                    
+                    Date fechaActual = new Date();
+                    
+                    Calendar calendario = Calendar.getInstance();
+                    calendario.setTime(fechaActual);
+                    calendario.add(Calendar.DAY_OF_YEAR, 2);
+                    Date fechaSalida = calendario.getTime();
+                    
+                    modP.setUsuario(usuario);
+                    modP.setEjemplar(ejemplar);
+                    modP.setFechaSalida(new java.sql.Date(fechaActual.getTime()));
+                    modP.setFechaVence(new java.sql.Date(fechaSalida.getTime()));
+                    modP.setFechaEntrego(new java.sql.Date(fechaSalida.getTime()));
+                    modP.setIdEstadoPre(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
+                    
+                    if(modCP.registrarPrestamo(modP) && modCP.actualizarEjemplarPres(modP)){
+                        JOptionPane.showMessageDialog(null, "Registro guardado");
+                        limpiarPre();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Error al guardar");
+                        limpiarPre();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CtrlPrestamo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error al guardar");
+                JOptionPane.showMessageDialog(null, "No hay ejemplares");
                 limpiarPre();
             }
+
         }
         
         else if(e.getSource() == vistaPres.btnModificarPrest)
-        {
+        {  
             Usuario usuario = new Usuario();
             usuario.setCedula(Integer.parseInt(vistaPres.txtCedulaPrest.getText()));
             
@@ -140,6 +153,18 @@ public class CtrlPrestamo implements ActionListener{
         vistaPres.txtIdEjemplarPrest.setText(null);
         vistaPres.txtFchEntregaPrest.setText(null);
         vistaPres.txtEstadoPrest.setText(null);
+    }
+    
+    public int buscarEjemplar(){
+        Usuario usuario = new Usuario();
+        usuario.setCedula(Integer.parseInt(vistaPres.txtCedulaPrest.getText()));
+        Ejemplar ejemplar = new Ejemplar();
+        ejemplar.setIdEjemplar(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
+        modP.setUsuario(usuario);
+        modP.setEjemplar(ejemplar);
+        int cantidad = modCP.buscarEjemplar(modP);
+        //JOptionPane.showMessageDialog(null, "Cantidad de ejemplares: " + cantidad);
+        return cantidad;
     }
     
     public void listarRen(JTable tblPrestamoPrest) throws ParseException{

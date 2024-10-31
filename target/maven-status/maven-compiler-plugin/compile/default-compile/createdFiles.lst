@@ -1,3 +1,4 @@
+modelo\CRUDinicioSesion.class
 vista\Vista_gestionPrestamo$9.class
 vista\Vista_inicioSesion.class
 modelo\Externo.class
@@ -9,6 +10,7 @@ vista\Vista_gestionEjemplar$2.class
 vista\Vista_emergenteMulta$3.class
 vista\Vista_gestionBiblioteca$3.class
 vista\Vista_gestionBiblioteca$6.class
+controlador\ControladorInicioSesion.class
 vista\Vista_gestionPrestamo$3.class
 vista\Vista_gestionEjemplar$5.class
 vista\Vista_gestionUsuario$4.class
@@ -34,6 +36,7 @@ vista\Vista_gestionUsuario$7.class
 vista\Vista_principal$7.class
 vista\Vista_gestionUsuario.class
 red_biblio_equipo3\main\main.class
+modelo\CrudBiblioteca.class
 vista\Vista_emergenteRenovacion$1.class
 vista\Vista_principal$6.class
 vista\Vista_principal$12.class
@@ -79,7 +82,10 @@ vista\Vista_gestionLibros$2.class
 vista\Vista_principal$10.class
 vista\Vista_principal$4.class
 vista\Vista_gestionPrestamo$8.class
+modelo\InicioSesion.class
 vista\Vista_gestionBiblioteca$5.class
+controlador\ControladorPrincipal.class
+controlador\ControladorBiblioteca.class
 vista\Vista_emergenteMulta.class
 vista\Vista_gestionEjemplar$3.class
 vista\Vista_gestionLibros$1.class

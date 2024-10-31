@@ -5,7 +5,13 @@
 package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import controlador.ControladorBiblioteca;
+import controlador.CtrlPrestamo;
 import java.awt.Color;
+import modelo.Biblioteca;
+import modelo.CRUDPrestamo;
+import modelo.CrudBiblioteca;
+import modelo.Prestamo;
 
 
 
@@ -562,9 +568,13 @@ public class Vista_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_usuarioMouseClicked
 
     private void btn_biblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_biblioMouseClicked
-        Vista_gestionBiblioteca vb = new Vista_gestionBiblioteca();
-        vb.setVisible(true);
-        this.setVisible(false);
+            Biblioteca mod = new Biblioteca();
+            CrudBiblioteca modCrud = new CrudBiblioteca();
+            Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        
+            ControladorBiblioteca ctrl = new ControladorBiblioteca(mod, modCrud, vis);
+            ctrl.iniciar();
+            vis.setVisible(true);
     }//GEN-LAST:event_btn_biblioMouseClicked
 
     private void btn_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_librosMouseClicked
@@ -580,8 +590,13 @@ public class Vista_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ejemplarMouseClicked
 
     private void btn_prestamoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prestamoMouseClicked
-        Vista_gestionPrestamo vp = new Vista_gestionPrestamo();
-        vp.setVisible(true);
+        Prestamo modP = new Prestamo();
+        CRUDPrestamo modCP = new CRUDPrestamo();
+        Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
+        
+        CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
+        ctrlPres.iniciar();
+        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_prestamoMouseClicked
 
@@ -627,12 +642,12 @@ public class Vista_principal extends javax.swing.JFrame {
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JPanel btn_biblio;
-    private javax.swing.JPanel btn_ejemplar;
-    private javax.swing.JPanel btn_libros;
-    private javax.swing.JPanel btn_prestamo;
-    private javax.swing.JPanel btn_principal;
-    private javax.swing.JPanel btn_usuario;
+    public javax.swing.JPanel btn_biblio;
+    public javax.swing.JPanel btn_ejemplar;
+    public javax.swing.JPanel btn_libros;
+    public javax.swing.JPanel btn_prestamo;
+    public javax.swing.JPanel btn_principal;
+    public javax.swing.JPanel btn_usuario;
     private javax.swing.JLabel imgLogoUsu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

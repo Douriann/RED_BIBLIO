@@ -384,19 +384,16 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
 
         txtIdBiblioBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtIdBiblioBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdBiblioBiblio.setForeground(new java.awt.Color(0, 0, 0));
         txtIdBiblioBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdBiblioBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
 
         txtNombreBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtNombreBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtNombreBiblio.setForeground(new java.awt.Color(0, 0, 0));
         txtNombreBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtNombreBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
 
         txtDireccBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtDireccBiblio.setForeground(new java.awt.Color(0, 0, 0));
         txtDireccBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtDireccBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
 
@@ -438,7 +435,6 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
 
         txtBuscarBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtBuscarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarBiblio.setForeground(new java.awt.Color(0, 0, 0));
         txtBuscarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 600, 30));
 
@@ -606,12 +602,12 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
-    private javax.swing.JButton btnBuscarBiblio;
+    public javax.swing.JButton btnBuscarBiblio;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnEliminarBiblio;
-    private javax.swing.JButton btnLimpiarBiblio;
-    private javax.swing.JButton btnModificarBiblio;
-    private javax.swing.JButton btnRegistrarBiblio;
+    public javax.swing.JButton btnEliminarBiblio;
+    public javax.swing.JButton btnLimpiarBiblio;
+    public javax.swing.JButton btnModificarBiblio;
+    public javax.swing.JButton btnRegistrarBiblio;
     private javax.swing.JLabel imgLogoBiblio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -638,10 +634,10 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoBiblio;
     private javax.swing.JPanel pnlPrincipalBiblio;
     private javax.swing.JPanel pnlUsuarioBiblio;
-    private javax.swing.JTable tblBibliotecaBiblio;
-    private javax.swing.JTextField txtBuscarBiblio;
-    private javax.swing.JTextField txtDireccBiblio;
-    private javax.swing.JTextField txtIdBiblioBiblio;
-    private javax.swing.JTextField txtNombreBiblio;
+    public javax.swing.JTable tblBibliotecaBiblio;
+    public javax.swing.JTextField txtBuscarBiblio;
+    public javax.swing.JTextField txtDireccBiblio;
+    public javax.swing.JTextField txtIdBiblioBiblio;
+    public javax.swing.JTextField txtNombreBiblio;
     // End of variables declaration//GEN-END:variables
 }

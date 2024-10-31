@@ -4,7 +4,13 @@
  */
 package vista;
 
+import controlador.CtrlMulta;
+import controlador.CtrlRenovacion;
 import java.awt.Color;
+import modelo.CRUDMulta;
+import modelo.CRUDRenovacion;
+import modelo.Multa;
+import modelo.Renovacion;
 
 /**
  *
@@ -701,15 +707,23 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlEjemplarPrestMouseClicked
 
     private void btnBuscarRenovPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarRenovPrestMouseClicked
-        Vista_emergenteRenovacion vr = new Vista_emergenteRenovacion();
-        vr.setVisible(true);
-        this.setVisible(false);
+    Renovacion modR = new Renovacion();
+    CRUDRenovacion modCR = new CRUDRenovacion();
+    Vista_emergenteRenovacion vistaRen = new Vista_emergenteRenovacion();
+    
+    CtrlRenovacion ctrlRen = new CtrlRenovacion(modR,modCR,vistaRen);
+    ctrlRen.iniciar();
+    vistaRen.setVisible(true);
     }//GEN-LAST:event_btnBuscarRenovPrestMouseClicked
 
     private void btnBuscarMultaPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMultaPrestMouseClicked
-        Vista_emergenteMulta vm = new Vista_emergenteMulta();
-        vm.setVisible(true);
-        this.setVisible(false);
+      Multa modM = new Multa();
+      CRUDMulta modCM = new CRUDMulta();
+      Vista_emergenteMulta vistaMult = new Vista_emergenteMulta();
+      
+      CtrlMulta ctrlMult = new CtrlMulta(modM,modCM,vistaMult);
+      ctrlMult.iniciar();
+      vistaMult.setVisible(true);
     }//GEN-LAST:event_btnBuscarMultaPrestMouseClicked
 
     

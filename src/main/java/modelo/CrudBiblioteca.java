@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class CrudBiblioteca extends Conexion {
     
@@ -131,5 +134,37 @@ public class CrudBiblioteca extends Conexion {
                 System.err.println(e);
             }
         }
+    }
+    
+        public ArrayList<Biblioteca> listarBiblioteca(Biblioteca bli) throws ParseException {
+        ArrayList<Biblioteca> datosBiblio = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+
+        String sql = "SELECT * FROM \"Biblioteca\"";
+
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Biblioteca biblioteca = new Biblioteca();
+                biblioteca.setIdBiblioteca(Integer.parseInt(rs.getString("idBiblioteca")));
+                biblioteca.setNomBiblioteca(rs.getString("nomBiblioteca"));
+                biblioteca.setDireccion(rs.getString("direccion"));
+                datosBiblio.add(biblioteca);
+            }
+            return datosBiblio;
+        } catch (SQLException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+        return datosBiblio;
     }
 }

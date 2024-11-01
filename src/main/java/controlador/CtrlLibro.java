@@ -6,7 +6,14 @@ import modelo.Libro;
 import vista.Vista_gestionLibros;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import modelo.Biblioteca;
 
 public class CtrlLibro implements ActionListener{
     
@@ -28,6 +35,7 @@ public class CtrlLibro implements ActionListener{
         this.visL.btnEliminarLib.addActionListener(this);
         this.visL.btnBuscarLib.addActionListener(this);
         this.visL.btnLimpiarLib.addActionListener(this);
+        this.visL.btnBuscarRegisLib.addActionListener(this);
         
     }  
     
@@ -155,6 +163,29 @@ public class CtrlLibro implements ActionListener{
             {
                 limpiar();
             }
+        if(e.getSource() == visL.btnBuscarRegisLib){
+            try {
+                listarLibro(visL.tblLibrosLib);
+            } catch (ParseException ex) {
+                Logger.getLogger(CtrlLibro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void listarLibro(JTable tblLibrosLib) throws ParseException{
+        DefaultTableModel modelo = (DefaultTableModel)tblLibrosLib.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Libro> listaLibro = modCrudL.listarLibro(modL);
+        Object[] objeto = new Object[5];
+        for(int i=0; i< listaLibro.size();i++){
+            objeto[0] = listaLibro.get(i).getIdLibro();
+            objeto[1] = listaLibro.get(i).getTitulo();
+            objeto[2] = listaLibro.get(i).getAutor();
+            objeto[3] = listaLibro.get(i).getAño();
+            objeto[4] = listaLibro.get(i).getIdCategoria();
+            modelo.addRow(objeto);
+        }
+        visL.tblLibrosLib.setModel(modelo);
     }
     
     //METODO PARA limpiar ventana

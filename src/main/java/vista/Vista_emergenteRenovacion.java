@@ -172,7 +172,7 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
 
         lblIdRenovPrest1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblIdRenovPrest1.setForeground(new java.awt.Color(255, 255, 255));
-        lblIdRenovPrest1.setText("Mostrar Registros");
+        lblIdRenovPrest1.setText("Mostrar Registros:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -221,8 +221,8 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblIdRenovPrest1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(218, 218, 218))
+                .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(247, 247, 247))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,13 +249,13 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
                     .addComponent(btnModificarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpiarRenPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdRenovPrest1)
-                    .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarIdPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 810, 460));
@@ -302,7 +302,6 @@ public class Vista_emergenteRenovacion extends javax.swing.JFrame {
         
         CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
         ctrlPres.iniciar();
-        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarPrestMouseClicked
 

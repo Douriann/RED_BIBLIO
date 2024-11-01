@@ -8,6 +8,7 @@ F:\New Folder\RED_BIBLIO\src\main\java\controlador\CtrlRenovacion.java
 F:\New Folder\RED_BIBLIO\src\main\java\modelo\CrudRenovacion.java
 F:\New Folder\RED_BIBLIO\src\main\java\vista\Vista_principal.java
 F:\New Folder\RED_BIBLIO\src\main\java\modelo\Externo.java
+F:\New Folder\RED_BIBLIO\src\main\java\controlador\CtrlUsuario.java
 F:\New Folder\RED_BIBLIO\src\main\java\modelo\Estudiante.java
 F:\New Folder\RED_BIBLIO\src\main\java\controlador\CtrlBiblioteca.java
 F:\New Folder\RED_BIBLIO\src\main\java\vista\Vista_gestionPrestamo.java
@@ -36,3 +37,4 @@ F:\New Folder\RED_BIBLIO\src\main\java\modelo\Biblioteca.java
 F:\New Folder\RED_BIBLIO\src\main\java\modelo\CrudEjemplar.java
 F:\New Folder\RED_BIBLIO\src\main\java\vista\Vista_emergenteRenovacion.java
 F:\New Folder\RED_BIBLIO\src\main\java\controlador\CtrlInicioSesion.java
+F:\New Folder\RED_BIBLIO\src\main\java\modelo\CrudUsuario.java

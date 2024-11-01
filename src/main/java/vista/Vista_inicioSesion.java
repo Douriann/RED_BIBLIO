@@ -62,12 +62,12 @@ public class Vista_inicioSesion extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
-        jPanel2.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 90, 80));
+        jPanel2.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 90, 80));
 
         lblLogoBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         lblLogoBiblio.setForeground(new java.awt.Color(0, 204, 204));
         lblLogoBiblio.setText("Bibliotecas");
-        jPanel2.add(lblLogoBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 140, 40));
+        jPanel2.add(lblLogoBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 140, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoVector.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

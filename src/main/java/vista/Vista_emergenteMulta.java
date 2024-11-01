@@ -170,12 +170,12 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnBuscarRegisMult.setText("Buscar");
         btnBuscarRegisMult.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarRegisMult.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnBuscarRegisMult, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 210, 30));
+        jPanel2.add(btnBuscarRegisMult, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 180, 30));
 
         lblIdRenovPrest1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblIdRenovPrest1.setForeground(new java.awt.Color(255, 255, 255));
         lblIdRenovPrest1.setText("Mostrar Registros:");
-        jPanel2.add(lblIdRenovPrest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, 30));
+        jPanel2.add(lblIdRenovPrest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 810, 460));
 
@@ -214,7 +214,6 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         
         CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
         ctrlPres.iniciar();
-        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarMouseClicked
 

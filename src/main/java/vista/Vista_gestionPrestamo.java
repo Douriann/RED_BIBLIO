@@ -4,7 +4,10 @@
  */
 package vista;
 
+import controlador.CtrlUsuario;
 import controlador.CtrlBiblioteca;
+import controlador.CtrlEjemplar;
+import controlador.CtrlLibro;
 import controlador.CtrlMulta;
 import controlador.CtrlRenovacion;
 import java.awt.Color;
@@ -12,8 +15,14 @@ import modelo.Biblioteca;
 import modelo.CrudMulta;
 import modelo.CrudRenovacion;
 import modelo.CrudBiblioteca;
+import modelo.CrudEjemplar;
+import modelo.CrudLibro;
+import modelo.CrudUsuario;
+import modelo.Ejemplar;
+import modelo.Libro;
 import modelo.Multa;
 import modelo.Renovacion;
+import modelo.Usuario;
 
 /**
  *
@@ -68,7 +77,6 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         lblCedulaPrest = new javax.swing.JLabel();
         txtIdEjemplarPrest = new javax.swing.JTextField();
         lblIdEjemplarPrest = new javax.swing.JLabel();
-        txtFchEntregaPrest = new javax.swing.JTextField();
         lblFchEntregaPrest = new javax.swing.JLabel();
         txtEstadoPrest = new javax.swing.JTextField();
         lblEstadoPrest = new javax.swing.JLabel();
@@ -92,6 +100,7 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         btnBuscarRegisPrest = new javax.swing.JButton();
         btnBuscarRenovPrest = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        formFechaPrest = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -422,11 +431,6 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         lblIdEjemplarPrest.setText("Id Ejemplar:");
         jPanel1.add(lblIdEjemplarPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
 
-        txtFchEntregaPrest.setBackground(new java.awt.Color(204, 204, 204));
-        txtFchEntregaPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtFchEntregaPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtFchEntregaPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 530, 20));
-
         lblFchEntregaPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblFchEntregaPrest.setForeground(new java.awt.Color(255, 255, 255));
         lblFchEntregaPrest.setText("Fecha de Entrega:");
@@ -611,6 +615,11 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
         jLabel2.setText("Mostrar Registros:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 140, 30));
 
+        formFechaPrest.setBackground(new java.awt.Color(204, 204, 204));
+        formFechaPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        formFechaPrest.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.FULL))));
+        jPanel1.add(formFechaPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 530, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -687,30 +696,47 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlPrincipalPrestMouseClicked
 
     private void pnlUsuarioPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlUsuarioPrestMouseClicked
-        Vista_gestionUsuario vu = new Vista_gestionUsuario();
-        vu.setVisible(true);
+        Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
+        Usuario usuario = new Usuario();
+        CrudUsuario consultasU = new CrudUsuario();
+        
+        CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
+        controlU.iniciar();
+        
+        vistaU.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlUsuarioPrestMouseClicked
 
     private void pnlBiblioPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBiblioPrestMouseClicked
         Biblioteca mod = new Biblioteca();
-            CrudBiblioteca modCrud = new CrudBiblioteca();
-            Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        CrudBiblioteca modCrud = new CrudBiblioteca();
+        Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
         
-            CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
-            ctrl.iniciar();
-            vis.setVisible(true);
+        CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
+        ctrl.iniciar();
+        vis.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_pnlBiblioPrestMouseClicked
 
     private void pnlLibrosPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlLibrosPrestMouseClicked
-        Vista_gestionEjemplar ve = new Vista_gestionEjemplar();
-        ve.setVisible(true);
+        Libro modL = new Libro();
+        CrudLibro modCrudL = new CrudLibro();
+        Vista_gestionLibros visL = new Vista_gestionLibros();
+
+        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+        ctrlL.iniciar();
+        visL.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlLibrosPrestMouseClicked
 
     private void pnlEjemplarPrestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEjemplarPrestMouseClicked
-        Vista_gestionEjemplar ve = new Vista_gestionEjemplar();
-        ve.setVisible(true);
+        Ejemplar modE = new Ejemplar();
+        CrudEjemplar modCrudE = new CrudEjemplar();
+        Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
+        
+        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE);
+        ctrlE.iniciar();
+        visE.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlEjemplarPrestMouseClicked
 
@@ -786,6 +812,7 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     public javax.swing.JButton btnLimpiarPrest;
     public javax.swing.JButton btnModificarPrest;
     public javax.swing.JButton btnRegistrarPrest;
+    public javax.swing.JFormattedTextField formFechaPrest;
     private javax.swing.JLabel imgLogoPrest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -825,7 +852,6 @@ public class Vista_gestionPrestamo extends javax.swing.JFrame {
     public javax.swing.JTable tblPrestamoPrest;
     public javax.swing.JTextField txtCedulaPrest;
     public javax.swing.JTextField txtEstadoPrest;
-    public javax.swing.JTextField txtFchEntregaPrest;
     public javax.swing.JTextField txtIdEjemplarPrest;
     public javax.swing.JTextField txtIdPrest;
     // End of variables declaration//GEN-END:variables

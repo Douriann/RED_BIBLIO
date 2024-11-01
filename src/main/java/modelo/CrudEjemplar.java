@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.util.ArrayList;
 
 public class CrudEjemplar extends Conexion {
     
@@ -124,4 +126,37 @@ public class CrudEjemplar extends Conexion {
             }
         }
     }
+    
+        public ArrayList<Ejemplar> listarEjemplar(Ejemplar eje) throws ParseException {
+        ArrayList<Ejemplar> datosEjemplar = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+
+        String sql = "SELECT * FROM \"Ejemplar\"";
+
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Ejemplar ejemplar = new Ejemplar();
+                ejemplar.setIdEjemplar(Integer.parseInt(rs.getString("idEjemplar")));
+                ejemplar.setIdLibro(Integer.parseInt(rs.getString("idLibro")));
+                ejemplar.setIdEstadoEj(Integer.parseInt(rs.getString("idEstadoEj")));
+                ejemplar.setUbicacion(rs.getString("ubicacion"));
+                datosEjemplar.add(ejemplar);
+            }
+            return datosEjemplar;
+        } catch (SQLException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+        return datosEjemplar;
+    }    
 }

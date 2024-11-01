@@ -175,6 +175,7 @@ public class CrudPrestamo extends Conexion {
         }
     }
         public ArrayList<Prestamo> listarPrestamo(Prestamo pres) throws ParseException {
+        //SE INICIALIZA EL ARREGLO
         ArrayList<Prestamo> datosPres = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;

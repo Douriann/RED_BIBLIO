@@ -2,7 +2,14 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import modelo.Biblioteca;
 import modelo.CrudEjemplar;
 import modelo.Ejemplar;
 import vista.Vista_gestionEjemplar;
@@ -31,6 +38,7 @@ public class CtrlEjemplar implements ActionListener{
         this.visE.btnEliminarEjem.addActionListener(this);
         this.visE.btnBuscarEjem.addActionListener(this);
         this.visE.btnLimpiarEjem.addActionListener(this);
+        this.visE.btnBuscarRegisEjem.addActionListener(this);
         
     }
     
@@ -130,6 +138,28 @@ public class CtrlEjemplar implements ActionListener{
             {
                 limpiar();
             }
+        if(e.getSource()== visE.btnBuscarRegisEjem){
+            try {
+                listarEjemp(visE.tblEjemplarEjem);
+            } catch (ParseException ex) {
+                Logger.getLogger(CtrlEjemplar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void listarEjemp(JTable tblEjemplarEjem) throws ParseException{
+        DefaultTableModel modelo = (DefaultTableModel)tblEjemplarEjem.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Ejemplar> listaEjemplar = modCrudE.listarEjemplar(modE);
+        Object[] objeto = new Object[4];
+        for(int i=0; i< listaEjemplar.size();i++){
+            objeto[0] = listaEjemplar.get(i).getIdEjemplar();
+            objeto[1] = listaEjemplar.get(i).getIdLibro();
+            objeto[2] = listaEjemplar.get(i).getIdEstadoEj();
+            objeto[3] = listaEjemplar.get(i).getUbicacion();
+            modelo.addRow(objeto);
+        }
+        visE.tblEjemplarEjem.setModel(modelo);
     }
     
     //METODO PARA limpiar ventana

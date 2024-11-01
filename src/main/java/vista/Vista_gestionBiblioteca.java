@@ -4,7 +4,19 @@
  */
 package vista;
 
+import controlador.CtrlUsuario;
+import controlador.CtrlEjemplar;
+import controlador.CtrlLibro;
+import controlador.CtrlMulta;
 import java.awt.Color;
+import modelo.CrudEjemplar;
+import modelo.CrudLibro;
+import modelo.CrudMulta;
+import modelo.CrudUsuario;
+import modelo.Ejemplar;
+import modelo.Libro;
+import modelo.Multa;
+import modelo.Usuario;
 
 /**
  *
@@ -66,6 +78,8 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnBuscarBiblio = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBibliotecaBiblio = new javax.swing.JTable();
+        lblMostrarRegisBiblio = new javax.swing.JLabel();
+        btnBuscarRegisBiblio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,7 +103,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
                 btnCerrarMouseClicked(evt);
             }
         });
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, -1, -1));
+        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, -1));
 
         pnlPrestamoBiblio.setBackground(new java.awt.Color(13, 104, 116));
         pnlPrestamoBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -359,7 +373,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 600));
 
         PanelSup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoHorizontal .PNG"))); // NOI18N
-        jPanel1.add(PanelSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 810, 90));
+        jPanel1.add(PanelSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 830, 90));
 
         lblBiblioteca.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         lblBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
@@ -384,17 +398,17 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         txtIdBiblioBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtIdBiblioBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdBiblioBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdBiblioBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
+        jPanel1.add(txtIdBiblioBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 500, 20));
 
         txtNombreBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtNombreBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtNombreBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtNombreBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
+        jPanel1.add(txtNombreBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 500, 20));
 
         txtDireccBiblio.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtDireccBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtDireccBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
+        jPanel1.add(txtDireccBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 500, 20));
 
         btnRegistrarBiblio.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -403,7 +417,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnRegistrarBiblio.setText("Registrar");
         btnRegistrarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistrarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnRegistrarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 100, 30));
+        jPanel1.add(btnRegistrarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 100, 30));
 
         btnModificarBiblio.setBackground(new java.awt.Color(255, 102, 153));
         btnModificarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -412,7 +426,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnModificarBiblio.setText("Modificar");
         btnModificarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnModificarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnModificarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 100, 30));
+        jPanel1.add(btnModificarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 100, 30));
 
         btnEliminarBiblio.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -421,7 +435,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnEliminarBiblio.setText("Eliminar");
         btnEliminarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEliminarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEliminarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 90, 30));
+        jPanel1.add(btnEliminarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 90, 30));
 
         btnLimpiarBiblio.setBackground(new java.awt.Color(51, 255, 102));
         btnLimpiarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -430,16 +444,16 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnLimpiarBiblio.setText("Limpiar");
         btnLimpiarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLimpiarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnLimpiarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, 90, 30));
+        jPanel1.add(btnLimpiarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 90, 30));
 
         btnBuscarBiblio.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnBuscarBiblio.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarBiblio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarBiblio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda-15.png"))); // NOI18N
         btnBuscarBiblio.setText("Buscar");
         btnBuscarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 30));
+        jPanel1.add(btnBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 170, 90, 20));
 
         tblBibliotecaBiblio.setBackground(new java.awt.Color(51, 51, 51));
         tblBibliotecaBiblio.setForeground(new java.awt.Color(255, 255, 255));
@@ -457,13 +471,27 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         tblBibliotecaBiblio.setSelectionBackground(new java.awt.Color(13, 104, 116));
         jScrollPane1.setViewportView(tblBibliotecaBiblio);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 710, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 750, 170));
+
+        lblMostrarRegisBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblMostrarRegisBiblio.setForeground(new java.awt.Color(255, 255, 255));
+        lblMostrarRegisBiblio.setText("Mostrar Registro:");
+        jPanel1.add(lblMostrarRegisBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, 30));
+
+        btnBuscarRegisBiblio.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscarRegisBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnBuscarRegisBiblio.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarRegisBiblio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarRegisBiblio.setText("Buscar");
+        btnBuscarRegisBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBuscarRegisBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBuscarRegisBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,27 +561,47 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlPrincipalBiblioMouseClicked
 
     private void pnlUsuarioBiblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlUsuarioBiblioMouseClicked
-        Vista_gestionUsuario vu = new Vista_gestionUsuario();
-        vu.setVisible(true);
+        Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
+        Usuario usuario = new Usuario();
+        CrudUsuario consultasU = new CrudUsuario();
+        
+        CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
+        controlU.iniciar();
+        
+        vistaU.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlUsuarioBiblioMouseClicked
 
     private void pnlLibrosBiblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlLibrosBiblioMouseClicked
-        Vista_gestionLibros vl = new Vista_gestionLibros();
-        vl.setVisible(true);
+        Libro modL = new Libro();
+        CrudLibro modCrudL = new CrudLibro();
+        Vista_gestionLibros visL = new Vista_gestionLibros();
+
+        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+        ctrlL.iniciar();
+        visL.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlLibrosBiblioMouseClicked
 
     private void pnlEjemplarBiblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEjemplarBiblioMouseClicked
-        Vista_gestionEjemplar ve = new Vista_gestionEjemplar();
-        ve.setVisible(true);
+        Ejemplar modE = new Ejemplar();
+        CrudEjemplar modCrudE = new CrudEjemplar();
+        Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
+        
+        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE);
+        ctrlE.iniciar();
+        visE.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlEjemplarBiblioMouseClicked
 
     private void pnlPrestamoBiblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPrestamoBiblioMouseClicked
-        Vista_gestionPrestamo vp = new Vista_gestionPrestamo();
-        vp.setVisible(true);
-        this.setVisible(false);
+        Multa modM = new Multa();
+        CrudMulta modCM = new CrudMulta();
+        Vista_emergenteMulta vistaMult = new Vista_emergenteMulta();
+      
+        CtrlMulta ctrlMult = new CtrlMulta(modM,modCM,vistaMult);
+        ctrlMult.iniciar();
+        vistaMult.setVisible(true);
     }//GEN-LAST:event_pnlPrestamoBiblioMouseClicked
 
     
@@ -597,6 +645,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
     public javax.swing.JButton btnBuscarBiblio;
+    public javax.swing.JButton btnBuscarRegisBiblio;
     private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarBiblio;
     public javax.swing.JButton btnLimpiarBiblio;
@@ -617,6 +666,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel lblEjemplarBiblio;
     private javax.swing.JLabel lblIdBiblioBiblio;
     private javax.swing.JLabel lblLibrosBiblio;
+    private javax.swing.JLabel lblMostrarRegisBiblio;
     private javax.swing.JLabel lblNombreBiblio;
     private javax.swing.JLabel lblPrestamoBiblio;
     private javax.swing.JLabel lblPrincipalBiblio;
@@ -628,7 +678,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoBiblio;
     private javax.swing.JPanel pnlPrincipalBiblio;
     private javax.swing.JPanel pnlUsuarioBiblio;
-    private javax.swing.JTable tblBibliotecaBiblio;
+    public javax.swing.JTable tblBibliotecaBiblio;
     public javax.swing.JTextField txtDireccBiblio;
     public javax.swing.JTextField txtIdBiblioBiblio;
     public javax.swing.JTextField txtNombreBiblio;

@@ -4,13 +4,22 @@
  */
 package vista;
 
+import controlador.CtrlUsuario;
 import controlador.CtrlBiblioteca;
+import controlador.CtrlEjemplar;
+import controlador.CtrlLibro;
 import controlador.CtrlPrestamo;
 import java.awt.Color;
 import modelo.Biblioteca;
 import modelo.CrudPrestamo;
 import modelo.CrudBiblioteca;
+import modelo.CrudEjemplar;
+import modelo.CrudLibro;
+import modelo.CrudUsuario;
+import modelo.Ejemplar;
+import modelo.Libro;
 import modelo.Prestamo;
+import modelo.Usuario;
 
 /**
  *
@@ -71,8 +80,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         lblContrasUsu = new javax.swing.JLabel();
         txtBibliotUsu = new javax.swing.JTextField();
         lblBibliotUsu = new javax.swing.JLabel();
-        txtBuscarUsu = new javax.swing.JTextField();
-        lblDireccUsu = new javax.swing.JLabel();
+        lblMostrarRegisUsu = new javax.swing.JLabel();
         lblTipUsu = new javax.swing.JLabel();
         radioBtnEstUsu = new javax.swing.JRadioButton();
         radioBtnProfUsu = new javax.swing.JRadioButton();
@@ -84,7 +92,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         combxDepUsu = new javax.swing.JComboBox<>();
         txtIdDepUsu = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField11 = new javax.swing.JTextField();
         combxCarrUsu = new javax.swing.JComboBox<>();
         txtIdCarrUsu = new javax.swing.JTextField();
         lblProfUsu = new javax.swing.JLabel();
@@ -97,6 +104,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnRegistrarUsu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuarioUsu = new javax.swing.JTable();
+        lblDireccUsu1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -120,7 +128,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
                 btnCerrarMouseClicked(evt);
             }
         });
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
+        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
 
         btn_prestamo.setBackground(new java.awt.Color(13, 104, 116));
         btn_prestamo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -390,7 +398,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 820));
 
         PanelSup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoHorizontal .PNG"))); // NOI18N
-        jPanel1.add(PanelSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 780, 90));
+        jPanel1.add(PanelSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 820, 90));
 
         lblUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -405,12 +413,12 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtCedulaUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtCedulaUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtCedulaUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtCedulaUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
+        jPanel1.add(txtCedulaUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 550, 20));
 
         txtNombreUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtNombreUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtNombreUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
+        jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 550, 20));
 
         lblNombreUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblNombreUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -420,7 +428,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtApellidoUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtApellidoUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtApellidoUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtApellidoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
+        jPanel1.add(txtApellidoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 550, 20));
 
         lblApellidoUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblApellidoUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -430,7 +438,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtTelefUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtTelefUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtTelefUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtTelefUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 470, 20));
+        jPanel1.add(txtTelefUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 550, 20));
 
         lblTelefUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblTelefUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -440,7 +448,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtContrasUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtContrasUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtContrasUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtContrasUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 470, 20));
+        jPanel1.add(txtContrasUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 550, 20));
 
         lblContrasUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblContrasUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -450,22 +458,17 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtBibliotUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtBibliotUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtBibliotUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtBibliotUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 230, 20));
+        jPanel1.add(txtBibliotUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 250, 20));
 
         lblBibliotUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblBibliotUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblBibliotUsu.setText("Bibliotecas:");
         jPanel1.add(lblBibliotUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
-        txtBuscarUsu.setBackground(new java.awt.Color(204, 204, 204));
-        txtBuscarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtBuscarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 600, 30));
-
-        lblDireccUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        lblDireccUsu.setForeground(new java.awt.Color(255, 255, 255));
-        lblDireccUsu.setText("Dirección:");
-        jPanel1.add(lblDireccUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        lblMostrarRegisUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblMostrarRegisUsu.setForeground(new java.awt.Color(255, 255, 255));
+        lblMostrarRegisUsu.setText("Mostrar Registro:");
+        jPanel1.add(lblMostrarRegisUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, -1, 30));
 
         lblTipUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblTipUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -480,17 +483,17 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         radioBtnProfUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         radioBtnProfUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnProfUsu.setText("Profesor");
-        jPanel1.add(radioBtnProfUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, -1));
+        jPanel1.add(radioBtnProfUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
 
         radioBtnExtUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         radioBtnExtUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnExtUsu.setText("Externo");
-        jPanel1.add(radioBtnExtUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
+        jPanel1.add(radioBtnExtUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, -1, -1));
 
         radioBtnAdminUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         radioBtnAdminUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnAdminUsu.setText("Administrador");
-        jPanel1.add(radioBtnAdminUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, -1, -1));
+        jPanel1.add(radioBtnAdminUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, -1, -1));
 
         lblEstudianteUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblEstudianteUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -500,42 +503,37 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         combxTitAcadUsu.setBackground(new java.awt.Color(204, 204, 204));
         combxTitAcadUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Titulo Academico", "Item 2", "Item 3", "Item 4" }));
         combxTitAcadUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(combxTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 20));
+        jPanel1.add(combxTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 20));
 
         txtIdTitAcadUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtIdTitAcadUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdTitAcadUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 100, 20));
+        jPanel1.add(txtIdTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 120, 20));
 
         combxDepUsu.setBackground(new java.awt.Color(204, 204, 204));
         combxDepUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamento", "Item 2", "Item 3", "Item 4" }));
         combxDepUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(combxDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 120, 20));
+        jPanel1.add(combxDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 130, 20));
 
         txtIdDepUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtIdDepUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdDepUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(781, 380, 100, -1));
+        jPanel1.add(txtIdDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 110, -1));
 
         jComboBox3.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 20));
 
-        jTextField11.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 100, 20));
-
         combxCarrUsu.setBackground(new java.awt.Color(204, 204, 204));
         combxCarrUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrera", "Item 2", "Item 3", "Item 4" }));
         combxCarrUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(combxCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 120, 20));
+        jPanel1.add(combxCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 150, 20));
 
         txtIdCarrUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtIdCarrUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdCarrUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 100, 20));
+        jPanel1.add(txtIdCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 120, 20));
 
         lblProfUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblProfUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -549,7 +547,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnBuscarUsu.setText("Buscar");
         btnBuscarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 550, 90, 30));
+        jPanel1.add(btnBuscarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 180, 30));
 
         btnModificarUsu.setBackground(new java.awt.Color(255, 102, 153));
         btnModificarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -558,7 +556,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnModificarUsu.setText("Modificar");
         btnModificarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnModificarUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnModificarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 100, 30));
+        jPanel1.add(btnModificarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 110, 30));
 
         btnEliminarUsu.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -567,7 +565,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnEliminarUsu.setText("Eliminar");
         btnEliminarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEliminarUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEliminarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 90, 30));
+        jPanel1.add(btnEliminarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 110, 30));
 
         btnLimpiarUsu.setBackground(new java.awt.Color(51, 255, 102));
         btnLimpiarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -576,17 +574,17 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnLimpiarUsu.setText("Limpiar");
         btnLimpiarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLimpiarUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnLimpiarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, 90, 30));
+        jPanel1.add(btnLimpiarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, 100, 30));
 
         combxBiblioUsu.setBackground(new java.awt.Color(204, 204, 204));
         combxBiblioUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca", "Item 2", "Item 3", "Item 4" }));
         combxBiblioUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(combxBiblioUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 230, 20));
+        jPanel1.add(combxBiblioUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 280, 20));
 
         txtDireccUsu.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtDireccUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtDireccUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 470, 20));
+        jPanel1.add(txtDireccUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 550, 20));
 
         btnRegistrarUsu.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -595,7 +593,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         btnRegistrarUsu.setText("Registrar");
         btnRegistrarUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistrarUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnRegistrarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 100, 30));
+        jPanel1.add(btnRegistrarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 110, 30));
 
         tblUsuarioUsu.setBackground(new java.awt.Color(51, 51, 51));
         tblUsuarioUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -612,13 +610,18 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUsuarioUsu);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 710, 200));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 750, 200));
+
+        lblDireccUsu1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblDireccUsu1.setForeground(new java.awt.Color(255, 255, 255));
+        lblDireccUsu1.setText("Dirección:");
+        jPanel1.add(lblDireccUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -689,24 +692,34 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
 
     private void btn_biblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_biblioMouseClicked
         Biblioteca mod = new Biblioteca();
-            CrudBiblioteca modCrud = new CrudBiblioteca();
-            Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        CrudBiblioteca modCrud = new CrudBiblioteca();
+        Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
         
-            CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
-            ctrl.iniciar();
-            vis.setVisible(true);
-            this.setVisible(false);
+        CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
+        ctrl.iniciar();
+        vis.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_biblioMouseClicked
 
     private void btn_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_librosMouseClicked
-        Vista_gestionLibros vl = new Vista_gestionLibros();
-        vl.setVisible(true);
+        Libro modL = new Libro();
+        CrudLibro modCrudL = new CrudLibro();
+        Vista_gestionLibros visL = new Vista_gestionLibros();
+
+        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+        ctrlL.iniciar();
+        visL.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_librosMouseClicked
 
     private void btn_ejemplarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ejemplarMouseClicked
-        Vista_gestionEjemplar ve = new Vista_gestionEjemplar();
-        ve.setVisible(true);
+        Ejemplar modE = new Ejemplar();
+        CrudEjemplar modCrudE = new CrudEjemplar();
+        Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
+        
+        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE);
+        ctrlE.iniciar();
+        visE.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_ejemplarMouseClicked
 
@@ -761,22 +774,22 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
-    private javax.swing.JButton btnBuscarUsu;
+    public javax.swing.JButton btnBuscarUsu;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnEliminarUsu;
-    private javax.swing.JButton btnLimpiarUsu;
-    private javax.swing.JButton btnModificarUsu;
-    private javax.swing.JButton btnRegistrarUsu;
+    public javax.swing.JButton btnEliminarUsu;
+    public javax.swing.JButton btnLimpiarUsu;
+    public javax.swing.JButton btnModificarUsu;
+    public javax.swing.JButton btnRegistrarUsu;
     private javax.swing.JPanel btn_biblio;
     private javax.swing.JPanel btn_ejemplar;
     private javax.swing.JPanel btn_libros;
     private javax.swing.JPanel btn_prestamo;
     private javax.swing.JPanel btn_principal;
     private javax.swing.JPanel btn_usuario;
-    private javax.swing.JComboBox<String> combxBiblioUsu;
-    private javax.swing.JComboBox<String> combxCarrUsu;
-    private javax.swing.JComboBox<String> combxDepUsu;
-    private javax.swing.JComboBox<String> combxTitAcadUsu;
+    public javax.swing.JComboBox<String> combxBiblioUsu;
+    public javax.swing.JComboBox<String> combxCarrUsu;
+    public javax.swing.JComboBox<String> combxDepUsu;
+    public javax.swing.JComboBox<String> combxTitAcadUsu;
     private javax.swing.JLabel imgLogoBiblio;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -787,16 +800,16 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JLabel lblApellidoUsu;
     private javax.swing.JLabel lblBiblioUsu;
     private javax.swing.JLabel lblBibliotUsu;
     private javax.swing.JLabel lblCedulaUsu;
     private javax.swing.JLabel lblContrasUsu;
-    private javax.swing.JLabel lblDireccUsu;
+    private javax.swing.JLabel lblDireccUsu1;
     private javax.swing.JLabel lblEjemplarUsu;
     private javax.swing.JLabel lblEstudianteUsu;
     private javax.swing.JLabel lblLibrosUsu;
+    private javax.swing.JLabel lblMostrarRegisUsu;
     private javax.swing.JLabel lblNombreUsu;
     private javax.swing.JLabel lblPrestamoUsu;
     private javax.swing.JLabel lblPrincipalUsu;
@@ -806,21 +819,20 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuarioUsu;
     private javax.swing.JLabel logoUsuario;
-    private javax.swing.JRadioButton radioBtnAdminUsu;
-    private javax.swing.JRadioButton radioBtnEstUsu;
-    private javax.swing.JRadioButton radioBtnExtUsu;
-    private javax.swing.JRadioButton radioBtnProfUsu;
-    private javax.swing.JTable tblUsuarioUsu;
-    private javax.swing.JTextField txtApellidoUsu;
-    private javax.swing.JTextField txtBibliotUsu;
-    private javax.swing.JTextField txtBuscarUsu;
-    private javax.swing.JTextField txtCedulaUsu;
-    private javax.swing.JTextField txtContrasUsu;
-    private javax.swing.JTextField txtDireccUsu;
-    private javax.swing.JTextField txtIdCarrUsu;
-    private javax.swing.JTextField txtIdDepUsu;
-    private javax.swing.JTextField txtIdTitAcadUsu;
-    private javax.swing.JTextField txtNombreUsu;
-    private javax.swing.JTextField txtTelefUsu;
+    public javax.swing.JRadioButton radioBtnAdminUsu;
+    public javax.swing.JRadioButton radioBtnEstUsu;
+    public javax.swing.JRadioButton radioBtnExtUsu;
+    public javax.swing.JRadioButton radioBtnProfUsu;
+    public javax.swing.JTable tblUsuarioUsu;
+    public javax.swing.JTextField txtApellidoUsu;
+    public javax.swing.JTextField txtBibliotUsu;
+    public javax.swing.JTextField txtCedulaUsu;
+    public javax.swing.JTextField txtContrasUsu;
+    public javax.swing.JTextField txtDireccUsu;
+    public javax.swing.JTextField txtIdCarrUsu;
+    public javax.swing.JTextField txtIdDepUsu;
+    public javax.swing.JTextField txtIdTitAcadUsu;
+    public javax.swing.JTextField txtNombreUsu;
+    public javax.swing.JTextField txtTelefUsu;
     // End of variables declaration//GEN-END:variables
 }

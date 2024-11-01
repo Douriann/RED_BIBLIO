@@ -8,6 +8,7 @@ vista\Vista_inicioSesion$3.class
 vista\Vista_gestionEjemplar$2.class
 vista\Vista_emergenteMulta$3.class
 modelo\CrudRenovacion.class
+modelo\CrudUsuario.class
 vista\Vista_gestionBiblioteca$3.class
 vista\Vista_gestionBiblioteca$6.class
 vista\Vista_gestionPrestamo$3.class
@@ -47,6 +48,7 @@ vista\Vista_principal$6.class
 modelo\CrudLibro.class
 vista\Vista_principal$12.class
 vista\Vista_gestionPrestamo$5.class
+controlador\CtrlUsuario.class
 vista\Vista_gestionUsuario$6.class
 vista\Vista_gestionLibros$5.class
 vista\Vista_gestionBiblioteca$2.class

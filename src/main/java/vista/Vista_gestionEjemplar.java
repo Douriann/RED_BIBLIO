@@ -4,12 +4,24 @@
  */
 package vista;
 
+import controlador.CtrlUsuario;
+import controlador.CtrlBiblioteca;
+import controlador.CtrlLibro;
+import controlador.CtrlPrestamo;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.Biblioteca;
 import modelo.Conexion;
+import modelo.CrudBiblioteca;
+import modelo.CrudLibro;
+import modelo.CrudPrestamo;
+import modelo.CrudUsuario;
+import modelo.Libro;
+import modelo.Prestamo;
+import modelo.Usuario;
 
 /**
  *
@@ -98,6 +110,8 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         lblUbicacionEjem = new javax.swing.JLabel();
         txtUbicacionEjem = new javax.swing.JTextField();
         combxLibEjemplar = new javax.swing.JComboBox<>();
+        lblMostrarRegisEjem = new javax.swing.JLabel();
+        btnBuscarRegisEjem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -416,17 +430,17 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         txtIdEjemplarEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtIdEjemplarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdEjemplarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdEjemplarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
+        jPanel1.add(txtIdEjemplarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 490, 20));
 
         txtIdLibroEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtIdLibroEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtIdLibroEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdLibroEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 130, 20));
+        jPanel1.add(txtIdLibroEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 150, 20));
 
         txtEstadoEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtEstadoEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtEstadoEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtEstadoEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
+        jPanel1.add(txtEstadoEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 490, 20));
 
         btnRegistrarEjem.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -444,7 +458,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         btnModificarEjem.setText("Modificar");
         btnModificarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnModificarEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnModificarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 100, 30));
+        jPanel1.add(btnModificarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 90, 30));
 
         btnEliminarEjem.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -453,7 +467,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         btnEliminarEjem.setText("Eliminar");
         btnEliminarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEliminarEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEliminarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 90, 30));
+        jPanel1.add(btnEliminarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 90, 30));
 
         btnLimpiarEjem.setBackground(new java.awt.Color(51, 255, 102));
         btnLimpiarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -462,16 +476,16 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         btnLimpiarEjem.setText("Limpiar");
         btnLimpiarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLimpiarEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnLimpiarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, 90, 30));
+        jPanel1.add(btnLimpiarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, 90, 30));
 
         btnBuscarEjem.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnBuscarEjem.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarEjem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarEjem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda-15.png"))); // NOI18N
         btnBuscarEjem.setText("Buscar");
         btnBuscarEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 30));
+        jPanel1.add(btnBuscarEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 170, 90, 20));
 
         tblEjemplarEjem.setBackground(new java.awt.Color(51, 51, 51));
         tblEjemplarEjem.setForeground(new java.awt.Color(255, 255, 255));
@@ -489,7 +503,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         tblEjemplarEjem.setSelectionBackground(new java.awt.Color(13, 104, 116));
         jScrollPane1.setViewportView(tblEjemplarEjem);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 710, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 720, 170));
 
         lblUbicacionEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblUbicacionEjem.setForeground(new java.awt.Color(255, 255, 255));
@@ -499,15 +513,30 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         txtUbicacionEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtUbicacionEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtUbicacionEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtUbicacionEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
+        jPanel1.add(txtUbicacionEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 490, 20));
 
         combxLibEjemplar.setBackground(new java.awt.Color(204, 204, 204));
+        combxLibEjemplar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         combxLibEjemplar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combxLibEjemplarActionPerformed(evt);
             }
         });
-        jPanel1.add(combxLibEjemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 320, -1));
+        jPanel1.add(combxLibEjemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 320, 20));
+
+        lblMostrarRegisEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblMostrarRegisEjem.setForeground(new java.awt.Color(255, 255, 255));
+        lblMostrarRegisEjem.setText("Mostrar Registro:");
+        jPanel1.add(lblMostrarRegisEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, 30));
+
+        btnBuscarRegisEjem.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscarRegisEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnBuscarRegisEjem.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarRegisEjem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarRegisEjem.setText("Buscar");
+        btnBuscarRegisEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBuscarRegisEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBuscarRegisEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -583,26 +612,47 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlPrincipalEjemMouseClicked
 
     private void pnlUsuarioEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlUsuarioEjemMouseClicked
-        Vista_gestionUsuario vu = new Vista_gestionUsuario();
-        vu.setVisible(true);
+        Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
+        Usuario usuario = new Usuario();
+        CrudUsuario consultasU = new CrudUsuario();
+        
+        CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
+        controlU.iniciar();
+        
+        vistaU.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlUsuarioEjemMouseClicked
 
     private void pnlBiblioEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBiblioEjemMouseClicked
-        Vista_gestionBiblioteca vb = new Vista_gestionBiblioteca();
-        vb.setVisible(true);
+        Biblioteca mod = new Biblioteca();
+        CrudBiblioteca modCrud = new CrudBiblioteca();
+        Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        
+        CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
+        ctrl.iniciar();
+        vis.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlBiblioEjemMouseClicked
 
     private void pnlLibrosEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlLibrosEjemMouseClicked
-        Vista_gestionLibros vl = new Vista_gestionLibros();
-        vl.setVisible(true);
+        Libro modL = new Libro();
+        CrudLibro modCrudL = new CrudLibro();
+        Vista_gestionLibros visL = new Vista_gestionLibros();
+
+        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+        ctrlL.iniciar();
+        visL.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlLibrosEjemMouseClicked
 
     private void pnlPrestamoEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPrestamoEjemMouseClicked
-        Vista_gestionPrestamo vp = new Vista_gestionPrestamo();
-        vp.setVisible(true);
+        Prestamo modP = new Prestamo();
+        CrudPrestamo modCP = new CrudPrestamo();
+        Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
+        
+        CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
+        ctrlPres.iniciar();
+        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pnlPrestamoEjemMouseClicked
 
@@ -651,6 +701,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
     public javax.swing.JButton btnBuscarEjem;
+    public javax.swing.JButton btnBuscarRegisEjem;
     private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarEjem;
     public javax.swing.JButton btnLimpiarEjem;
@@ -673,6 +724,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdEjemplarEjem;
     private javax.swing.JLabel lblIdLibroEjem;
     private javax.swing.JLabel lblLibrosEjem;
+    private javax.swing.JLabel lblMostrarRegisEjem;
     private javax.swing.JLabel lblPrestamoEjem;
     private javax.swing.JLabel lblPrincipalEjem;
     private javax.swing.JLabel lblUbicacionEjem;
@@ -684,7 +736,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoEjem;
     private javax.swing.JPanel pnlPrincipalEjem;
     private javax.swing.JPanel pnlUsuarioEjem;
-    private javax.swing.JTable tblEjemplarEjem;
+    public javax.swing.JTable tblEjemplarEjem;
     public javax.swing.JTextField txtEstadoEjem;
     public javax.swing.JTextField txtIdEjemplarEjem;
     public javax.swing.JTextField txtIdLibroEjem;

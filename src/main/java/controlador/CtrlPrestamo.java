@@ -151,7 +151,6 @@ public class CtrlPrestamo implements ActionListener{
         vistaPres.txtIdPrest.setText(null);
         vistaPres.txtCedulaPrest.setText(null);
         vistaPres.txtIdEjemplarPrest.setText(null);
-        vistaPres.txtFchEntregaPrest.setText(null);
         vistaPres.txtEstadoPrest.setText(null);
     }
     

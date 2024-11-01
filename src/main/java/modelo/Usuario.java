@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
-/**
- *
- * @author scocl
- */
 public class Usuario {
     
     protected int cedula;
     protected String nombre;
     protected String apellido;
+    protected int tipo;
     protected String contacto;
     protected String contraseña;
+    protected int idBiblioteca;
 
     public int getCedula() {
         return cedula;
@@ -40,6 +35,14 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     public String getContacto() {
         return contacto;
     }
@@ -55,6 +58,14 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
-    
+
+    public int getIdBiblioteca() {
+        return idBiblioteca;
+    }
+
+    public void setIdBiblioteca(int idBiblioteca) {
+        this.idBiblioteca = idBiblioteca;
+    }
+
+ 
 }

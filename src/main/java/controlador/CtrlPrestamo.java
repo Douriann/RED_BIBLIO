@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Prestamo;
-import modelo.CRUDPrestamo;
+import modelo.CrudPrestamo;
 import modelo.Usuario;
 import modelo.Ejemplar;
 import vista.Vista_gestionPrestamo;
@@ -24,10 +24,10 @@ import modelo.Renovacion;
 
 public class CtrlPrestamo implements ActionListener{
     private Prestamo modP;
-    private CRUDPrestamo modCP;
+    private CrudPrestamo modCP;
     private Vista_gestionPrestamo vistaPres;
     
-    public CtrlPrestamo(Prestamo modP, CRUDPrestamo modCP, Vista_gestionPrestamo vistaPres){
+    public CtrlPrestamo(Prestamo modP, CrudPrestamo modCP, Vista_gestionPrestamo vistaPres){
         this.modP = modP;
         this.modCP = modCP;
         this.vistaPres = vistaPres;

@@ -7,17 +7,17 @@ import javax.swing.JOptionPane;
 // Clases necesarias
 import modelo.InicioSesion;
 import vista.Vista_inicioSesion;
-import modelo.CRUDinicioSesion;
+import modelo.CrudInicioSesion;
 import vista.Vista_principal;
 
-public class ControladorInicioSesion implements ActionListener{
+public class CtrlInicioSesion implements ActionListener{
     
     private final Vista_inicioSesion interfazInicioS;
     private final InicioSesion modeloInicioS;
-    private final CRUDinicioSesion consultasInicioS;
+    private final CrudInicioSesion consultasInicioS;
     private final Vista_principal ventanaPrincipal;
 
-    public ControladorInicioSesion(Vista_inicioSesion interfazInicioS, InicioSesion modeloInicioS, CRUDinicioSesion consultasInicioS, Vista_principal ventanaPrincipal) {
+    public CtrlInicioSesion(Vista_inicioSesion interfazInicioS, InicioSesion modeloInicioS, CrudInicioSesion consultasInicioS, Vista_principal ventanaPrincipal) {
         this.interfazInicioS = interfazInicioS;   //Inicializo atributos
         this.modeloInicioS = modeloInicioS;
         this.consultasInicioS = consultasInicioS;
@@ -42,6 +42,7 @@ public class ControladorInicioSesion implements ActionListener{
         if (consultasInicioS.buscarAdministrador(modeloInicioS)){ 
             //Se encontro un administrador. Se le da acceso al sistema
             JOptionPane.showMessageDialog(null, "Bienvenido al sistema " + modeloInicioS.getNombreUsuario());
+            CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
             ventanaPrincipal.setVisible(true);
             interfazInicioS.setVisible(false);
         }
@@ -50,7 +51,7 @@ public class ControladorInicioSesion implements ActionListener{
             JOptionPane.showMessageDialog(null, "Bienvenido al sistema " + modeloInicioS.getNombreUsuario());
             
             interfazInicioS.setVisible(false);
-            ControladorPrincipal controlPrincipal = new ControladorPrincipal(ventanaPrincipal);
+            CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
             ventanaPrincipal.setVisible(true);
         }
         else{ 

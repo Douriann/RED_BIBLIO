@@ -1,29 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author scocl
- */
 public class Ejemplar {
     
     private int idEjemplar;
     private int idEstadoEj;
     private String ubicacion;
+    private int idLibro; // Profesora este no va es solo para esta fase mientras implementamos la funcionalidad  listas desplegables
     private Libro libro;
     
     public Ejemplar() {
     }
 
-    public Ejemplar(int idEjemplar, int idEstadoEj, String ubicacion, Libro libro) {
+    public Ejemplar(int idEjemplar, int idEstadoEj, String ubicacion, int idLibro, Libro libro) {
         this.idEjemplar = idEjemplar;
         this.idEstadoEj = idEstadoEj;
         this.ubicacion = ubicacion;
+        this.idLibro = idLibro;
         this.libro = libro;
     }
+
     
     public int getIdEjemplar() {
         return idEjemplar;
@@ -49,9 +44,18 @@ public class Ejemplar {
         this.ubicacion = ubicacion;
     }
 
+    public int getIdLibro() {
+        return idLibro;
+    }
+
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
+    }
+    
     public Libro getLibro() {
         return libro;
     }
+    
 
     public void setLibro(Libro libro) {
         this.libro = libro;

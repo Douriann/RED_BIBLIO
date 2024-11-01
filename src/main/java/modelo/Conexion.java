@@ -28,7 +28,7 @@ public class Conexion {
             Class.forName("org.postgresql.Driver"); //Hacer referencia a un archivo
             String url = "jdbc:postgresql://"+HOST+":"+PUERTO+"/"+DB;
             conexion = DriverManager.getConnection(url,USER, PASSWORD);
-            JOptionPane.showMessageDialog(null,"CONEXION EXITOSA");
+            //JOptionPane.showMessageDialog(null,"CONEXION EXITOSA");
         }catch(Exception e){      
                 JOptionPane.showMessageDialog(null,e.getMessage());
         }

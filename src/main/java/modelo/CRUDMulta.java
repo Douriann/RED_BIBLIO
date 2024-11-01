@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class CRUDMulta extends Conexion {
+public class CrudMulta extends Conexion {
     public boolean registrarMulta(Multa mult)
     {
         //PREPARAR CONSULTA

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modelo.CRUDRenovacion;
+import modelo.CrudRenovacion;
 import modelo.Prestamo;
 import modelo.Renovacion;
 import vista.Vista_emergenteRenovacion;
@@ -29,10 +29,10 @@ import vista.Vista_emergenteRenovacion;
  */
 public class CtrlRenovacion implements ActionListener{
     private Renovacion modR;
-    private CRUDRenovacion modCR;
+    private CrudRenovacion modCR;
     private Vista_emergenteRenovacion vistaRen;
 
-    public CtrlRenovacion(Renovacion modR, CRUDRenovacion modCR, Vista_emergenteRenovacion vistaRen) {
+    public CtrlRenovacion(Renovacion modR, CrudRenovacion modCR, Vista_emergenteRenovacion vistaRen) {
         this.modR = modR;
         this.modCR = modCR;
         this.vistaRen = vistaRen;

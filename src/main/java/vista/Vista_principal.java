@@ -5,12 +5,21 @@
 package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
-import controlador.ControladorBiblioteca;
+import controlador.CtrlEjemplar;
+import controlador.CtrlLibro;
+import controlador.CtrlBiblioteca;
+import controlador.CtrlInicioSesion;
 import controlador.CtrlPrestamo;
 import java.awt.Color;
 import modelo.Biblioteca;
-import modelo.CRUDPrestamo;
+import modelo.CrudPrestamo;
 import modelo.CrudBiblioteca;
+import modelo.CrudEjemplar;
+import modelo.CrudInicioSesion;
+import modelo.CrudLibro;
+import modelo.Ejemplar;
+import modelo.InicioSesion;
+import modelo.Libro;
 import modelo.Prestamo;
 
 
@@ -556,8 +565,15 @@ public class Vista_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_numTotalLibMouseExited
 
     private void lblCerrarSesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesMouseClicked
-        Vista_inicioSesion vi = new Vista_inicioSesion();
-        vi.setVisible(true);
+        Vista_inicioSesion vistaInicioS = new Vista_inicioSesion();
+        InicioSesion inicioSesion = new InicioSesion();
+        CrudInicioSesion crudInicioSesion = new CrudInicioSesion();
+        Vista_principal vistaPrincipal = new Vista_principal();
+        
+        CtrlInicioSesion controlInicioSesion = new CtrlInicioSesion(vistaInicioS, inicioSesion,crudInicioSesion,vistaPrincipal);
+        controlInicioSesion.iniciar();
+        
+        vistaInicioS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lblCerrarSesMouseClicked
 
@@ -567,31 +583,44 @@ public class Vista_principal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btn_usuarioMouseClicked
 
+    
+    
     private void btn_biblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_biblioMouseClicked
             Biblioteca mod = new Biblioteca();
             CrudBiblioteca modCrud = new CrudBiblioteca();
             Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
         
-            ControladorBiblioteca ctrl = new ControladorBiblioteca(mod, modCrud, vis);
+            CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
             ctrl.iniciar();
             vis.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_btn_biblioMouseClicked
 
     private void btn_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_librosMouseClicked
-        Vista_gestionLibros vl = new Vista_gestionLibros();
-        vl.setVisible(true);
-        this.setVisible(false);
+            Libro modL = new Libro();
+            CrudLibro modCrudL = new CrudLibro();
+            Vista_gestionLibros visL = new Vista_gestionLibros();
+
+            CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+            ctrlL.iniciar();
+            visL.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_btn_librosMouseClicked
 
     private void btn_ejemplarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ejemplarMouseClicked
-        Vista_gestionEjemplar ve = new Vista_gestionEjemplar();
-        ve.setVisible(true);
+        Ejemplar modE = new Ejemplar();
+        CrudEjemplar modCrudE = new CrudEjemplar();
+        Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
+        
+        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE);
+        ctrlE.iniciar();
+        visE.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_ejemplarMouseClicked
 
     private void btn_prestamoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prestamoMouseClicked
         Prestamo modP = new Prestamo();
-        CRUDPrestamo modCP = new CRUDPrestamo();
+        CrudPrestamo modCP = new CrudPrestamo();
         Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
         
         CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);

@@ -63,7 +63,6 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnModificarBiblio = new javax.swing.JButton();
         btnEliminarBiblio = new javax.swing.JButton();
         btnLimpiarBiblio = new javax.swing.JButton();
-        txtBuscarBiblio = new javax.swing.JTextField();
         btnBuscarBiblio = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBibliotecaBiblio = new javax.swing.JTable();
@@ -433,11 +432,6 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnLimpiarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnLimpiarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, 90, 30));
 
-        txtBuscarBiblio.setBackground(new java.awt.Color(204, 204, 204));
-        txtBuscarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 600, 30));
-
         btnBuscarBiblio.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscarBiblio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnBuscarBiblio.setForeground(new java.awt.Color(255, 255, 255));
@@ -445,7 +439,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
         btnBuscarBiblio.setText("Buscar");
         btnBuscarBiblio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarBiblio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 370, 90, 30));
+        jPanel1.add(btnBuscarBiblio, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 30));
 
         tblBibliotecaBiblio.setBackground(new java.awt.Color(51, 51, 51));
         tblBibliotecaBiblio.setForeground(new java.awt.Color(255, 255, 255));
@@ -634,8 +628,7 @@ public class Vista_gestionBiblioteca extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoBiblio;
     private javax.swing.JPanel pnlPrincipalBiblio;
     private javax.swing.JPanel pnlUsuarioBiblio;
-    public javax.swing.JTable tblBibliotecaBiblio;
-    public javax.swing.JTextField txtBuscarBiblio;
+    private javax.swing.JTable tblBibliotecaBiblio;
     public javax.swing.JTextField txtDireccBiblio;
     public javax.swing.JTextField txtIdBiblioBiblio;
     public javax.swing.JTextField txtNombreBiblio;

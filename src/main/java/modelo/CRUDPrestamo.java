@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author scocl
  */
-public class CRUDPrestamo extends Conexion {
+public class CrudPrestamo extends Conexion {
     
     public boolean registrarPrestamo(Prestamo pres) throws SQLException
     {

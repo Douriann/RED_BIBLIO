@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 
-public class CRUDRenovacion extends Conexion {
+public class CrudRenovacion extends Conexion {
     public boolean registrarRenovacion(Renovacion ren)
     {
         //PREPARAR CONSULTA

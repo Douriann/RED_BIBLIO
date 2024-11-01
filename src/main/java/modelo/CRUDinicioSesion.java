@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CRUDinicioSesion extends Conexion{
+public class CrudInicioSesion extends Conexion{
     /*Verificar si las credenciales ingresadas en la ventana de inicio coinciden
     con las credenciales de algun registro en la tabla de usuario */
     

@@ -4,6 +4,10 @@
  */
 package vista;
 
+import controlador.CtrlPrestamo;
+import modelo.CrudPrestamo;
+import modelo.Prestamo;
+
 /**
  *
  * @author HP
@@ -27,7 +31,6 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnCerrar = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblMulta = new javax.swing.JLabel();
@@ -51,16 +54,6 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnCerrar.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setText("X");
-        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCerrarMouseClicked(evt);
-            }
-        });
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
 
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-atrás.png"))); // NOI18N
         btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -123,7 +116,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnModificarMultPrest.setText("Modificar");
         btnModificarMultPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnModificarMultPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnModificarMultPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 100, 30));
+        jPanel2.add(btnModificarMultPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 100, 30));
 
         btnEliminarMulPrest.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminarMulPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -132,7 +125,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnEliminarMulPrest.setText("Eliminar");
         btnEliminarMulPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEliminarMulPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnEliminarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 90, 30));
+        jPanel2.add(btnEliminarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 90, 30));
 
         btnLimpiarMulPrest.setBackground(new java.awt.Color(51, 255, 102));
         btnLimpiarMulPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -141,7 +134,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnLimpiarMulPrest.setText("Limpiar");
         btnLimpiarMulPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLimpiarMulPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnLimpiarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 90, 30));
+        jPanel2.add(btnLimpiarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 90, 30));
 
         btnRegistrarMulPrest.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarMulPrest.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -150,7 +143,7 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         btnRegistrarMulPrest.setText("Registrar");
         btnRegistrarMulPrest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistrarMulPrest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnRegistrarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 100, 30));
+        jPanel2.add(btnRegistrarMulPrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 100, 30));
 
         tblMultaPrest.setBackground(new java.awt.Color(51, 51, 51));
         tblMultaPrest.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,12 +174,22 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
 
         lblIdRenovPrest1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblIdRenovPrest1.setForeground(new java.awt.Color(255, 255, 255));
-        lblIdRenovPrest1.setText("Mostrar Registros");
-        jPanel2.add(lblIdRenovPrest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        lblIdRenovPrest1.setText("Mostrar Registros:");
+        jPanel2.add(lblIdRenovPrest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 810, 460));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoEmerg.jpeg"))); // NOI18N
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel1MouseDragged(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,16 +207,34 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_btnCerrarMouseClicked
-
     private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
-        Vista_gestionPrestamo vp = new Vista_gestionPrestamo();
-        vp.setVisible(true);
+        Prestamo modP = new Prestamo();
+        CrudPrestamo modCP = new CrudPrestamo();
+        Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
+        
+        CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
+        ctrlPres.iniciar();
+        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarMouseClicked
 
+    /*Evento para mover la vista de Multa en el escritorio*/
+    int xx, xy;
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        xx=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        
+        this.setLocation(x-xx, y-xy);
+    }//GEN-LAST:event_jLabel1MouseDragged
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -254,7 +275,6 @@ public class Vista_emergenteMulta extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscarIdMulPrest;
     public javax.swing.JButton btnBuscarIdPrestamoPrest;
     public javax.swing.JButton btnBuscarRegisMult;
-    private javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnEliminarMulPrest;
     public javax.swing.JButton btnLimpiarMulPrest;
     public javax.swing.JButton btnModificarMultPrest;

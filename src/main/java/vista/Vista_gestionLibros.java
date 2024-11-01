@@ -5,6 +5,11 @@
 package vista;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import modelo.Conexion;
 
 /**
  *
@@ -17,6 +22,50 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
      */
     public Vista_gestionLibros() {
         initComponents();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+        
+        try{
+            String sql = "SELECT * FROM \"Categoria\"";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            combxCategLib.addItem("Seleccione Categoria");
+            while(rs.next())
+            {
+                combxCategLib.addItem(rs.getString("nomCategoria"));
+            
+            }
+            
+            rs.close();
+         
+        }catch(SQLException e)
+        {
+            System.err.println(e.toString());
+        }
+        
+        try{
+            String sql = "SELECT * FROM \"Biblioteca\"";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            combxBiblioLib.addItem("Seleccione Biblioteca");
+            while(rs.next())
+            {
+                combxBiblioLib.addItem(rs.getString("nomBiblioteca"));
+            
+            }
+            
+            rs.close();
+         
+        }catch(SQLException e)
+        {
+            System.err.println(e.toString());
+        }
+        
     }
 
     /**
@@ -28,6 +77,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         imgLogoLib = new javax.swing.JLabel();
         logoBiblioLib = new javax.swing.JLabel();
@@ -61,16 +111,13 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         lblAutorLib = new javax.swing.JLabel();
         txtAnnoLib = new javax.swing.JTextField();
         lblAnnoLib = new javax.swing.JLabel();
-        txtCategLib = new javax.swing.JTextField();
+        txtCategLibros = new javax.swing.JTextField();
         lblCategoriaLib = new javax.swing.JLabel();
-        txtBuscarLib = new javax.swing.JTextField();
-        lblIdEjemplarLib = new javax.swing.JLabel();
         btnBuscarLib = new javax.swing.JButton();
         btnModificarLib = new javax.swing.JButton();
         btnEliminarLib = new javax.swing.JButton();
         btnLimpiarLib = new javax.swing.JButton();
         combxCategLib = new javax.swing.JComboBox<>();
-        txtIdEjemplarLib = new javax.swing.JTextField();
         btnRegistrarLib = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLibrosLib = new javax.swing.JTable();
@@ -79,6 +126,8 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         lblIdBiblioLib = new javax.swing.JLabel();
         lblCantidadLib = new javax.swing.JLabel();
         txtCantidadLib = new javax.swing.JTextField();
+        lblLibros1 = new javax.swing.JLabel();
+        btnBuscarCantEj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -376,8 +425,8 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         lblLibros.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         lblLibros.setForeground(new java.awt.Color(255, 255, 255));
-        lblLibros.setText("Libros");
-        jPanel1.add(lblLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+        lblLibros.setText("Ejemplares por Libro");
+        jPanel1.add(lblLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
         lblIdLibroLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblIdLibroLib.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,13 +435,11 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         txtIdLibroLib.setBackground(new java.awt.Color(204, 204, 204));
         txtIdLibroLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdLibroLib.setForeground(new java.awt.Color(0, 0, 0));
         txtIdLibroLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdLibroLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 470, 20));
 
         txtTituloLib.setBackground(new java.awt.Color(204, 204, 204));
         txtTituloLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtTituloLib.setForeground(new java.awt.Color(0, 0, 0));
         txtTituloLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtTituloLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, 20));
 
@@ -403,7 +450,6 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         txtAutorLib.setBackground(new java.awt.Color(204, 204, 204));
         txtAutorLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtAutorLib.setForeground(new java.awt.Color(0, 0, 0));
         txtAutorLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtAutorLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 470, 20));
 
@@ -414,7 +460,6 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         txtAnnoLib.setBackground(new java.awt.Color(204, 204, 204));
         txtAnnoLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtAnnoLib.setForeground(new java.awt.Color(0, 0, 0));
         txtAnnoLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtAnnoLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 470, 20));
 
@@ -423,27 +468,15 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         lblAnnoLib.setText("Año:");
         jPanel1.add(lblAnnoLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
 
-        txtCategLib.setBackground(new java.awt.Color(204, 204, 204));
-        txtCategLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtCategLib.setForeground(new java.awt.Color(0, 0, 0));
-        txtCategLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtCategLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 230, 20));
+        txtCategLibros.setBackground(new java.awt.Color(204, 204, 204));
+        txtCategLibros.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtCategLibros.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(txtCategLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 230, 20));
 
         lblCategoriaLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblCategoriaLib.setForeground(new java.awt.Color(255, 255, 255));
         lblCategoriaLib.setText("Categoria:");
         jPanel1.add(lblCategoriaLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
-
-        txtBuscarLib.setBackground(new java.awt.Color(204, 204, 204));
-        txtBuscarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBuscarLib.setForeground(new java.awt.Color(0, 0, 0));
-        txtBuscarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtBuscarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, 600, 30));
-
-        lblIdEjemplarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        lblIdEjemplarLib.setForeground(new java.awt.Color(255, 255, 255));
-        lblIdEjemplarLib.setText("Id Ejemplar:");
-        jPanel1.add(lblIdEjemplarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         btnBuscarLib.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -452,7 +485,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         btnBuscarLib.setText("Buscar");
         btnBuscarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarLib.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBuscarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 90, 30));
+        jPanel1.add(btnBuscarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 30));
 
         btnModificarLib.setBackground(new java.awt.Color(255, 102, 153));
         btnModificarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -461,7 +494,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         btnModificarLib.setText("Modificar");
         btnModificarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnModificarLib.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnModificarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 100, 30));
+        jPanel1.add(btnModificarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 100, 30));
 
         btnEliminarLib.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -470,7 +503,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         btnEliminarLib.setText("Eliminar");
         btnEliminarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEliminarLib.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEliminarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 90, 30));
+        jPanel1.add(btnEliminarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 90, 30));
 
         btnLimpiarLib.setBackground(new java.awt.Color(51, 255, 102));
         btnLimpiarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -479,19 +512,16 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         btnLimpiarLib.setText("Limpiar");
         btnLimpiarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLimpiarLib.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnLimpiarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 90, 30));
+        jPanel1.add(btnLimpiarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 90, 30));
 
         combxCategLib.setBackground(new java.awt.Color(204, 204, 204));
-        combxCategLib.setForeground(new java.awt.Color(0, 0, 0));
-        combxCategLib.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categoria", "Item 2", "Item 3", "Item 4" }));
         combxCategLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        combxCategLib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combxCategLibActionPerformed(evt);
+            }
+        });
         jPanel1.add(combxCategLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 230, 20));
-
-        txtIdEjemplarLib.setBackground(new java.awt.Color(204, 204, 204));
-        txtIdEjemplarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtIdEjemplarLib.setForeground(new java.awt.Color(0, 0, 0));
-        txtIdEjemplarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtIdEjemplarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 470, 20));
 
         btnRegistrarLib.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -500,19 +530,19 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         btnRegistrarLib.setText("Registrar");
         btnRegistrarLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistrarLib.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnRegistrarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 100, 30));
+        jPanel1.add(btnRegistrarLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 100, 30));
 
         tblLibrosLib.setBackground(new java.awt.Color(51, 51, 51));
         tblLibrosLib.setForeground(new java.awt.Color(255, 255, 255));
         tblLibrosLib.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id Libro", "Titulo", "Autor", "Año", "Cantidad", "Biblioteca", "Id Ejemplar", "Cantidad"
+                "Id Libro", "Titulo", "Autor", "Año", "Biblioteca", "Cantidad"
             }
         ));
         tblLibrosLib.setSelectionBackground(new java.awt.Color(13, 104, 116));
@@ -522,31 +552,41 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         txtBiblioLib.setBackground(new java.awt.Color(204, 204, 204));
         txtBiblioLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtBiblioLib.setForeground(new java.awt.Color(0, 0, 0));
         txtBiblioLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 230, 20));
+        jPanel1.add(txtBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 70, 20));
 
         combxBiblioLib.setBackground(new java.awt.Color(204, 204, 204));
-        combxBiblioLib.setForeground(new java.awt.Color(0, 0, 0));
-        combxBiblioLib.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca", "Item 2", "Item 3", "Item 4" }));
         combxBiblioLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(combxBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 230, 20));
+        jPanel1.add(combxBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 390, 20));
 
         lblIdBiblioLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblIdBiblioLib.setForeground(new java.awt.Color(255, 255, 255));
-        lblIdBiblioLib.setText("Bibliotecas:");
-        jPanel1.add(lblIdBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
+        lblIdBiblioLib.setText("Biblioteca:");
+        jPanel1.add(lblIdBiblioLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         lblCantidadLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblCantidadLib.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidadLib.setText("Cantidad:");
-        jPanel1.add(lblCantidadLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        jPanel1.add(lblCantidadLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
 
         txtCantidadLib.setBackground(new java.awt.Color(204, 204, 204));
         txtCantidadLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtCantidadLib.setForeground(new java.awt.Color(0, 0, 0));
         txtCantidadLib.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtCantidadLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 470, 20));
+        jPanel1.add(txtCantidadLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 470, 20));
+
+        lblLibros1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        lblLibros1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLibros1.setText("Libros");
+        jPanel1.add(lblLibros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+
+        btnBuscarCantEj.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscarCantEj.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnBuscarCantEj.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarCantEj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-búsqueda.png"))); // NOI18N
+        btnBuscarCantEj.setText("Buscar");
+        btnBuscarCantEj.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBuscarCantEj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBuscarCantEj, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -645,6 +685,10 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_pnlPrestamoLibMouseClicked
 
+    private void combxCategLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxCategLibActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combxCategLibActionPerformed
+
     
     
     /**
@@ -685,15 +729,17 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PanelMenu;
     private javax.swing.JLabel PanelSup;
-    private javax.swing.JButton btnBuscarLib;
+    public javax.swing.JButton btnBuscarCantEj;
+    public javax.swing.JButton btnBuscarLib;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnEliminarLib;
-    private javax.swing.JButton btnLimpiarLib;
-    private javax.swing.JButton btnModificarLib;
-    private javax.swing.JButton btnRegistrarLib;
+    public javax.swing.JButton btnEliminarLib;
+    public javax.swing.JButton btnLimpiarLib;
+    public javax.swing.JButton btnModificarLib;
+    public javax.swing.JButton btnRegistrarLib;
     private javax.swing.JPanel btn_biblio;
-    private javax.swing.JComboBox<String> combxBiblioLib;
-    private javax.swing.JComboBox<String> combxCategLib;
+    private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.JComboBox<String> combxBiblioLib;
+    public javax.swing.JComboBox<String> combxCategLib;
     private javax.swing.JLabel imgLogoLib;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -702,7 +748,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAnnoLib;
     private javax.swing.JLabel lblAutorLib;
@@ -711,9 +757,9 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
     private javax.swing.JLabel lblCategoriaLib;
     private javax.swing.JLabel lblEjemplarLib;
     private javax.swing.JLabel lblIdBiblioLib;
-    private javax.swing.JLabel lblIdEjemplarLib;
     private javax.swing.JLabel lblIdLibroLib;
     private javax.swing.JLabel lblLibros;
+    private javax.swing.JLabel lblLibros1;
     private javax.swing.JLabel lblLibrosLib;
     private javax.swing.JLabel lblPrestamoLib;
     private javax.swing.JLabel lblPrincipalLib;
@@ -724,15 +770,13 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrestamoLib;
     private javax.swing.JPanel pnlPrincipalLib;
     private javax.swing.JPanel pnlUsuarioLib;
-    private javax.swing.JTable tblLibrosLib;
-    private javax.swing.JTextField txtAnnoLib;
-    private javax.swing.JTextField txtAutorLib;
-    private javax.swing.JTextField txtBiblioLib;
-    private javax.swing.JTextField txtBuscarLib;
-    private javax.swing.JTextField txtCantidadLib;
-    private javax.swing.JTextField txtCategLib;
-    private javax.swing.JTextField txtIdEjemplarLib;
-    private javax.swing.JTextField txtIdLibroLib;
-    private javax.swing.JTextField txtTituloLib;
+    public javax.swing.JTable tblLibrosLib;
+    public javax.swing.JTextField txtAnnoLib;
+    public javax.swing.JTextField txtAutorLib;
+    public javax.swing.JTextField txtBiblioLib;
+    public javax.swing.JTextField txtCantidadLib;
+    public javax.swing.JTextField txtCategLibros;
+    public javax.swing.JTextField txtIdLibroLib;
+    public javax.swing.JTextField txtTituloLib;
     // End of variables declaration//GEN-END:variables
 }

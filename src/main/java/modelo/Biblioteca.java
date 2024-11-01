@@ -1,19 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
-/**
- *
- * @author scocl
- */
 public class Biblioteca {
     
     private int idBiblioteca;
     private String nomBiblioteca;
     private String direccion;
-    private Libro[] libros;
 
     public Biblioteca() {
     }
@@ -22,7 +14,6 @@ public class Biblioteca {
         this.idBiblioteca = idBiblioteca;
         this.nomBiblioteca = nomBiblioteca;
         this.direccion = direccion;
-        this.libros = libros;
     }
     
     public int getIdBiblioteca() {
@@ -48,13 +39,4 @@ public class Biblioteca {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
-    public Libro[] getLibros() {
-        return libros;
-    }
-
-    public void setLibros(Libro[] libros) {
-        this.libros = libros;
-    }
-    
 }

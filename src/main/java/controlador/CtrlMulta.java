@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modelo.CRUDMulta;
+import modelo.CrudMulta;
 import modelo.Ejemplar;
 import modelo.Multa;
 import modelo.Prestamo;
@@ -24,10 +24,10 @@ import vista.Vista_emergenteMulta;
 
 public class CtrlMulta implements ActionListener{
     private Multa modM;
-    private CRUDMulta modCM;
+    private CrudMulta modCM;
     private Vista_emergenteMulta vistaMult;
 
-    public CtrlMulta(Multa modM, CRUDMulta modCM, Vista_emergenteMulta vistaMult) {
+    public CtrlMulta(Multa modM, CrudMulta modCM, Vista_emergenteMulta vistaMult) {
         this.modM = modM;
         this.modCM = modCM;
         this.vistaMult = vistaMult;

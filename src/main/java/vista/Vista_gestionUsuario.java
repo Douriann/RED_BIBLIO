@@ -4,7 +4,13 @@
  */
 package vista;
 
+import controlador.CtrlBiblioteca;
+import controlador.CtrlPrestamo;
 import java.awt.Color;
+import modelo.Biblioteca;
+import modelo.CrudPrestamo;
+import modelo.CrudBiblioteca;
+import modelo.Prestamo;
 
 /**
  *
@@ -682,9 +688,14 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_principalMouseClicked
 
     private void btn_biblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_biblioMouseClicked
-        Vista_gestionBiblioteca vb = new Vista_gestionBiblioteca();
-        vb.setVisible(true);
-        this.setVisible(false);
+        Biblioteca mod = new Biblioteca();
+            CrudBiblioteca modCrud = new CrudBiblioteca();
+            Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        
+            CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
+            ctrl.iniciar();
+            vis.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_btn_biblioMouseClicked
 
     private void btn_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_librosMouseClicked
@@ -700,8 +711,13 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ejemplarMouseClicked
 
     private void btn_prestamoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prestamoMouseClicked
-        Vista_gestionPrestamo vp = new Vista_gestionPrestamo();
-        vp.setVisible(true);
+        Prestamo modP = new Prestamo();
+        CrudPrestamo modCP = new CrudPrestamo();
+        Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
+        
+        CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
+        ctrlPres.iniciar();
+        vistaPres.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_prestamoMouseClicked
 

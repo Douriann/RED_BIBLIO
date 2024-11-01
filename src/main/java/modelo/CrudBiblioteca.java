@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class CrudBiblioteca extends Conexion {
     
-    public boolean registrar(Biblioteca bli){
+    public boolean registrarBiblioteca(Biblioteca bli){
         PreparedStatement ps = null;
         Connection con = getConexion();
         
@@ -44,7 +44,7 @@ public class CrudBiblioteca extends Conexion {
             }
         }
     }
-    public boolean modificar(Biblioteca bli){
+    public boolean modificarBiblioteca(Biblioteca bli){
         PreparedStatement ps = null;
         Connection con = getConexion();
         
@@ -71,7 +71,7 @@ public class CrudBiblioteca extends Conexion {
             }
         }
     }
-    public boolean eliminar(Biblioteca bli){
+    public boolean eliminarBiblioteca(Biblioteca bli){
         PreparedStatement ps = null;
         Connection con = getConexion();
         
@@ -95,7 +95,7 @@ public class CrudBiblioteca extends Conexion {
             }
         }
     }
-    public boolean buscar(Biblioteca bli){
+    public boolean buscarBiblioteca(Biblioteca bli){
         PreparedStatement ps = null;
         ResultSet rs = null; //Variable que guarda resultado de consulta. Es decir registro
         Connection con = getConexion();

@@ -4,14 +4,14 @@
 
 package red_biblio_equipo3.main;
 
-import controlador.ControladorInicioSesion;
+import controlador.CtrlInicioSesion;
 import controlador.CtrlMulta;
 import controlador.CtrlPrestamo;
 import controlador.CtrlRenovacion;
-import modelo.CRUDMulta;
-import modelo.CRUDPrestamo;
-import modelo.CRUDRenovacion;
-import modelo.CRUDinicioSesion;
+import modelo.CrudMulta;
+import modelo.CrudPrestamo;
+import modelo.CrudRenovacion;
+import modelo.CrudInicioSesion;
 import modelo.InicioSesion;
 import modelo.Multa;
 import modelo.Prestamo;
@@ -37,10 +37,10 @@ public class main {
         
         Vista_inicioSesion vistaInicioS = new Vista_inicioSesion();
         InicioSesion inicioSesion = new InicioSesion();
-        CRUDinicioSesion crudInicioSesion = new CRUDinicioSesion();
+        CrudInicioSesion crudInicioSesion = new CrudInicioSesion();
         Vista_principal vistaPrincipal = new Vista_principal();
         
-        ControladorInicioSesion controlInicioSesion = new ControladorInicioSesion(vistaInicioS, inicioSesion,crudInicioSesion,vistaPrincipal);
+        CtrlInicioSesion controlInicioSesion = new CtrlInicioSesion(vistaInicioS, inicioSesion,crudInicioSesion,vistaPrincipal);
         controlInicioSesion.iniciar();
         
         vistaInicioS.setVisible(true);    
@@ -66,5 +66,31 @@ public class main {
     CtrlRenovacion ctrlRen = new CtrlRenovacion(modR,modCR,vistaRen);
     ctrlRen.iniciar();
     vistaRen.setVisible(true);*/
+    
+         /*OBJETO DE LIBRO
+        Libro modL = new Libro();
+        CrudLibro modCrudL = new CrudLibro();
+        Vista_gestionLibros visL = new Vista_gestionLibros();
+        
+        ControladorLibro ctrlL = new ControladorLibro(modL, modCrudL, visL);
+        ctrlL.iniciar();
+        visL.setVisible(true);*/
+         //Ejemplar
+        /*Ejemplar modE = new Ejemplar();
+        CrudEjemplar modCrudE = new CrudEjemplar();
+        Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
+        
+        ControladorEjemplar ctrlE = new ControladorEjemplar(modE, modCrudE, visE);
+        ctrlE.iniciar();
+        visE.setVisible(true);*/
+        
+        /*OBJETO DE BIBLIOTECA
+        Biblioteca mod = new Biblioteca();
+        CrudBiblioteca modCrud = new CrudBiblioteca();
+        Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+        
+        ControladorBiblioteca ctrl = new ControladorBiblioteca(mod, modCrud, vis);
+        ctrl.iniciar();
+        vis.setVisible(true);*/
     }
 }

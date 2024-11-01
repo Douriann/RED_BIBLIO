@@ -1,10 +1,17 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// CREANDO ATRIBUTOS Y HEREDANDO USUARIO
 public class Externo extends Usuario {
     
     private String direccion;
-
+// CREANDO SETTERS Y GETTERS
     public String getDireccion() {
         return direccion;
     }

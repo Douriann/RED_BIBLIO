@@ -1,10 +1,17 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// HEREDANDO ATRIBUTOS DE USUARIO Y AÑADIENDO ADICIONALES PROPIAS DE LA CLASE
 public class Estudiante extends Usuario{
     
     private int idCarrera;
-
+// CREANDO SETTERS Y GETTERS
     public int getIdCarrera() {
         return idCarrera;
     }

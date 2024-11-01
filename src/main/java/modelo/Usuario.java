@@ -1,6 +1,13 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// INVOCANDO ATRIBUTOS
 public class Usuario {
     
     protected int cedula;
@@ -10,11 +17,10 @@ public class Usuario {
     protected String contacto;
     protected String contraseña;
     protected int idBiblioteca;
-
     public int getCedula() {
         return cedula;
     }
-
+    // LLAMANDO SETTERS Y GETTERS
     public void setCedula(int cedula) {
         this.cedula = cedula;
     }

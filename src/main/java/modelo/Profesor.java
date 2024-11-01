@@ -1,6 +1,13 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// CLASE PROFESOR HEREDA DE USUARIO, JUNTO A SUS ATRIBUTOS INDIVIDUALES
 public class Profesor extends Usuario{
     
     private Integer idTituloAcad;

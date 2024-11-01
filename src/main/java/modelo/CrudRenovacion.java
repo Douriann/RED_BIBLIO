@@ -1,4 +1,11 @@
-//prueba
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
 
 import java.awt.List;
@@ -162,87 +169,41 @@ public class CrudRenovacion extends Conexion {
             }
         }
     }
-    
-/*    public ArrayList<Renovacion> listarRenovacion(Renovacion ren) throws ParseException
-    {
-        ArrayList<Renovacion> datosRen = new ArrayList<>();
-        //PREPARAR CONSULTA
-        PreparedStatement ps = null;
-        ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()
-        Connection con = getConexion();
-
-        
-        //CONSULTA SQL
-        String sql = "SELECT * FROM \"Renovacion\""; 
-        
-        //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA
-        
-        try{
-            
-            ps = con.prepareStatement(sql); //INVOCO LA CONSULTA, MANDO SQL
-            //MANDAR DATOS
-            //SE INTERACTUA CON LOS DATOS DEL MODELO
-            rs = ps.executeQuery();
-            //ps.execute();                            //EJECUTO CONSULTA
-            if(rs.next()){
-                while(rs.next()){
-                Prestamo prestamo = new Prestamo();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
-                ren.setIdRenovacion(0);
-                ren.setPrestamo(prestamo);
-                ren.setFechaSalida(dateFormat.parse(rs.getString("fechaSalida")));
-                ren.setFechaVence(dateFormat.parse(rs.getString("fechaVence")));
-                ren.setIdEstadoRen(Integer.parseInt(rs.getString("idEstadoRen")));
-                datosRen.add(ren);
-            }
-                return datosRen;
-            }
-
-            return datosRen;
-               
-        } catch(SQLException e)
-        {
-            System.err.println(e);
-        } finally                         //CIERRO CONEXION
-        {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.err.println(e);
-            }
-        }
-        return datosRen;
-    }*/
-    
+    // METODO PARA CREAR UNA LISTA DE OBJETOS DE LA CLASE    
 public ArrayList<Renovacion> listarRenovacion(Renovacion ren) throws ParseException {
+    // CREA E INICIALIZA UNA NUEVA ARRAY LIST DE LOS OBJETOS
     ArrayList<Renovacion> datosRen = new ArrayList<>();
+    // SE INICIALIZA Y PREPARAN LAS CONSULTAS SQL CON SU RESPECTIVA CONEXION
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection con = getConexion();
-
+    // CONSULTA SQL
     String sql = "SELECT \"Renovacion\".*, \"EstadoRenovacion\".\"nomEstadoRen\" FROM \"Renovacion\" JOIN \"EstadoRenovacion\" ON \"Renovacion\".\"idEstadoRen\" = \"EstadoRenovacion\".\"idEstadoRen\"";
-
+    // PROBAR SI SE PUEDE REALIZAR LA OPERACION
     try {
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
-
+        // MIENTRAS EXISTAN LECTURAS, REALIZAR TAL ACCION
         while (rs.next()) {
+            // CREA UNA NUEVA INSTANCIA PARA OBTENER EL ATRIBUTO ID EJEMPLAR DELA CLASE PRESTAMO
             Prestamo prestamo = new Prestamo();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
-            
+            // CREA UN NUEVO OBJETO PARA AÑADIR AL ARREGLO
             Renovacion renovacion = new Renovacion();
+            // OBTIENE LOS ATRIBUTOS PARA LA CREACION
             renovacion.setIdRenovacion(Integer.parseInt(rs.getString("idRenovacion")));
             renovacion.setPrestamo(prestamo);
             renovacion.setFechaSalida(dateFormat.parse(rs.getString("fechaSalida")));
             renovacion.setFechaVence(dateFormat.parse(rs.getString("fechaVence")));
             renovacion.setIdEstadoRen(Integer.parseInt(rs.getString("idEstadoRen")));
             renovacion.setNomEstRen(rs.getString("nomEstadoRen"));
-            
+            // SE AÑADE EL OBJETO AL ARREGLO
             datosRen.add(renovacion);
         }
+        // DEVUELVE EL ARREGLO
         return datosRen;
+        // ANTE CUALQUIER PROBLEMA, ENTREGA UN ARREGLO VACIO O EXCEPCION
     } catch (SQLException e) {
         System.err.println(e);
     } finally {

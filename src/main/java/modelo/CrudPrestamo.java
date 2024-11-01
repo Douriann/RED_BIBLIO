@@ -1,4 +1,11 @@
-//prueba
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
 
 import java.sql.PreparedStatement;
@@ -9,13 +16,7 @@ import java.sql.ResultSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author scocl
- */
 public class CrudPrestamo extends Conexion {
     
     public boolean registrarPrestamo(Prestamo pres) throws SQLException
@@ -174,30 +175,32 @@ public class CrudPrestamo extends Conexion {
             }
         }
     }
+        // metodo para crear una lista de objetos
         public ArrayList<Prestamo> listarPrestamo(Prestamo pres) throws ParseException {
-        //SE INICIALIZA EL ARREGLO
+        //CREA E INICIALIZA UNA NUEVA ARRAYLIST DE LOS OBJETOS
         ArrayList<Prestamo> datosPres = new ArrayList<>();
+        // SE INICIALIZA Y PREPARAN LAS CONSULTAS SQL CON SU RESPECTIVA CONEXION
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
-
+        //CONSULTA SQL
         String sql = "SELECT \"Prestamo\".*, \"EstadoPrestamo\".\"nomEstadoPre\" FROM \"Prestamo\" JOIN \"EstadoPrestamo\" ON \"Prestamo\".\"idEstadoPre\" = \"EstadoPrestamo\".\"idEstadoPre\"";
-
+        // PROBAR SI SE PUEDE REALIZAR LA OPERACION
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-
+            // MIENTRAS EXISTAN LECTURAS, REALIZAR TAL ACCION
             while (rs.next()) {
-                
+                // CREA UN NUEVO OBJETO PARA INSTANCIAR LA CLASE COMO UN ATRIBUTO
                 Usuario usuario = new Usuario();
                 usuario.setCedula(Integer.parseInt(rs.getString("cedula")));
                 
                 Ejemplar ejemplar = new Ejemplar();
                 ejemplar.setIdEjemplar(Integer.parseInt(rs.getString("idEjemplar")));
                 
-                
+                // LLAMA A LA CLASE DATEFORMAT PARA PARSEAR EL ATRIBUTO DE LA BD A UN DATO TIPO DATE
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
+                // OBTIENE LOS ATRIBUTOS PARA LA CREACION
                 Prestamo prestamo = new Prestamo();
                 prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
                 prestamo.setUsuario(usuario);
@@ -207,9 +210,12 @@ public class CrudPrestamo extends Conexion {
                 prestamo.setFechaEntrego(dateFormat.parse(rs.getString("fechaEntrega")));
                 prestamo.setIdEstadoPre(Integer.parseInt(rs.getString("idEstadoPre")));
                 prestamo.setNomEstadoPre(rs.getString("nomEstadoPre"));
+                // SE AÑADE EL OBJETO AL ARREGLO
                 datosPres.add(prestamo);
             }
+            // DEVUELVE EL ARREGLO
             return datosPres;
+            // ANTE CUALQUIER PROBLEMA, ENTREGA UN ARREGLO VACIO O EXCEPCION
         } catch (SQLException e) {
             System.err.println(e);
         } finally {
@@ -221,7 +227,7 @@ public class CrudPrestamo extends Conexion {
         }
         return datosPres;
     }
-        
+        // METODO PARA CONSEGUIR LA CANTIDAD DE EJEMPLARES DE UN LIBRO
         public int buscarEjemplar(Prestamo pres){
 
             PreparedStatement ps = null;
@@ -229,7 +235,12 @@ public class CrudPrestamo extends Conexion {
             Connection con = getConexion();
 
 
-            //CONSULTA SQL
+            //CONSULTA SQL COMPUESTA
+            /*
+            DADO LOS ATRIBUTOS DEL USUARIO QUE SOLICITA EL PRESTAMO, SE CONSIGUE LA BIBLIOTECA EN
+            DONDE PERTENECE, DEPENDIENDO DEL ID DEL LIBRO, SE CONSIGUE DICHO ATRIBUTO
+            LUEGO, EN LA TABLA BIBLIOTECALIBRO CONSIGUE LA CANTIDAD DE EJEMPLARES PARA CONSULTAR
+            */
             String sql = "SELECT \"bl\".\"cantEjemplares\" FROM \"Usuario\" \"u\" JOIN \"BibliotecaLibro\" \"bl\" ON \"u\".\"idBiblioteca\" = \"bl\".\"idBiblioteca\" WHERE \"u\".\"cedula\" = ? AND \"bl\".\"idLibro\" = ?"; 
 
             //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA
@@ -272,6 +283,10 @@ public class CrudPrestamo extends Conexion {
         Connection con = getConexion();
         
         //CONSULTA SQL
+        /*
+        AL REALIZAR EL PRESTAMO, SE REMUEVE UN EJEMPLAR DE LOS EXISTENTES EN LA BIBLIOTECA
+        ESTO LO HACE CONSULTANDO EL ID DEL LIBRO Y EL ID DE BIBLIOTECA
+        */
         String sql = "UPDATE \"BibliotecaLibro\" SET \"cantEjemplares\" = \"cantEjemplares\" - 1 WHERE \"idBiblioteca\" = (SELECT \"idBiblioteca\" FROM \"Usuario\" WHERE \"cedula\" = ?) AND \"idLibro\" = ?";
         
         //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA

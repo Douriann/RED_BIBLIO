@@ -1,12 +1,19 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// CREACION DE ATRIBUTOS
 public class Biblioteca {
     
     private int idBiblioteca;
     private String nomBiblioteca;
     private String direccion;
-
+// CREACION DE CONSTRUCTORES
     public Biblioteca() {
     }
 
@@ -15,7 +22,7 @@ public class Biblioteca {
         this.nomBiblioteca = nomBiblioteca;
         this.direccion = direccion;
     }
-    
+// CREACION DE SETTERS Y GETTERS    
     public int getIdBiblioteca() {
         return idBiblioteca;
     }

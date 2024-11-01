@@ -158,32 +158,38 @@ public class CrudMulta extends Conexion {
             }
         }
     }
-    
+    // METODO PARA CREAR UNA LISTA DE OBJETOS DE LA CLASE
     public ArrayList<Multa> listarMulta(Multa mult) throws ParseException {
+        // CREA E INICIALIZA UNA NUEVA ARRAYLIST DE LOS OBJETOS
     ArrayList<Multa> datosMult = new ArrayList<>();
+        // SE INICIALIZA Y PREPARAN LAS CONSULTAS SQL CON SU RESPECTIVA CONEXION
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection con = getConexion();
-
+        // CONSUTLA SQL
     String sql = "SELECT * FROM \"Multa\"";
-
+        // PROBAR SI SE PUEDE REALIZAR LA OPERACION
     try {
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
-
+        // MIENTRAS EXISTAN LECTURAS, REALIZAR TAL ACCION
         while (rs.next()) {
+            // CREA UN NUEVO OBJETO PARA INSTANCIAR LA CLASE COMO ATRIBUTO
             Prestamo prestamo = new Prestamo();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             prestamo.setIdPrestamo(Integer.parseInt(rs.getString("idPrestamo")));
-            
+            // CREA UN NUEVO OBJETO PARA AÑADIR AL ARREGLO
             Multa multa = new Multa();
             multa.setIdMulta(Integer.parseInt(rs.getString("idMulta")));
             multa.setPrestamo(prestamo);
             multa.setFechaInicio(dateFormat.parse(rs.getString("fechaInicio")));
             multa.setFechaFin(dateFormat.parse(rs.getString("fechaFin")));
+            // SE AÑADE EL OBJETO AL ARREGLO
             datosMult.add(multa);
         }
+        // DEVUELVE AL ARREGLO
         return datosMult;
+        // ANTE CUALQUIER PROBLEMA, ENTREGA UN ARREGLO VACIO O EXCEPCION
     } catch (SQLException e) {
         System.err.println(e);
     } finally {

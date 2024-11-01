@@ -1,5 +1,10 @@
 /*
- * CLASE CONTROLADOR BIBLIOTECA 
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
  */
 package controlador;
 
@@ -9,21 +14,19 @@ import vista.Vista_gestionBiblioteca;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modelo.Prestamo;
 
 
 public class CtrlBiblioteca implements ActionListener{
     //Instrucciones para que podamos detectar click en los botones y
     //Enviar los valores de la caja de texto y que se pueda insertar a la base de datos
     
-    // DECLARAR VARIABLES. Faltaba la palabra clave final en la declaracion de atributos
+    // DECLARAR VARIABLES
     private final Biblioteca mod;
     private final CrudBiblioteca modCrud;
     private final Vista_gestionBiblioteca vis;
@@ -64,7 +67,6 @@ public class CtrlBiblioteca implements ActionListener{
             //TOMAR VALORES DE LAS CAJAS DE TEXTO, METERLOS AL MODELO, LLAMAR AL METODO DE REGISTRAR E INSERTAR DATOS A BASE
             
             //PASAR VALORES RECIBIDOS EN CAJAS DE TEXTO A ATRIBUTOS DE LA CLASE BIBLIOTECA
-            //mod.setIdBiblioteca(Integer.parseInt(vis.txtIdBiblioBiblio.getText())); EL ID NO ES NECESARIO. NO SE INGRESA EN FORMULARIO
             mod.setNomBiblioteca(vis.txtNombreBiblio.getText());
             mod.setDireccion((vis.txtDireccBiblio.getText()));
             
@@ -119,18 +121,7 @@ public class CtrlBiblioteca implements ActionListener{
             mod.setIdBiblioteca(Integer.parseInt(vis.txtIdBiblioBiblio.getText()));
 
             if(modCrud.buscarBiblioteca(mod)) //EL METODO BUSCAR RETORNA TRUE, POR LO TANTO SE ENCONTRO UN REGISTRO
-            {
-            /* No se hace esto
-            Lo que se esta haciendo aqui es pasarle los valores de las cajas de texto a los atributos de la clase biblioteca
-            mod.setIdBiblioteca(Integer.parseInt(vis.txtIdBiblioBiblio.getText()));
-            mod.setNomBiblioteca(vis.txtNombreBiblio.getText());
-            mod.setDireccion((vis.txtDireccBiblio.getText()));
-            */
-            
-            //Se debe hacer esto.
-            //A las cajas de texto de nombre biblioteca y direccion biblioteca se le pasa los valores que tienen
-            //los atributos mediante el metodo get.
-            
+            {           
             vis.txtNombreBiblio.setText(mod.getNomBiblioteca()); 
             vis.txtDireccBiblio.setText(mod.getDireccion());
             } 
@@ -144,6 +135,7 @@ public class CtrlBiblioteca implements ActionListener{
             {
                 limpiar();
             }
+        // AL ACCIONAR BOTON, SE LISTAN LOS REGISTROS A LA TABLA
         if(e.getSource() == vis.btnBuscarRegisBiblio){
             try {
                 listarBiblio(vis.tblBibliotecaBiblio);
@@ -152,12 +144,16 @@ public class CtrlBiblioteca implements ActionListener{
             }
         }
     }
-    
+        // METODO PARA LISTAR LOS ARREGLOS DEL OBJETO EN LA TABLA
         public void listarBiblio(JTable tblBibliotecaBiblio) throws ParseException{
+            // LLAMA Y CREA UN METODO PARA TRANSFORMAR EL ARREGLO EN LA TABLA
         DefaultTableModel modelo = (DefaultTableModel)tblBibliotecaBiblio.getModel();
         modelo.setRowCount(0);
+            // LLAMA Y CREA EL ARREGLO DE LOS OBJETOS
         ArrayList<Biblioteca> listaBiblio = modCrud.listarBiblioteca(mod);
+        // SE ASIGNAN LAS COLUMNAS DE LA TABLA
         Object[] objeto = new Object[3];
+        // SE REALIZA UN RECORRIDO PARA OBTENER LOS VALORES Y ASIGNARLOS A LA TABLA
         for(int i=0; i< listaBiblio.size();i++){
             objeto[0] = listaBiblio.get(i).getIdBiblioteca();
             objeto[1] = listaBiblio.get(i).getNomBiblioteca();

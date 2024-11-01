@@ -1,3 +1,11 @@
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -138,6 +146,7 @@ public class CtrlEjemplar implements ActionListener{
             {
                 limpiar();
             }
+        // al accionar boton, se listan los registros a la tabla
         if(e.getSource()== visE.btnBuscarRegisEjem){
             try {
                 listarEjemp(visE.tblEjemplarEjem);
@@ -146,12 +155,16 @@ public class CtrlEjemplar implements ActionListener{
             }
         }
     }
-    
+    // METODO PARA LISTAR LOS ARREGLOS DEL OBJETO EN LA TABLA
     public void listarEjemp(JTable tblEjemplarEjem) throws ParseException{
         DefaultTableModel modelo = (DefaultTableModel)tblEjemplarEjem.getModel();
+        // LLAMA Y CREA UN METODO PARA TRANSFORMAR EL ARREGLO EN LA TABLA
         modelo.setRowCount(0);
+        // LLAMA Y CREA EL ARREGLO DE LOS OBJETOS
         ArrayList<Ejemplar> listaEjemplar = modCrudE.listarEjemplar(modE);
+        // SE ASIGNAN LAS COLUMNAS DE LA TABLA
         Object[] objeto = new Object[4];
+        // SE REALIZA UN RECORRIDO PARA OBTENER LOS VALORES Y ASIGNARLOS A LA TABLA
         for(int i=0; i< listaEjemplar.size();i++){
             objeto[0] = listaEjemplar.get(i).getIdEjemplar();
             objeto[1] = listaEjemplar.get(i).getIdLibro();

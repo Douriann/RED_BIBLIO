@@ -1,14 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
  */
 package modelo;
 import java.util.Date;
 
-/**
- *
- * @author scocl
- */
+// LLAMANDO ATRIBUTOS
 public class Renovacion {
     private int idRenovacion;
     private Date fechaSalida;
@@ -16,10 +17,10 @@ public class Renovacion {
     private int idEstadoRen;
     private Prestamo prestamo;
     private String nomEstRen;
-
+// CREACION DE CONSTRUCTORES
     public Renovacion() {
     }
-
+    
     public Renovacion(int idRenovacion, Date fechaSalida, Date fechaVence, int idEstadoRen, Prestamo prestamo) {
         this.idRenovacion = idRenovacion;
         this.fechaSalida = fechaSalida;
@@ -27,7 +28,7 @@ public class Renovacion {
         this.idEstadoRen = idEstadoRen;
         this.prestamo = prestamo;
     }
-
+// DEFINIENDO SETTERS Y GETTERS
     public int getIdRenovacion() {
         return idRenovacion;
     }

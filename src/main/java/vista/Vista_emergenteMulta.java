@@ -1,6 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
  */
 package vista;
 
@@ -8,10 +12,7 @@ import controlador.CtrlPrestamo;
 import modelo.CrudPrestamo;
 import modelo.Prestamo;
 
-/**
- *
- * @author HP
- */
+
 public class Vista_emergenteMulta extends javax.swing.JFrame {
 
     /**

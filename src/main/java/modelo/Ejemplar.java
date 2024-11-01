@@ -1,5 +1,13 @@
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// CREANDO ATRIBUTOS
 public class Ejemplar {
     
     private int idEjemplar;
@@ -7,7 +15,7 @@ public class Ejemplar {
     private String ubicacion;
     private int idLibro; // Profesora este no va es solo para esta fase mientras implementamos la funcionalidad  listas desplegables
     private Libro libro;
-    
+// CREACION DE CONSTRUCTOR    
     public Ejemplar() {
     }
 
@@ -19,7 +27,7 @@ public class Ejemplar {
         this.libro = libro;
     }
 
-    
+// CREANDO SETTERS Y GETTERS    
     public int getIdEjemplar() {
         return idEjemplar;
     }

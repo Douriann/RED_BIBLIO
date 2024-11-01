@@ -57,7 +57,6 @@ public class CtrlLibro implements ActionListener{
             //TOMAR VALORES DE LAS CAJAS DE TEXTO, METERLOS AL MODELO, LLAMAR AL METODO DE REGISTRAR E INSERTAR DATOS A BASE
             
             //PASAR VALORES RECIBIDOS EN CAJAS DE TEXTO A ATRIBUTOS DE LA CLASE BIBLIOTECA
-            //modL.setIdBiblioteca(Integer.parseInt(vis.txtIdBiblioBiblio.getText())); EL ID NO ES NECESARIO CAMBIARON A AUTOINCREMENTABLE. NO SE INGRESA EN FORMULARIO
             modL.setTitulo(visL.txtTituloLib.getText());
             modL.setAutor((visL.txtAutorLib.getText()));
             modL.setAño(Integer.parseInt(visL.txtAnnoLib.getText()));
@@ -163,6 +162,7 @@ public class CtrlLibro implements ActionListener{
             {
                 limpiar();
             }
+        // AL ACCIONAR BOTON, SE LISTAN LOS REGISTROS A LA TABLAS
         if(e.getSource() == visL.btnBuscarRegisLib){
             try {
                 listarLibro(visL.tblLibrosLib);
@@ -171,12 +171,16 @@ public class CtrlLibro implements ActionListener{
             }
         }
     }
-    
+    // METODO PARA LISTAR LOS ARREGLOS DEL OBJETO EN LA TABLA
     public void listarLibro(JTable tblLibrosLib) throws ParseException{
+        // LLAMA Y CREA UN METODO PARA TRANSFORMAR EL ARREGLO EN LA TABLA
         DefaultTableModel modelo = (DefaultTableModel)tblLibrosLib.getModel();
         modelo.setRowCount(0);
+        // LLAMA Y CREA EL ARREGLO DE LOS OBJETOS
         ArrayList<Libro> listaLibro = modCrudL.listarLibro(modL);
+        // SE ASIGNAN LAS COLUMNAS DE LA TABLA
         Object[] objeto = new Object[5];
+        // SE REALIZA UN RECORRIDO PARA OBTENER LOS VALORES Y ASIGNARLOS A LA TABLA
         for(int i=0; i< listaLibro.size();i++){
             objeto[0] = listaLibro.get(i).getIdLibro();
             objeto[1] = listaLibro.get(i).getTitulo();

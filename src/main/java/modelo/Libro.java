@@ -1,5 +1,13 @@
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
-
+// CREANDO ATRIBUTOS
 public class Libro {
     private int idLibro;
     private String titulo;
@@ -12,7 +20,7 @@ public class Libro {
 
     public Libro() {
     }
-
+// CREANDO CONSTRUCTORES
     public Libro(int idLibro, String titulo, String autor, int año, int idCategoria, Biblioteca biblioteca) {
         this.idLibro = idLibro;
         this.titulo = titulo;
@@ -21,7 +29,7 @@ public class Libro {
         this.idCategoria = idCategoria;
         this.biblioteca = biblioteca;
     }
-    
+// CREANDO SETTERS Y GETTERS    
     public int getIdLibro() {
         return idLibro;
     }

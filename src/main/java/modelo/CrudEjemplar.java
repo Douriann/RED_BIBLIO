@@ -1,6 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
  */
 package modelo;
 
@@ -22,7 +26,6 @@ public class CrudEjemplar extends Conexion {
           
         try{
             ps = con.prepareStatement(sql); 
-            //ps.setInt(1, bli.getIdEjemplar()); //PASO LOS DATOS. EL ID NO SE REGISTRA
             ps.setInt(1, eje.getIdLibro());
             ps.setInt(2, eje.getIdEstadoEj());
             ps.setString(3, eje.getUbicacion());// Segundo la direccion
@@ -45,12 +48,10 @@ public class CrudEjemplar extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        //String sql = "UPDATE Biblioteca SET nomBiblioteca=?, direccion=? WHERE idBiblioteca=?";
         String sql = "UPDATE \"Ejemplar\" SET \"idLibro\" = ?, \"idEstadoEj\" = ?,  \"ubicacion\" = ? WHERE \"idEjemplar\" = ?";
         
         try{
             ps = con.prepareStatement(sql); 
-            //PASO LOS DATOS. Aqui si se pasa el id. Los datos se pasan siguiendo el mismo orden de la sentencia
             ps.setInt(1, eje.getIdLibro());
             ps.setInt(2, eje.getIdEstadoEj());
             ps.setString(3, eje.getUbicacion()); 
@@ -73,7 +74,6 @@ public class CrudEjemplar extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        //String sql = "DELETE FROM Biblioteca WHERE idBiblioteca=?";
         String sql = "DELETE FROM \"Ejemplar\" WHERE \"idEjemplar\" = ?";
 
         try{
@@ -126,27 +126,34 @@ public class CrudEjemplar extends Conexion {
             }
         }
     }
-    
+    // METODO PARA CREAR UNA LISTA DE OBJETOS DE LA CLASE
         public ArrayList<Ejemplar> listarEjemplar(Ejemplar eje) throws ParseException {
+    // CREA E INICIALIZA UNA NUEVA ARRAYLIST DE LOS OBJETOS
         ArrayList<Ejemplar> datosEjemplar = new ArrayList<>();
+    // SE INICIALIZA Y PREPARAR LAS CONSULTAS SQL CON SU RESPECTIVA CONEXION
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
+    // CONSULTA SQL
 
         String sql = "SELECT * FROM \"Ejemplar\"";
-
+        // PROBAR SI SE PUEDE REALIZAR LA OPERACION
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-
+            // MIENTRAS EXISTAN LECTURAS, REALIZAR TAL ACCION
             while (rs.next()) {
+                // CREA UN  NUEVO OBJETO PARA AÑADIR AL ARREGLO
                 Ejemplar ejemplar = new Ejemplar();
+                // OBTIENE LOS ATRIBUTOS PARA LA CREACION
                 ejemplar.setIdEjemplar(Integer.parseInt(rs.getString("idEjemplar")));
                 ejemplar.setIdLibro(Integer.parseInt(rs.getString("idLibro")));
                 ejemplar.setIdEstadoEj(Integer.parseInt(rs.getString("idEstadoEj")));
                 ejemplar.setUbicacion(rs.getString("ubicacion"));
+                // SE AÑADE EL OBJETO AL ARREGLO
                 datosEjemplar.add(ejemplar);
             }
+            // ANTE CUALQUIER PROBLEMA, ENTREGAR UN ARREGLO VACIO O EXCEPCION
             return datosEjemplar;
         } catch (SQLException e) {
             System.err.println(e);

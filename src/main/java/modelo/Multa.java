@@ -1,20 +1,21 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
  */
 package modelo;
 import java.util.Date;
-/**
- *
- * @author scocl
- */
+// CREANDO ATRIBUTOS
 public class Multa {
     private int idMulta;
     private Date fechaInicio;
     private Date fechaFin;
     private Biblioteca biblioteca;
     private Prestamo prestamo;
-
+// CREANDO CONSTRUCTORES
     public Multa() {
     }
 
@@ -25,7 +26,7 @@ public class Multa {
         this.biblioteca = biblioteca;
         this.prestamo = prestamo;
     }
-
+// CREANDO SETTERS Y GETTERS
     public int getIdMulta() {
         return idMulta;
     }

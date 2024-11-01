@@ -1,6 +1,14 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
 
+// IMPORTANDO LIBRERIAS NECESARIAS
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

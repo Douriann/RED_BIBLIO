@@ -1,4 +1,11 @@
-
+/*
+ EQUIPO NUMERO 3
+    ADRIAN PEREIRA
+    MAURICIO RODRIGUEZ
+    ALONDRA LEON
+    ANDREA VALECILLOS
+    WILLIANNY CHUELLO
+ */
 package modelo;
 
 import java.sql.PreparedStatement;
@@ -14,15 +21,7 @@ public class CrudBiblioteca extends Conexion {
     public boolean registrarBiblioteca(Biblioteca bli){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        
-        //String sql = "INSERT INTO Biblioteca (idBiblioteca, nomBiblioteca, direccion) VALUES(?,?,?)";
-        //String sql = "INSERT INTO public."Biblioteca"("idBibloteca", "nomBiblioteca", direccion) VALUES (?, ?, ?)";
-        //String sql = "INSERT INTO public.\"Biblioteca\" (\"idBibloteca\", \"nomBiblioteca\", direccion) VALUES (?, ?, ?)";
-        //String sql = "INSERT INTO Biblioteca ("idBiblioteca", "nomBiblioteca", direccion) VALUES(?,?,?)";
-        //String sql = "INSERT INTO \"Biblioteca\" (\"idBiblioteca\", \"nomBiblioteca\", direccion) VALUES (?, ?, ?)";
-        //String sql = "INSERT INTO \"Biblioteca\" (\"idBiblioteca\", \"nomBiblioteca\", \"direccion\") VALUES (?, ?, ?)";
-          //String sql = "INSERT INTO public.\"Biblioteca\" (\"idbiblioteca\", \"nombiblioteca\", \"direccion\") VALUES (?, ?, ?)";
-        //String sql = "INSERT INTO public.\"Biblioteca\" (\"idBiblioteca\", \"nomBiblioteca\", \"direccion\") VALUES (?, ?, ?)";
+
         
         //Sentencia correcta. Quite palabra public. No se registra el id. La BD lo genera de forma automatica.
         String sql = "INSERT INTO \"Biblioteca\" (\"nomBiblioteca\", \"direccion\") VALUES (?, ?)";
@@ -30,8 +29,7 @@ public class CrudBiblioteca extends Conexion {
           
         try{
             ps = con.prepareStatement(sql); 
-            //ps.setInt(1, bli.getIdBiblioteca()); //PASO LOS DATOS. EL ID NO SE REGISTRA
-            ps.setString(1, bli.getNomBiblioteca()); //Acomode los numeros. Primero se manda nombre de biblioteca
+            ps.setString(1, bli.getNomBiblioteca()); //Primero se manda nombre de biblioteca
             ps.setString(2, bli.getDireccion());    // Segundo la direccion
             ps.execute();                            //EJECUTO CONSULTA
             return true;
@@ -51,7 +49,7 @@ public class CrudBiblioteca extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        //String sql = "UPDATE Biblioteca SET nomBiblioteca=?, direccion=? WHERE idBiblioteca=?";
+
         String sql = "UPDATE \"Biblioteca\" SET \"nomBiblioteca\" = ?, \"direccion\" = ? WHERE \"idBiblioteca\" = ?";
         
         try{
@@ -78,7 +76,6 @@ public class CrudBiblioteca extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        //String sql = "DELETE FROM Biblioteca WHERE idBiblioteca=?";
         String sql = "DELETE FROM \"Biblioteca\" WHERE \"idBiblioteca\" = ?";
 
         try{
@@ -102,11 +99,6 @@ public class CrudBiblioteca extends Conexion {
         PreparedStatement ps = null;
         ResultSet rs = null; //Variable que guarda resultado de consulta. Es decir registro
         Connection con = getConexion();
-        
-        //String sql = "SELECT * FROM Biblioteca WHERE idBiblioteca=? ";
-        //String sql = "SELECT * FROM \"Biblioteca\" WHERE \"idBiblioteca\" = ?";
-        //String sql = "SELECT "idBiblioteca", "nomBiblioteca", direccion FROM public."Biblioteca" WHERE "idBiblioteca" = ?";
-        //String sql = "SELECT \"idBiblioteca\", \"nomBiblioteca\", \"direccion\" FROM public.\"Biblioteca\" WHERE \"idBiblioteca\" = ?";
         
         //Como se seleccionan todas las columnas de la tabla, se puede usar el operador *
         String sql = "SELECT * FROM \"Biblioteca\" WHERE \"idBiblioteca\" = ?";
@@ -135,26 +127,32 @@ public class CrudBiblioteca extends Conexion {
             }
         }
     }
-    
+        // METODO PARA CREAR UNA LISTA DE OBJETOS DE LA CLASE BIBLIOTECA
         public ArrayList<Biblioteca> listarBiblioteca(Biblioteca bli) throws ParseException {
+        // CREA E INICIALIZA UNA NUEVA ARRAYLIST DE LOS OBJETOS
         ArrayList<Biblioteca> datosBiblio = new ArrayList<>();
+        // SE INICIALIZA Y PREPARAN LAS CONSULTAS SQL CON SU RESPECTIVA CONEXION
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
-
+        // CONSULTA SQL
         String sql = "SELECT * FROM \"Biblioteca\"";
-
+        // PROBAR SI SE PUEDE REALIZAR LA OPERACION
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-
+            // MIENTRAS EXISTAN LECTURAS, REALIZAR TAL ACCION
             while (rs.next()) {
+                // CREA UN NUEVO OBJETO DE BIBLIOTECA PARA AÑADIR AL ARREGLO
                 Biblioteca biblioteca = new Biblioteca();
+                // OBTIENE LOS ATRIBUTOS PARA LA CREACION
                 biblioteca.setIdBiblioteca(Integer.parseInt(rs.getString("idBiblioteca")));
                 biblioteca.setNomBiblioteca(rs.getString("nomBiblioteca"));
                 biblioteca.setDireccion(rs.getString("direccion"));
+                // SE AÑADE EL OBJETO AL ARREGLO
                 datosBiblio.add(biblioteca);
             }
+            // ANTE CUALQUIER PROBLEMA, ENTREGA UN ARREGLO VACIO O EXCEPCION
             return datosBiblio;
         } catch (SQLException e) {
             System.err.println(e);

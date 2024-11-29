@@ -60,6 +60,9 @@ public class CtrlInicioSesion implements ActionListener{
             interfazInicioS.setVisible(false);
             CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
             ventanaPrincipal.setVisible(true);
+            ventanaPrincipal.btn_prestamo.setVisible(false);
+            ventanaPrincipal.btn_usuario.setVisible(false);
+            ventanaPrincipal.btn_biblio.setVisible(false);
         }
         else{ 
             //Las credenciales no coinciden con las credenciales de algun registro en tabla usuario

@@ -1,4 +1,5 @@
 vista\Vista_gestionPrestamo$9.class
+adaptador\ServicioDiasHabiles.class
 vista\Vista_inicioSesion.class
 modelo\Externo.class
 vista\Vista_principal$9.class
@@ -71,6 +72,7 @@ modelo\Conexion.class
 vista\Vista_gestionPrestamo$10.class
 vista\Vista_emergenteMulta$1.class
 modelo\Estudiante.class
+adaptador\AdaptadorServicioDiasHabiles.class
 modelo\Prestamo.class
 vista\Vista_gestionUsuario$2.class
 vista\Vista_inicioSesion$2.class

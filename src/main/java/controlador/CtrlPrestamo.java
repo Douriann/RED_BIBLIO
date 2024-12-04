@@ -8,6 +8,7 @@
  */
 package controlador;
 
+import adaptador.AdaptadorServicioDiasHabiles;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -67,12 +68,13 @@ public class CtrlPrestamo implements ActionListener{
                     ejemplar.setIdEjemplar(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
                     
                     Date fechaActual = new Date();
+                    
+                    AdaptadorServicioDiasHabiles servicioDiasHabiles = new AdaptadorServicioDiasHabiles();
+                    Date fechaSalida = servicioDiasHabiles.calcularFechaVencimiento(fechaActual, 2);
                     // IMPORTA CLASE Y METODO DE CALENDAR PARA OBTENER LA FECHA ACTUAL
                     Calendar calendario = Calendar.getInstance();
                     calendario.setTime(fechaActual);
                     // DEL IMPORTA, SE REALIZA OPERACION PARA OBTENER LA FECHA LIMITE DE ENTREGA EN EL PRESTAMO
-                    calendario.add(Calendar.DAY_OF_YEAR, 2);
-                    Date fechaSalida = calendario.getTime();
                     // INSERTANDO DATOS AL OBJETO
                     modP.setUsuario(usuario);
                     modP.setEjemplar(ejemplar);

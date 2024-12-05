@@ -702,19 +702,19 @@ public class Vista_principal extends javax.swing.JFrame {
     private javax.swing.JLabel lblBiblio;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblCerrarSes;
-    private javax.swing.JLabel lblDisp;
+    public javax.swing.JLabel lblDisp;
     private javax.swing.JLabel lblEjemplar;
     private javax.swing.JLabel lblLibros;
     private javax.swing.JLabel lblPrestamo;
     private javax.swing.JLabel lblPrincipalVista;
-    private javax.swing.JLabel lblSanc;
-    private javax.swing.JLabel lblTtlDe;
-    private javax.swing.JLabel lblTtlLibros;
-    private javax.swing.JLabel lblTtlPrest;
+    public javax.swing.JLabel lblSanc;
+    public javax.swing.JLabel lblTtlDe;
+    public javax.swing.JLabel lblTtlLibros;
+    public javax.swing.JLabel lblTtlPrest;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel logoBiblio;
-    private javax.swing.JLabel numTotalLib;
-    private javax.swing.JLabel numTotalPrest;
-    private javax.swing.JLabel numTotalSan;
+    public javax.swing.JLabel numTotalLib;
+    public javax.swing.JLabel numTotalPrest;
+    public javax.swing.JLabel numTotalSan;
     // End of variables declaration//GEN-END:variables
 }

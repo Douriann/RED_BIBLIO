@@ -16,6 +16,7 @@ vista\Vista_gestionPrestamo$3.class
 vista\Vista_gestionEjemplar$5.class
 controlador\CtrlInicioSesion.class
 vista\Vista_gestionUsuario$4.class
+modelo\Reportes.class
 vista\Vista_gestionPrestamo$1.class
 controlador\CtrlEjemplar.class
 vista\Vista_emergenteRenovacion$6.class

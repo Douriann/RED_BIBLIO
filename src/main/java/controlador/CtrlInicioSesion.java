@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import modelo.InicioSesion;
 import vista.Vista_inicioSesion;
 import modelo.CrudInicioSesion;
+import modelo.Reportes;
 import vista.Vista_principal;
 
 public class CtrlInicioSesion implements ActionListener{
@@ -55,6 +56,13 @@ public class CtrlInicioSesion implements ActionListener{
             CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
             ventanaPrincipal.setVisible(true);
             interfazInicioS.setVisible(false);
+            Reportes reporte = new Reportes();
+            int contPres = reporte.contTotalPrestamosMes();
+            ventanaPrincipal.numTotalPrest.setText(String.valueOf(contPres));
+            int contMult = reporte.contTotalMultadosMes();
+            ventanaPrincipal.numTotalSan.setText(String.valueOf(contMult));
+            int contLib = reporte.contTotalLibrosDisp();
+            ventanaPrincipal.numTotalLib.setText(String.valueOf(contLib));
             //Damos valor inicial a variable que guardara el tipo de usuario
             tipoUsuario = 3;
         }
@@ -68,6 +76,14 @@ public class CtrlInicioSesion implements ActionListener{
             ventanaPrincipal.btn_prestamo.setVisible(false);
             ventanaPrincipal.btn_usuario.setVisible(false);
             ventanaPrincipal.btn_biblio.setVisible(false);
+            ventanaPrincipal.numTotalLib.setVisible(false);
+            ventanaPrincipal.numTotalSan.setVisible(false);
+            ventanaPrincipal.numTotalPrest.setVisible(false);
+            ventanaPrincipal.lblDisp.setVisible(false);
+            ventanaPrincipal.lblSanc.setVisible(false);
+            ventanaPrincipal.lblTtlDe.setVisible(false);
+            ventanaPrincipal.lblTtlLibros.setVisible(false);
+            ventanaPrincipal.lblTtlPrest.setVisible(false);
             //Damos valor inicial a variable que guardara el tipo de usuario
             tipoUsuario = 1;
         }
@@ -81,6 +97,14 @@ public class CtrlInicioSesion implements ActionListener{
             ventanaPrincipal.btn_prestamo.setVisible(false);
             ventanaPrincipal.btn_usuario.setVisible(false);
             ventanaPrincipal.btn_biblio.setVisible(false);
+            ventanaPrincipal.numTotalLib.setVisible(false);
+            ventanaPrincipal.numTotalSan.setVisible(false);
+            ventanaPrincipal.numTotalPrest.setVisible(false);
+            ventanaPrincipal.lblDisp.setVisible(false);
+            ventanaPrincipal.lblSanc.setVisible(false);
+            ventanaPrincipal.lblTtlDe.setVisible(false);
+            ventanaPrincipal.lblTtlLibros.setVisible(false);
+            ventanaPrincipal.lblTtlPrest.setVisible(false);            
             //Damos valor inicial a variable que guardara el tipo de usuario
             tipoUsuario = 2;
         }

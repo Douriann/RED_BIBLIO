@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import modelo.Biblioteca;
 import modelo.Conexion;
 import modelo.CrudBiblioteca;
@@ -621,26 +622,38 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlPrincipalEjemMouseClicked
 
     private void pnlUsuarioEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlUsuarioEjemMouseClicked
-        Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
-        Usuario usuario = new Usuario();
-        CrudUsuario consultasU = new CrudUsuario();
-        
-        CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
-        controlU.iniciar();
-        
-        vistaU.setVisible(true);
-        this.setVisible(false);
+        if (controlador.CtrlInicioSesion.tipoUsuario == 3){
+            
+            Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
+            Usuario usuario = new Usuario();
+            CrudUsuario consultasU = new CrudUsuario();
+
+            CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
+            controlU.iniciar();
+
+            vistaU.setVisible(true);
+            this.setVisible(false);
+             }
+        else{
+            JOptionPane.showMessageDialog(null, "No tiene permisos para usar esta opción");
+        }
     }//GEN-LAST:event_pnlUsuarioEjemMouseClicked
 
     private void pnlBiblioEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBiblioEjemMouseClicked
-        Biblioteca mod = new Biblioteca();
-        CrudBiblioteca modCrud = new CrudBiblioteca();
-        Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
-        
-        CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
-        ctrl.iniciar();
-        vis.setVisible(true);
-        this.setVisible(false);
+        if (controlador.CtrlInicioSesion.tipoUsuario == 3){
+            
+            Biblioteca mod = new Biblioteca();
+            CrudBiblioteca modCrud = new CrudBiblioteca();
+            Vista_gestionBiblioteca vis = new Vista_gestionBiblioteca();
+
+            CtrlBiblioteca ctrl = new CtrlBiblioteca(mod, modCrud, vis);
+            ctrl.iniciar();
+            vis.setVisible(true);
+            this.setVisible(false);
+             }
+        else{
+            JOptionPane.showMessageDialog(null, "No tiene permisos para usar esta opción");
+        }
     }//GEN-LAST:event_pnlBiblioEjemMouseClicked
 
     private void pnlLibrosEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlLibrosEjemMouseClicked
@@ -655,14 +668,20 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlLibrosEjemMouseClicked
 
     private void pnlPrestamoEjemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPrestamoEjemMouseClicked
-        Prestamo modP = new Prestamo();
-        CrudPrestamo modCP = new CrudPrestamo();
-        Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
-        
-        CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
-        ctrlPres.iniciar();
-        vistaPres.setVisible(true);
-        this.setVisible(false);
+        if (controlador.CtrlInicioSesion.tipoUsuario == 3){
+            
+            Prestamo modP = new Prestamo();
+            CrudPrestamo modCP = new CrudPrestamo();
+            Vista_gestionPrestamo vistaPres = new Vista_gestionPrestamo();
+
+            CtrlPrestamo ctrlPres = new CtrlPrestamo(modP,modCP,vistaPres);
+            ctrlPres.iniciar();
+            vistaPres.setVisible(true);
+            this.setVisible(false);
+             }
+        else{
+            JOptionPane.showMessageDialog(null, "No tiene permisos para usar esta opción");
+        }
     }//GEN-LAST:event_pnlPrestamoEjemMouseClicked
 
     private void combxLibEjemplarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxLibEjemplarActionPerformed

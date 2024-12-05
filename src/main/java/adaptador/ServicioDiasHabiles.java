@@ -12,5 +12,5 @@ import java.util.Date;
  */
 public interface ServicioDiasHabiles {
     boolean esDiaHabil(Date fecha);
-    
+    Date calcularFechaVencimiento(Date fechaActual, int diasProrroga);
 }

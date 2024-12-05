@@ -124,7 +124,7 @@ public class CtrlLibro implements ActionListener {
             modL.setAutor(visL.txtAutorLib.getText());
             modL.setAño(Integer.parseInt(visL.txtAnnoLib.getText()));
             modL.setIdCategoria(Integer.parseInt(visL.txtCategLibros.getText()));
-            modL.getBiblioteca().setIdBiblioteca(Integer.parseInt(visL.txtBiblioLib.getText()));
+            //modL.getBiblioteca().setIdBiblioteca(Integer.parseInt(visL.txtBiblioLib.getText()));
 
             if (gestionLibros.puedeRegistrar()) {
                 if (gestionLibros.registrar(modL)) {
@@ -144,7 +144,7 @@ public class CtrlLibro implements ActionListener {
             modL.setAutor(visL.txtAutorLib.getText());
             modL.setAño(Integer.parseInt(visL.txtAnnoLib.getText()));
             modL.setIdCategoria(Integer.parseInt(visL.txtCategLibros.getText()));
-            modL.getBiblioteca().setIdBiblioteca(Integer.parseInt(visL.txtBiblioLib.getText()));
+            //modL.getBiblioteca().setIdBiblioteca(Integer.parseInt(visL.txtBiblioLib.getText()));
 
             if (gestionLibros.puedeModificar()) {
                 if (gestionLibros.modificar(modL)) {
@@ -188,6 +188,11 @@ public class CtrlLibro implements ActionListener {
                     int idCategoria = modL.getIdCategoria();
                     String nomCategoria = buscarNombreCategoria(idCategoria);
                     visL.combxCategLib.setSelectedItem(nomCategoria);
+                    
+                    // Buscar y seleccionar la biblioteca en el ComboBox
+                    int idBiblioteca = modL.getBiblioteca().getIdBiblioteca();
+                    String nomBiblioteca = buscarNombreBiblioteca(idBiblioteca);
+                    visL.combxBiblioLib.setSelectedItem(nomBiblioteca);
 
                     JOptionPane.showMessageDialog(null, "Registro Consultado");
                 } else {

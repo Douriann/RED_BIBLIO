@@ -35,8 +35,8 @@ public class CrudLibro extends Conexion {
             ps.setString(2, lib.getAutor());
             ps.setInt(3, lib.getAño());
             ps.setInt(4, lib.getIdCategoria());
-            ps.execute();                            //EJECUTO CONSULTA
-            return true;
+            ps.execute();                            //EJECUTO query
+            return true;                       
         } catch(SQLException e)
         {
             System.err.println(e);
@@ -47,7 +47,11 @@ public class CrudLibro extends Conexion {
             } catch (SQLException e) {
                 System.err.println(e);
             }
-        }  
+        } 
+        
+        
+        
+        
     }
     public boolean modificarLibro(Libro lib){
         PreparedStatement ps = null;

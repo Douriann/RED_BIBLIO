@@ -444,7 +444,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
 
         lblLibros.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         lblLibros.setForeground(new java.awt.Color(255, 255, 255));
-        lblLibros.setText("Ejemplares por Libro:");
+        lblLibros.setText("Ejemplares Disponibles por Libro:");
         jPanel1.add(lblLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
         lblIdLibroLib.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -555,13 +555,13 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         tblLibrosLib.setForeground(new java.awt.Color(255, 255, 255));
         tblLibrosLib.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id Libro", "Titulo", "Autor", "Año", "Biblioteca", "Cantidad"
+                "Id Libro", "Titulo", "Autor", "Año", "Categoria"
             }
         ));
         tblLibrosLib.setSelectionBackground(new java.awt.Color(13, 104, 116));

@@ -81,7 +81,7 @@ public class CtrlPrestamo implements ActionListener{
                     modP.setFechaSalida(new java.sql.Date(fechaActual.getTime()));
                     modP.setFechaVence(new java.sql.Date(fechaSalida.getTime()));
                     modP.setFechaEntrego(new java.sql.Date(fechaSalida.getTime()));
-                    modP.setIdEstadoPre(Integer.parseInt(vistaPres.txtIdEjemplarPrest.getText()));
+                    modP.setIdEstadoPre(Integer.parseInt(vistaPres.txtEstadoPrest.getText()));
                     
                     if(modCP.registrarPrestamo(modP) && modCP.actualizarEjemplarPres(modP)){
                         JOptionPane.showMessageDialog(null, "Registro guardado");

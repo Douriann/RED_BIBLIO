@@ -13,9 +13,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.text.ParseException;
-import java.util.ArrayList;
+import java.util.ArrayList; 
+import java.util.HashMap; 
+import java.util.Map;
 
 public class CrudLibro extends Conexion {
+    
+    private Map<String, Integer> categoriaMap = new HashMap<>();
+    private Map<String, Integer> bibliotecaMap = new HashMap<>();
     
     public boolean registrarLibro(Libro lib){
         PreparedStatement ps = null;
@@ -138,15 +143,18 @@ public class CrudLibro extends Conexion {
             ResultSet rs = null; //Variable que guarda resultado de consulta. Es decir registro
             Connection con = getConexion();
         
-            String sql = "SELECT \"cantEjemplares\" FROM \"BibliotecaLibro\" WHERE \"idBibliotecaLibro\" = ?";
+            String sql = "SELECT \"cantEjemplares\" FROM \"BibliotecaLibro\" WHERE \"idLibro\" = ? AND \"idBiblioteca\" = ?";
+
             try{
                 ps = con.prepareStatement(sql); 
-                ps.setInt(1, lib.getIdBibliotecaLibro());
+                ps.setInt(1, lib.getIdLibro());
+                ps.setInt(2, lib.getBiblioteca().getIdBiblioteca());
+                
                 rs = ps.executeQuery(); // rs se le asigna lo que regresa ps.executeQuery()
             
                 if(rs.next()) //Si encontro algo realiza esta logica
                 {
-                lib.setCantEjemplares(Integer.parseInt(rs.getString("cantEjemplares")));
+                lib.setCantEjemplares(rs.getInt("cantEjemplares"));
                 return true; //El return true. Esto indica que se encontro un registro y se inicializo el objeto con los valores encontrados en bd
                 }
                 return false; //Si no encontro registro retorna falso
@@ -204,4 +212,64 @@ public class CrudLibro extends Conexion {
             }
             return datosLibro;
     }   
+    
+    public void llenarComboBoxCategoria(javax.swing.JComboBox<String> combxCategLib) { 
+        PreparedStatement ps = null; 
+        ResultSet rs = null; 
+        Connection con = getConexion(); 
+        try { 
+            String sql = "SELECT \"idCategoria\", \"nomCategoria\" FROM \"Categoria\" ORDER BY \"idCategoria\""; 
+            ps = con.prepareStatement(sql); 
+            rs = ps.executeQuery(); 
+            
+            combxCategLib.addItem("Seleccione Categoria"); 
+            while (rs.next()) { 
+                int idCategoria = rs.getInt("idCategoria"); 
+                String nomCategoria = rs.getString("nomCategoria"); 
+                combxCategLib.addItem(nomCategoria); 
+                categoriaMap.put(nomCategoria, idCategoria); 
+            } 
+            rs.close(); 
+        } catch (SQLException e) { 
+            System.err.println(e.toString()); 
+           } 
+    } 
+    public Integer getIdCategoria(String nomCategoria) { 
+        return categoriaMap.get(nomCategoria); 
+    }
+    
+    // Método getter para acceder a categoriaMap 
+    public Map<String, Integer> getCategoriaMap() { 
+        return categoriaMap;
+    }
+
+    public void llenarComboBoxBiblioteca(javax.swing.JComboBox<String> combxBiblioLib) { 
+        PreparedStatement ps = null; 
+        ResultSet rs = null; 
+        Connection con = getConexion(); 
+        try { 
+            String sql = "SELECT \"idBiblioteca\", \"nomBiblioteca\" FROM \"Biblioteca\" ORDER BY \"idBiblioteca\""; // Ordenar por idBiblioteca
+            ps = con.prepareStatement(sql); 
+            rs = ps.executeQuery(); 
+            
+            combxBiblioLib.addItem("Seleccione Biblioteca"); 
+            while (rs.next()) { 
+                int idBiblioteca = rs.getInt("idBiblioteca"); 
+                String nomBiblioteca = rs.getString("nomBiblioteca"); 
+                combxBiblioLib.addItem(nomBiblioteca); 
+                bibliotecaMap.put(nomBiblioteca, idBiblioteca); 
+            } 
+            rs.close(); 
+        } catch (SQLException e) { 
+            System.err.println(e.toString()); 
+           } 
+    } 
+    public Integer getIdBiblioteca(String nomBiblioteca) { 
+        return bibliotecaMap.get(nomBiblioteca); 
+    }
+    
+    // Método getter para acceder a categoriaMap 
+    public Map<String, Integer> getBibliotecaMap() { 
+        return bibliotecaMap;
+    }
 }

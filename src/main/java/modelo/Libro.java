@@ -18,8 +18,14 @@ public class Libro {
     private int cantEjemplares; // tabla intermedia
     private Biblioteca biblioteca;
 
-    public Libro() {
-    }
+    //public Libro() {
+    //}
+    
+    public Libro() { 
+        this.biblioteca = new Biblioteca();// Inicializar el objeto Biblioteca
+    } 
+    
+    
 // CREANDO CONSTRUCTORES
     public Libro(int idLibro, String titulo, String autor, int año, int idCategoria, Biblioteca biblioteca) {
         this.idLibro = idLibro;

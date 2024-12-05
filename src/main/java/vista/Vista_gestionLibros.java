@@ -11,6 +11,7 @@ package vista;
 import controlador.CtrlUsuario;
 import controlador.CtrlBiblioteca;
 import controlador.CtrlEjemplar;
+import controlador.CtrlInicioSesion;
 import controlador.CtrlPrestamo;
 import java.awt.Color;
 import java.sql.Connection;
@@ -721,7 +722,7 @@ public class Vista_gestionLibros extends javax.swing.JFrame {
         CrudEjemplar modCrudE = new CrudEjemplar();
         Vista_gestionEjemplar visE = new Vista_gestionEjemplar();
         
-        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE);
+        CtrlEjemplar ctrlE = new CtrlEjemplar(modE, modCrudE, visE, CtrlInicioSesion.tipoUsuario);
         ctrlE.iniciar();
         visE.setVisible(true);
         this.setVisible(false);

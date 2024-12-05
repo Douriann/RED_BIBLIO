@@ -23,7 +23,10 @@ public class CtrlInicioSesion implements ActionListener{
     private final InicioSesion modeloInicioS;
     private final CrudInicioSesion consultasInicioS;
     private final Vista_principal ventanaPrincipal;
+    // Variable que guardara tipo de usuario
+    public static int tipoUsuario;
 
+    
     public CtrlInicioSesion(Vista_inicioSesion interfazInicioS, InicioSesion modeloInicioS, CrudInicioSesion consultasInicioS, Vista_principal ventanaPrincipal) {
         this.interfazInicioS = interfazInicioS;   //Inicializo atributos
         this.modeloInicioS = modeloInicioS;
@@ -52,9 +55,11 @@ public class CtrlInicioSesion implements ActionListener{
             CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
             ventanaPrincipal.setVisible(true);
             interfazInicioS.setVisible(false);
+            //Damos valor inicial a variable que guardara el tipo de usuario
+            tipoUsuario = 3;
         }
-        else if (consultasInicioS.buscarEstudiante(modeloInicioS) || consultasInicioS.buscarProfesor(modeloInicioS) || consultasInicioS.buscarExterno(modeloInicioS)){
-            //Se encontro un estudiante, profesor o externo. Se le da acceso al sistema
+        else if (consultasInicioS.buscarEstudiante(modeloInicioS)){
+            //Se encontro un estudiante. Se le da acceso al sistema
             JOptionPane.showMessageDialog(null, "Bienvenido al sistema " + modeloInicioS.getNombreUsuario());
             
             interfazInicioS.setVisible(false);
@@ -63,6 +68,34 @@ public class CtrlInicioSesion implements ActionListener{
             ventanaPrincipal.btn_prestamo.setVisible(false);
             ventanaPrincipal.btn_usuario.setVisible(false);
             ventanaPrincipal.btn_biblio.setVisible(false);
+            //Damos valor inicial a variable que guardara el tipo de usuario
+            tipoUsuario = 1;
+        }
+        else if(consultasInicioS.buscarProfesor(modeloInicioS)){
+            //Se encontro un profesor. Se le da acceso al sistema
+            JOptionPane.showMessageDialog(null, "Bienvenido al sistema " + modeloInicioS.getNombreUsuario());
+            
+            interfazInicioS.setVisible(false);
+            CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
+            ventanaPrincipal.setVisible(true);
+            ventanaPrincipal.btn_prestamo.setVisible(false);
+            ventanaPrincipal.btn_usuario.setVisible(false);
+            ventanaPrincipal.btn_biblio.setVisible(false);
+            //Damos valor inicial a variable que guardara el tipo de usuario
+            tipoUsuario = 2;
+        }
+        else if(consultasInicioS.buscarExterno(modeloInicioS)) {
+            //Se encontro un externo. Se le da acceso al sistema
+            JOptionPane.showMessageDialog(null, "Bienvenido al sistema " + modeloInicioS.getNombreUsuario());
+            
+            interfazInicioS.setVisible(false);
+            CtrlPrincipal controlPrincipal = new CtrlPrincipal(ventanaPrincipal);
+            ventanaPrincipal.setVisible(true);
+            ventanaPrincipal.btn_prestamo.setVisible(false);
+            ventanaPrincipal.btn_usuario.setVisible(false);
+            ventanaPrincipal.btn_biblio.setVisible(false);
+            //Damos valor inicial a variable que guardara el tipo de usuario
+            tipoUsuario = 4;
         }
         else{ 
             //Las credenciales no coinciden con las credenciales de algun registro en tabla usuario

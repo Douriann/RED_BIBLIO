@@ -10,6 +10,7 @@ package vista;
 
 import controlador.CtrlUsuario;
 import controlador.CtrlBiblioteca;
+import controlador.CtrlInicioSesion;
 import controlador.CtrlLibro;
 import controlador.CtrlPrestamo;
 import java.awt.Color;
@@ -116,6 +117,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         combxLibEjemplar = new javax.swing.JComboBox<>();
         lblMostrarRegisEjem = new javax.swing.JLabel();
         btnBuscarRegisEjem = new javax.swing.JButton();
+        combxEstadoEjemplar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -444,7 +446,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         txtEstadoEjem.setBackground(new java.awt.Color(204, 204, 204));
         txtEstadoEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         txtEstadoEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(txtEstadoEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 490, 20));
+        jPanel1.add(txtEstadoEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 150, 20));
 
         btnRegistrarEjem.setBackground(new java.awt.Color(153, 153, 255));
         btnRegistrarEjem.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -541,6 +543,9 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         btnBuscarRegisEjem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscarRegisEjem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnBuscarRegisEjem, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 180, 30));
+
+        combxEstadoEjemplar.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(combxEstadoEjemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -643,7 +648,7 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
         CrudLibro modCrudL = new CrudLibro();
         Vista_gestionLibros visL = new Vista_gestionLibros();
 
-        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL);
+        CtrlLibro ctrlL = new CtrlLibro(modL, modCrudL, visL, CtrlInicioSesion.tipoUsuario);
         ctrlL.iniciar();
         visL.setVisible(true);
         this.setVisible(false);
@@ -711,7 +716,8 @@ public class Vista_gestionEjemplar extends javax.swing.JFrame {
     public javax.swing.JButton btnLimpiarEjem;
     public javax.swing.JButton btnModificarEjem;
     public javax.swing.JButton btnRegistrarEjem;
-    private javax.swing.JComboBox<String> combxLibEjemplar;
+    public javax.swing.JComboBox<String> combxEstadoEjemplar;
+    public javax.swing.JComboBox<String> combxLibEjemplar;
     private javax.swing.JLabel imgLogoEjem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

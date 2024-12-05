@@ -13,8 +13,9 @@ public class Ejemplar {
     private int idEjemplar;
     private int idEstadoEj;
     private String ubicacion;
-    private int idLibro; // Profesora este no va es solo para esta fase mientras implementamos la funcionalidad  listas desplegables
+    private int idLibro; //  Provicional mientras implementamos la funcionalidad  listas desplegables
     private Libro libro;
+    
 // CREACION DE CONSTRUCTOR    
     public Ejemplar() {
     }
@@ -64,7 +65,6 @@ public class Ejemplar {
         return libro;
     }
     
-
     public void setLibro(Libro libro) {
         this.libro = libro;
     }

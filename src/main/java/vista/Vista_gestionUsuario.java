@@ -596,23 +596,23 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         lblTipUsu.setText("Tipo de Usuario:");
         jPanel1.add(lblTipUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
+        radioBtnEstUsu.setBackground(new java.awt.Color(0, 204, 204));
         radioBtnEstUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        radioBtnEstUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnEstUsu.setText("Estudiante");
         jPanel1.add(radioBtnEstUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
 
+        radioBtnProfUsu.setBackground(new java.awt.Color(0, 204, 204));
         radioBtnProfUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        radioBtnProfUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnProfUsu.setText("Profesor");
         jPanel1.add(radioBtnProfUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
 
+        radioBtnExtUsu.setBackground(new java.awt.Color(0, 204, 204));
         radioBtnExtUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        radioBtnExtUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnExtUsu.setText("Externo");
         jPanel1.add(radioBtnExtUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, -1, -1));
 
+        radioBtnAdminUsu.setBackground(new java.awt.Color(0, 204, 204));
         radioBtnAdminUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        radioBtnAdminUsu.setForeground(new java.awt.Color(255, 255, 255));
         radioBtnAdminUsu.setText("Administrador");
         jPanel1.add(radioBtnAdminUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, -1, -1));
 

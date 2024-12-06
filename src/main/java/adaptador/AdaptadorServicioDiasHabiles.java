@@ -38,6 +38,7 @@ public class AdaptadorServicioDiasHabiles implements ServicioDiasHabiles {
             if (esDiaHabil(calendario.getTime())) {
                 dias++;
             }
+            else break;
         }
         // SI EL DIA DE VENCIMIENTO CAE EN UN DIA NO HABIL, MOVER AL PROXIMO DIA HABIL
         while (!esDiaHabil(calendario.getTime())) {

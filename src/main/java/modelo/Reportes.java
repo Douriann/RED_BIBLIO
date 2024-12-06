@@ -14,24 +14,24 @@ public class Reportes extends Conexion{
         public int contTotalPrestamosMes(){
 
             PreparedStatement ps = null;
-            ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()
+            ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()OSEA, DA LOS RESULTADOS OBTENIDOS EN LA BASE DE DATOS
             Connection con = getConexion();
-
-
-            //CONSULTA SQL COMPUESTA
-            /*
-            DADO LOS ATRIBUTOS DEL USUARIO QUE SOLICITA EL PRESTAMO, SE CONSIGUE LA BIBLIOTECA EN
-            DONDE PERTENECE, DEPENDIENDO DEL ID DEL LIBRO, SE CONSIGUE DICHO ATRIBUTO
-            LUEGO, EN LA TABLA BIBLIOTECALIBRO CONSIGUE LA CANTIDAD DE EJEMPLARES PARA CONSULTAR
-            */
-            
+            // CREAMOS UNA INSTANCIA DE CALENDARIO
             Calendar calendario = new GregorianCalendar();
+            //  SE ASIGNA EL VALOR PARA CONSEGUIR EL PRIMER DIA DEL MES ACTUAL
             calendario.set(Calendar.DAY_OF_MONTH, 1);
+            // SE ASIGNA EL VALOR DEL PRIMER DIA DEL MES ADAPTADO A LA SINTAXIS DE LA BD
             java.sql.Date primerDiaMesActual = new java.sql.Date(calendario.getTimeInMillis());
-            
+            // SE ASIGNA EL VALOR DEL ULTIMO DIA DEL MES ACTUAL
             calendario.set(Calendar.DAY_OF_MONTH, calendario.getActualMaximum(Calendar.DAY_OF_MONTH));
+            // SE ASIGNA EL VALOR DEL ULTOMO DIA DEL MES ADAPTADO A LA SINTAXIS DE LA BD
             java.sql.Date ultimoDiaMesActual = new java.sql.Date(calendario.getTimeInMillis());
             
+            //CONSULTA SQL
+            /*
+             ACORDE AL PRESTAMO, VA A CONTAR LA CANTIDAD DE REGISTROS QUE HAY DESDE EL INICIO DEL MES AL FINAL
+             DEL MES
+            */
             String sql = "SELECT COUNT (*) FROM \"Prestamo\" WHERE \"fechaSalida\" >= ? AND \"fechaSalida\" <= ?"; 
 
             //SEGMENTO DE CODIGO PARA MANDAR DATOS A LA CONSULTA
@@ -45,6 +45,7 @@ public class Reportes extends Conexion{
                 ps.setDate(2, ultimoDiaMesActual);
                 rs = ps.executeQuery();
                 //ps.execute();                            //EJECUTO CONSULTA
+                // EN CASO DE EXISTIR CONSULTA, RETORNA EL VALOR DE LA PRIMERA FILA (CONTADOR)
                 if(rs.next()){
                     return rs.getInt(1);
                 }
@@ -68,23 +69,24 @@ public class Reportes extends Conexion{
         public int contTotalMultadosMes(){
 
             PreparedStatement ps = null;
-            ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()
+            ResultSet rs = null; // rs se le asigna lo que regresa ps.executeQuery()OSEA, DA LOS RESULTADOS OBTENIDOS EN LA BASE DE DATOS
             Connection con = getConexion();
-
-
-            //CONSULTA SQL COMPUESTA
-            /*
-            DADO LOS ATRIBUTOS DEL USUARIO QUE SOLICITA EL PRESTAMO, SE CONSIGUE LA BIBLIOTECA EN
-            DONDE PERTENECE, DEPENDIENDO DEL ID DEL LIBRO, SE CONSIGUE DICHO ATRIBUTO
-            LUEGO, EN LA TABLA BIBLIOTECALIBRO CONSIGUE LA CANTIDAD DE EJEMPLARES PARA CONSULTAR
-            */
-            
+            // CREAMOS UNA INSTANCIA DE CALENDARIO
             Calendar calendario = new GregorianCalendar();
+            //  SE ASIGNA EL VALOR PARA CONSEGUIR EL PRIMER DIA DEL MES ACTUAL
             calendario.set(Calendar.DAY_OF_MONTH, 1);
+            // SE ASIGNA EL VALOR DEL PRIMER DIA DEL MES ADAPTADO A LA SINTAXIS DE LA BD
             java.sql.Date primerDiaMesActual = new java.sql.Date(calendario.getTimeInMillis());
-            
+            //  SE ASIGNA EL VALOR PARA CONSEGUIR EL ULTIMO DIA DEL MES ACTUAL
             calendario.set(Calendar.DAY_OF_MONTH, calendario.getActualMaximum(Calendar.DAY_OF_MONTH));
+            // SE ASIGNA EL VALOR DEL ULTIMO DIA DEL MES ADAPTADO A LA SINTAXIS DE LA BD
             java.sql.Date ultimoDiaMesActual = new java.sql.Date(calendario.getTimeInMillis());
+            
+            //CONSULTA SQL
+            /*
+             ACORDE A LAS MULTAS, VA A CONTAR LA CANTIDAD DE REGISTROS QUE HAY DESDE EL INICIO DEL MES AL FINAL
+             DEL MES
+            */
             
             String sql = "SELECT COUNT (*) FROM \"Multa\" WHERE \"fechaInicio\" >= ? AND \"fechaInicio\" <= ?"; 
 
@@ -99,6 +101,7 @@ public class Reportes extends Conexion{
                 ps.setDate(2, ultimoDiaMesActual);
                 rs = ps.executeQuery();
                 //ps.execute();                            //EJECUTO CONSULTA
+                // EN CASO DE EXISTIR CONSULTA, RETORNA EL VALOR DE LA PRIMERA FILA (CONTADOR)
                 if(rs.next()){
                     return rs.getInt(1);
                 }
@@ -125,11 +128,9 @@ public class Reportes extends Conexion{
             Connection con = getConexion();
 
 
-            //CONSULTA SQL COMPUESTA
+            //CONSULTA SQL
             /*
-            DADO LOS ATRIBUTOS DEL USUARIO QUE SOLICITA EL PRESTAMO, SE CONSIGUE LA BIBLIOTECA EN
-            DONDE PERTENECE, DEPENDIENDO DEL ID DEL LIBRO, SE CONSIGUE DICHO ATRIBUTO
-            LUEGO, EN LA TABLA BIBLIOTECALIBRO CONSIGUE LA CANTIDAD DE EJEMPLARES PARA CONSULTAR
+             ACORDE A LOS LIBROS EXISTENTES, VA A CONTAR LA CANTIDAD DE REGISTROS QUE HAY 
             */
             
             String sql = "SELECT COUNT (*) FROM \"Libro\""; 
@@ -143,6 +144,7 @@ public class Reportes extends Conexion{
                 //SE INTERACTUA CON LOS DATOS DEL MODELO
                 rs = ps.executeQuery();
                 //ps.execute();                            //EJECUTO CONSULTA
+                // EN CASO DE EXISTIR CONSULTA, RETORNA EL VALOR DE LA PRIMERA FILA (CONTADOR)
                 if(rs.next()){
                     return rs.getInt(1);
                 }

@@ -53,7 +53,7 @@ public class CtrlUsuario implements ActionListener {
             modeloU.setCedula(Integer.parseInt(vistaU.txtCedulaUsu.getText()));
             modeloU.setNombre(vistaU.txtNombreUsu.getText());
             modeloU.setApellido(vistaU.txtApellidoUsu.getText());
-            modeloU.setTipo(4);
+            modeloU.setTipo(3);
             modeloU.setContacto(vistaU.txtTelefUsu.getText());
             modeloU.setContraseña(vistaU.txtContrasUsu.getText());
             modeloU.setIdBiblioteca(Integer.parseInt(vistaU.txtBibliotUsu.getText()));

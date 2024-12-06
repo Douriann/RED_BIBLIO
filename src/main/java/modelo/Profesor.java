@@ -8,24 +8,27 @@
  */
 package modelo;
 // CLASE PROFESOR HEREDA DE USUARIO, JUNTO A SUS ATRIBUTOS INDIVIDUALES
-public class Profesor extends Usuario{
-    
-    private Integer idTituloAcad;
-    private Integer idDepartamento;
 
-    public Integer getIdTituloAcad() {
+import factoriaAbstracta.UsuarioAbstracto;
+
+public class Profesor extends Usuario implements UsuarioAbstracto{
+    
+    private int idTituloAcad;
+    private int idDepartamento;
+
+    public int getIdTituloAcad() {
         return idTituloAcad;
     }
 
-    public void setIdTituloAcad(Integer idTituloAcad) {
+    public void setIdTituloAcad(int idTituloAcad) {
         this.idTituloAcad = idTituloAcad;
     }
 
-    public Integer getIdDepartamento() {
+    public int getIdDepartamento() {
         return idDepartamento;
     }
 
-    public void setIdDepartamento(Integer idDepartamento) {
+    public void setIdDepartamento(int idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
 
@@ -85,5 +88,13 @@ public class Profesor extends Usuario{
         this.idBiblioteca = idBiblioteca;
     }
 
-   
+    @Override
+    public void mostrarUsuario() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Cedula: " + cedula);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Departamento: " + idDepartamento);
+    }
+
 }

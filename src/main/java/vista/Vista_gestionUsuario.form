@@ -887,6 +887,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Estudiante:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="410" width="-1" height="-1"/>
@@ -901,9 +904,9 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="Titulo Academico"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="1" value="Ingeniero en Informatica"/>
+                <StringItem index="2" value="Licenciado en Matematicas"/>
+                <StringItem index="3" value="Licenciado en Psicologia"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -951,11 +954,18 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="11">
                 <StringItem index="0" value="Departamento"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="1" value="Matematica"/>
+                <StringItem index="2" value="Fisica"/>
+                <StringItem index="3" value="Estadistica"/>
+                <StringItem index="4" value="Contabilidad"/>
+                <StringItem index="5" value="Economia"/>
+                <StringItem index="6" value="Derecho"/>
+                <StringItem index="7" value="Administracion"/>
+                <StringItem index="8" value="Pediatria"/>
+                <StringItem index="9" value="Patologia"/>
+                <StringItem index="10" value="Farmacologia"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -997,45 +1007,29 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="380" width="120" height="20"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JComboBox" name="combxCarrUsu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="16">
                 <StringItem index="0" value="Carrera"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="1" value="Ingenieria Informatica"/>
+                <StringItem index="2" value="Ingenieria de Produccion"/>
+                <StringItem index="3" value="Medico Cirujano"/>
+                <StringItem index="4" value="Medicina Veterinaria"/>
+                <StringItem index="5" value="Ingenieria Civil"/>
+                <StringItem index="6" value="Ingenieria Agronomica"/>
+                <StringItem index="7" value="Analisis en Sistemas"/>
+                <StringItem index="8" value="Ingenieria Telematica"/>
+                <StringItem index="9" value="Licenciatura en Enfermeria"/>
+                <StringItem index="10" value="Psicologia"/>
+                <StringItem index="11" value="Musica"/>
+                <StringItem index="12" value="Artes Plasticas"/>
+                <StringItem index="13" value="Urbanismo"/>
+                <StringItem index="14" value="Economia"/>
+                <StringItem index="15" value="Contaduria Publica"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1087,6 +1081,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Profesor:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="380" width="-1" height="-1"/>
@@ -1231,11 +1228,17 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="10">
                 <StringItem index="0" value="Biblioteca"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="1" value="Biblioteca Decanato de Ciencias y Tecnologia"/>
+                <StringItem index="2" value="Biblioteca Decanato de Ciencias de la Salud"/>
+                <StringItem index="3" value="Biblioteca Decanato de Economia"/>
+                <StringItem index="4" value="Biblioteca Decanato de Agronomia"/>
+                <StringItem index="5" value="Biblioteca Decanato de Ingenieria Civil"/>
+                <StringItem index="6" value="Biblioteca Decanato Experimental de Humanidades"/>
+                <StringItem index="7" value="Biblioteca Decanato de Medicina Veterinaria"/>
+                <StringItem index="8" value="Biblioteca Decanato de Administracion"/>
+                <StringItem index="9" value="Biblioteca Decanato de Psicologia"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1361,6 +1364,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="440" width="-1" height="-1"/>

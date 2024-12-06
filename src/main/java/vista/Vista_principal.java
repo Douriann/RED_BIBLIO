@@ -9,13 +9,27 @@
 package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import controlador.CtrlAdmin;
 import controlador.CtrlUsuario;
 import controlador.CtrlEjemplar;
 import controlador.CtrlLibro;
 import controlador.CtrlBiblioteca;
+import controlador.CtrlEstudiante;
+import controlador.CtrlExterno;
 import controlador.CtrlInicioSesion;
 import controlador.CtrlPrestamo;
+import controlador.CtrlProfesor;
+import factoriaAbstracta.CrudAbstracto;
+import factoriaAbstracta.FabricaAbstracta;
+import factoriaAbstracta.FabricaAdmin;
+import factoriaAbstracta.FabricaEstudiante;
+import factoriaAbstracta.FabricaExterno;
+import factoriaAbstracta.FabricaProfesor;
+import factoriaAbstracta.UsuarioAbstracto;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import modelo.Biblioteca;
 import modelo.CrudPrestamo;
 import modelo.CrudBiblioteca;
@@ -582,15 +596,120 @@ public class Vista_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCerrarSesMouseClicked
 
     private void btn_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuarioMouseClicked
+
+                
         Vista_gestionUsuario vistaU = new Vista_gestionUsuario();
-        Usuario usuario = new Usuario();
-        CrudUsuario consultasU = new CrudUsuario();
-        
-        CtrlUsuario controlU = new CtrlUsuario(vistaU,usuario, consultasU); 
-        controlU.iniciar();
-        
         vistaU.setVisible(true);
         this.setVisible(false);
+        //Deshabilitar campos no comunes
+        vistaU.lblProfUsu.setVisible(false);
+        vistaU.combxTitAcadUsu.setVisible(false);
+        vistaU.txtIdTitAcadUsu.setVisible(false);
+        vistaU.combxDepUsu.setVisible(false);
+        vistaU.txtIdDepUsu.setVisible(false);
+        vistaU.lblEstudianteUsu.setVisible(false);
+        vistaU.combxCarrUsu.setVisible(false);
+        vistaU.txtIdCarrUsu.setVisible(false);
+        vistaU.lblDireccUsu1.setVisible(false);
+        vistaU.txtDireccUsu.setVisible(false);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(vistaU.radioBtnEstUsu);
+        group.add(vistaU.radioBtnProfUsu);
+        group.add(vistaU.radioBtnExtUsu);
+        group.add(vistaU.radioBtnAdminUsu);
+
+        vistaU.radioBtnEstUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                vistaU.lblEstudianteUsu.setVisible(true);
+                vistaU.combxCarrUsu.setVisible(true);
+                vistaU.txtIdCarrUsu.setVisible(true);
+                vistaU.lblProfUsu.setVisible(false);
+                vistaU.combxTitAcadUsu.setVisible(false);
+                vistaU.txtIdTitAcadUsu.setVisible(false);
+                vistaU.combxDepUsu.setVisible(false);
+                vistaU.txtIdDepUsu.setVisible(false);
+                vistaU.lblDireccUsu1.setVisible(false);
+                vistaU.txtDireccUsu.setVisible(false);
+                //LLamar a las fabricas para crear los objetos estudiante y crudEstudiante 
+                FabricaAbstracta fabricaEs = new FabricaEstudiante();
+                UsuarioAbstracto modEst = fabricaEs.crearUsuario();
+                CrudAbstracto consultasEs = fabricaEs.crearCrud();
+                CtrlEstudiante controlEs = new CtrlEstudiante(vistaU, modEst, consultasEs);
+                controlEs.iniciar();
+
+            }
+        });
+
+        vistaU.radioBtnProfUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                vistaU.lblProfUsu.setVisible(true);
+                vistaU.combxTitAcadUsu.setVisible(true);
+                vistaU.txtIdTitAcadUsu.setVisible(true);
+                vistaU.combxDepUsu.setVisible(true);
+                vistaU.txtIdDepUsu.setVisible(true);
+                vistaU.lblEstudianteUsu.setVisible(false);
+                vistaU.combxCarrUsu.setVisible(false);
+                vistaU.txtIdCarrUsu.setVisible(false);
+                vistaU.lblDireccUsu1.setVisible(false);
+                vistaU.txtDireccUsu.setVisible(false);
+
+                FabricaAbstracta fabricaP = new FabricaProfesor();
+                UsuarioAbstracto modP = fabricaP.crearUsuario();
+                CrudAbstracto consultasP = fabricaP.crearCrud();
+                CtrlProfesor controlP = new CtrlProfesor(vistaU, modP, consultasP);
+                controlP.iniciar();
+            }
+        });
+
+        vistaU.radioBtnExtUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vistaU.lblDireccUsu1.setVisible(true);
+                vistaU.txtDireccUsu.setVisible(true);
+                vistaU.lblProfUsu.setVisible(false);
+                vistaU.combxTitAcadUsu.setVisible(false);
+                vistaU.txtIdTitAcadUsu.setVisible(false);
+                vistaU.combxDepUsu.setVisible(false);
+                vistaU.txtIdDepUsu.setVisible(false);
+                vistaU.lblEstudianteUsu.setVisible(false);
+                vistaU.combxCarrUsu.setVisible(false);
+                vistaU.txtIdCarrUsu.setVisible(false);
+                
+                FabricaAbstracta fabricaEx = new FabricaExterno();
+                UsuarioAbstracto modEx = fabricaEx.crearUsuario();
+                CrudAbstracto consultasEx = fabricaEx.crearCrud();
+                CtrlExterno controlEx = new CtrlExterno(vistaU, modEx, consultasEx);
+                controlEx.iniciar();
+
+            }
+        });
+
+        vistaU.radioBtnAdminUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vistaU.lblProfUsu.setVisible(false);
+                vistaU.combxTitAcadUsu.setVisible(false);
+                vistaU.txtIdTitAcadUsu.setVisible(false);
+                vistaU.combxDepUsu.setVisible(false);
+                vistaU.txtIdDepUsu.setVisible(false);
+                vistaU.lblEstudianteUsu.setVisible(false);
+                vistaU.combxCarrUsu.setVisible(false);
+                vistaU.txtIdCarrUsu.setVisible(false);
+                vistaU.lblDireccUsu1.setVisible(false);
+                vistaU.txtDireccUsu.setVisible(false);
+                
+                FabricaAbstracta fabricaAdmin = new FabricaAdmin();
+                UsuarioAbstracto modAdmin = fabricaAdmin.crearUsuario();
+                CrudAbstracto consultasAdmin = fabricaAdmin.crearCrud();
+                CtrlAdmin ctrlAdmin = new CtrlAdmin(vistaU, modAdmin, consultasAdmin);
+                ctrlAdmin.iniciar();
+            }
+        });
     }//GEN-LAST:event_btn_usuarioMouseClicked
 
     

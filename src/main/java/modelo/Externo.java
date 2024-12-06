@@ -8,7 +8,10 @@
  */
 package modelo;
 // CREANDO ATRIBUTOS Y HEREDANDO USUARIO
-public class Externo extends Usuario {
+
+import factoriaAbstracta.UsuarioAbstracto;
+
+public class Externo extends Usuario implements UsuarioAbstracto{
     
     private String direccion;
 // CREANDO SETTERS Y GETTERS
@@ -76,5 +79,13 @@ public class Externo extends Usuario {
         this.idBiblioteca = idBiblioteca;
     }
 
-    
+    @Override
+    public void mostrarUsuario() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Cedula: " + cedula);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Direccion: " + direccion);
+    }
+
 }

@@ -15,6 +15,8 @@ import controlador.CtrlInicioSesion;
 import controlador.CtrlLibro;
 import controlador.CtrlPrestamo;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modelo.Biblioteca;
 import modelo.CrudPrestamo;
 import modelo.CrudBiblioteca;
@@ -33,6 +35,125 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
      */
     public Vista_gestionUsuario() {
         initComponents();
+        
+ 
+        //Llenar caja de texto de idBiblioteca segun la eleccion en comboBox
+        combxBiblioUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                //Obtener item seleccionado
+                String selectedItem = (String) combxBiblioUsu.getSelectedItem();
+                
+                switch(selectedItem)
+                {
+                    case "Biblioteca Decanato de Ciencias y Tecnologia" -> txtBibliotUsu.setText("1");
+                    case "Biblioteca Decanato de Ciencias de la Salud" -> txtBibliotUsu.setText("2");
+                    case "Biblioteca Decanato de Economia" -> txtBibliotUsu.setText("3");
+                    case "Biblioteca Decanato de Agronomia" -> txtBibliotUsu.setText("4");
+                    case "Biblioteca Decanato de Ingenieria Civil" -> txtBibliotUsu.setText("5");
+                    case "Biblioteca Decanato Experimental de Humanidades" -> txtBibliotUsu.setText("6");
+                    case "Biblioteca Decanato de Medicina Veterinaria" -> txtBibliotUsu.setText("7");
+                    case "Biblioteca Decanato de Administracion" -> txtBibliotUsu.setText("8");
+                    case "Biblioteca Decanato de Psicologia" -> txtBibliotUsu.setText("9");   
+                }
+            }
+        });
+        
+        //Llenar caja de texto de idTituloAcademico segun la eleccion en comboBox
+        combxTitAcadUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Obtener item seleccionado
+                String selectedItem = (String) combxTitAcadUsu.getSelectedItem();
+
+                switch (selectedItem) {
+                    case "Ingeniero en Informatica" ->
+                        txtIdTitAcadUsu.setText("1");
+                    case "Licenciado en Matematicas" ->
+                        txtIdTitAcadUsu.setText("2");
+                    case "Licenciado en Psicologia" ->
+                        txtIdTitAcadUsu.setText("3");
+                }
+            }
+
+        });
+        //Llenar caja de texto de idDepartamento segun la eleccion en comboBox
+        combxDepUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Obtener item seleccionado
+                String selectedItem = (String) combxDepUsu.getSelectedItem();
+
+                switch (selectedItem) {
+                    case "Matematica" ->
+                        txtIdDepUsu.setText("1");
+                    case "Fisica" ->
+                        txtIdDepUsu.setText("2");
+                    case "Estadistica" ->
+                        txtIdDepUsu.setText("3");
+                    case "Contabilidad" ->
+                        txtIdDepUsu.setText("4");
+                    case "Economia" ->
+                        txtIdDepUsu.setText("5");
+                    case "Derecho" ->
+                        txtIdDepUsu.setText("6");
+                    case "Administracion" ->
+                        txtIdDepUsu.setText("7");
+                    case "Pediatria" ->
+                        txtIdDepUsu.setText("8");
+                    case "Patologia" ->
+                        txtIdDepUsu.setText("9");
+                    case "Farmacologia" ->
+                        txtIdDepUsu.setText("10");
+                }
+            }
+        });
+        
+        //Llenar caja de texto de idCarrera segun la eleccion en comboBox
+        combxCarrUsu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Obtener item seleccionado
+                String selectedItem = (String) combxCarrUsu.getSelectedItem();
+
+                switch (selectedItem) {
+                    case "Ingenieria Informatica" ->
+                        txtIdCarrUsu.setText("1");
+                    case "Ingenieria de Produccion" ->
+                        txtIdCarrUsu.setText("2");
+                    case "Medico Cirujano" ->
+                        txtIdCarrUsu.setText("3");
+                    case "Medicina Veterinaria" ->
+                        txtIdCarrUsu.setText("4");
+                    case "Ingenieria Civil" ->
+                        txtIdCarrUsu.setText("5");
+                    case "Ingenieria Agronomica" ->
+                        txtIdCarrUsu.setText("6");
+                    case "Analisis en Sistemas" ->
+                        txtIdCarrUsu.setText("7");
+                    case "Ingenieria Telematica" ->
+                        txtIdCarrUsu.setText("8");
+                    case "Licenciatura en Enfermeria" ->
+                        txtIdCarrUsu.setText("9");
+                    case "Psicologia" ->
+                        txtIdCarrUsu.setText("10");
+                    case "Musica" ->
+                        txtIdCarrUsu.setText("11");
+                    case "Artes Plasticas" ->
+                        txtIdCarrUsu.setText("12");
+                    case "Urbanismo" ->
+                        txtIdCarrUsu.setText("13");
+                    case "Economia" ->
+                        txtIdCarrUsu.setText("14");
+                    case "Contaduria Publica" ->
+                        txtIdCarrUsu.setText("15");
+                }
+            }
+        });
     }
 
     /**
@@ -92,7 +213,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtIdTitAcadUsu = new javax.swing.JTextField();
         combxDepUsu = new javax.swing.JComboBox<>();
         txtIdDepUsu = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
         combxCarrUsu = new javax.swing.JComboBox<>();
         txtIdCarrUsu = new javax.swing.JTextField();
         lblProfUsu = new javax.swing.JLabel();
@@ -502,7 +622,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(lblEstudianteUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
         combxTitAcadUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxTitAcadUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Titulo Academico", "Item 2", "Item 3", "Item 4" }));
+        combxTitAcadUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Titulo Academico", "Ingeniero en Informatica", "Licenciado en Matematicas", "Licenciado en Psicologia" }));
         combxTitAcadUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 20));
 
@@ -512,7 +632,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(txtIdTitAcadUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 120, 20));
 
         combxDepUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxDepUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamento", "Item 2", "Item 3", "Item 4" }));
+        combxDepUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamento", "Matematica", "Fisica", "Estadistica", "Contabilidad", "Economia", "Derecho", "Administracion", "Pediatria", "Patologia", "Farmacologia" }));
         combxDepUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 130, 20));
 
@@ -521,13 +641,8 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         txtIdDepUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(txtIdDepUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 110, -1));
 
-        jComboBox3.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 20));
-
         combxCarrUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxCarrUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrera", "Item 2", "Item 3", "Item 4" }));
+        combxCarrUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrera", "Ingenieria Informatica", "Ingenieria de Produccion", "Medico Cirujano", "Medicina Veterinaria", "Ingenieria Civil", "Ingenieria Agronomica", "Analisis en Sistemas", "Ingenieria Telematica", "Licenciatura en Enfermeria", "Psicologia", "Musica", "Artes Plasticas", "Urbanismo", "Economia", "Contaduria Publica" }));
         combxCarrUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxCarrUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 150, 20));
 
@@ -578,7 +693,7 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
         jPanel1.add(btnLimpiarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, 100, 30));
 
         combxBiblioUsu.setBackground(new java.awt.Color(204, 204, 204));
-        combxBiblioUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca", "Item 2", "Item 3", "Item 4" }));
+        combxBiblioUsu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca", "Biblioteca Decanato de Ciencias y Tecnologia", "Biblioteca Decanato de Ciencias de la Salud", "Biblioteca Decanato de Economia", "Biblioteca Decanato de Agronomia", "Biblioteca Decanato de Ingenieria Civil", "Biblioteca Decanato Experimental de Humanidades", "Biblioteca Decanato de Medicina Veterinaria", "Biblioteca Decanato de Administracion", "Biblioteca Decanato de Psicologia" }));
         combxBiblioUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(combxBiblioUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 280, 20));
 
@@ -792,7 +907,6 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> combxDepUsu;
     public javax.swing.JComboBox<String> combxTitAcadUsu;
     private javax.swing.JLabel imgLogoBiblio;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -806,15 +920,15 @@ public class Vista_gestionUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblBibliotUsu;
     private javax.swing.JLabel lblCedulaUsu;
     private javax.swing.JLabel lblContrasUsu;
-    private javax.swing.JLabel lblDireccUsu1;
+    public javax.swing.JLabel lblDireccUsu1;
     private javax.swing.JLabel lblEjemplarUsu;
-    private javax.swing.JLabel lblEstudianteUsu;
+    public javax.swing.JLabel lblEstudianteUsu;
     private javax.swing.JLabel lblLibrosUsu;
     private javax.swing.JLabel lblMostrarRegisUsu;
     private javax.swing.JLabel lblNombreUsu;
     private javax.swing.JLabel lblPrestamoUsu;
     private javax.swing.JLabel lblPrincipalUsu;
-    private javax.swing.JLabel lblProfUsu;
+    public javax.swing.JLabel lblProfUsu;
     private javax.swing.JLabel lblTelefUsu;
     private javax.swing.JLabel lblTipUsu;
     private javax.swing.JLabel lblUsuario;

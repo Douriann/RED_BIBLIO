@@ -8,7 +8,10 @@
  */
 package modelo;
 // HEREDANDO ATRIBUTOS DE USUARIO Y AÑADIENDO ADICIONALES PROPIAS DE LA CLASE
-public class Estudiante extends Usuario{
+
+import factoriaAbstracta.UsuarioAbstracto;
+
+public class Estudiante extends Usuario implements UsuarioAbstracto{
     
     private int idCarrera;
 // CREANDO SETTERS Y GETTERS
@@ -76,5 +79,14 @@ public class Estudiante extends Usuario{
         this.idBiblioteca = idBiblioteca;
     }
 
-    
+    @Override
+    public void mostrarUsuario() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Cedula: " + cedula);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Carrera: " + idCarrera);
+    }
+
+
 }
